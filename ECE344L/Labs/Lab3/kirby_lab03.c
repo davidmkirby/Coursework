@@ -104,7 +104,7 @@ int main()
 /*    DisplayInit()
 **
 **    Parameters:
-**        money             -amount of money entered
+**        coins             -amount of money entered
 **        delay             -delay between blinks
 **
 **    Return Value:

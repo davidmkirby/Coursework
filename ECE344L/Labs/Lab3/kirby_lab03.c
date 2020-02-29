@@ -61,6 +61,7 @@ int main()
 {
         int button_in12 = 0;
         int button_in3 = 0;
+        int coins = 0;
 
         //Set LD1 through LD4 as digital output
         DeviceInit();
@@ -75,27 +76,27 @@ int main()
         {
                 // Read buttons
                 button_in12 = PORTReadBits (IOPORT_G, BIT_6|BIT_7);
-                button_in3 = PORTReadBits (IOPORT_A, BIT_0);
+                button_in3  = PORTReadBits (IOPORT_A, BIT_0);
 
                 if (button_in12 != 0)
                 {
                         // drive both LD1 and LD2 high if both buttons pressed
                         if (((button_in12 & 0x0040) != 0) &&
                             ((button_in12 & 0x0080) != 0))
-                                PORTWrite (IOPORT_G, BIT_12|BIT_13);
+                                coins = coins+15;
                         else
                         {
                                 //drive LD1 high if only BTN1 pressed
                                 if ((button_in12 & 0x0040) !=0) // BTN1 pressed?
-                                        PORTWrite (IOPORT_G, BIT_12);
+                                        coins = coins+5;
                                 //drive LD2 high if only BTN2 pressed
                                 if ((button_in12 & 0x0080) != 0) // BTN2 pressed
-                                        PORTWrite (IOPORT_G, BIT_13);
+                                        coins = coins+10;
                         }
                 }
                 // Handle BTN3 separately
                 if(button_in3 !=0)
-                        int case=0;
+                        int coins=0;
         }
 }
 

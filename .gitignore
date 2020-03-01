@@ -25,3 +25,10 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# LaTeX
+.synctex.gz
+.aux
+.fdb_latexmk
+.fls
+.log

@@ -102,10 +102,10 @@ int main()
                 if(button_in3 !=0)
                 {
                     coins=0;
-			              PORTWrite(IOPORT_G,BIT_12|BIT_13|BIT_14);
-			              DelayMs(msdelay);
-			              PORTClearBits(IOPORT_G,BIT_12|BIT_13| BIT_14|BIT_15);
-		            }
+                    PORTWrite(IOPORT_G,BIT_12|BIT_13|BIT_14);
+                    DelayMs(msdelay);
+                    PORTClearBits(IOPORT_G,BIT_12|BIT_13| BIT_14|BIT_15);
+                }
                 //Initialize display
                 DisplayInit(coins);
 

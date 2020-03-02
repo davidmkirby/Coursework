@@ -173,13 +173,13 @@ void DisplayInit(int coins)
                 //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
                 while(timeout<2)
                 {
-                  DelayMs(msdelay);
-                  PORTWrite (IOPORT_G, BIT_12|BIT_13|BIT_14);             //111+
-                  DelayMs(msdelay);
-                  PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
-                  timeout++;
+                        DelayMs(msdelay);
+                        PORTWrite (IOPORT_G, BIT_12|BIT_13|BIT_14);       //111+
+                        DelayMs(msdelay);
+                        PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
+                        timeout++;
                 }
-                  exit(1);
+                exit(1);
                 break;
         default:
                 PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
@@ -201,7 +201,7 @@ void DisplayInit(int coins)
 **
 **    Description:
 **        Set LD1 through LD4 as digital output
-   -------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------- */
 
 void DeviceInit()
 {

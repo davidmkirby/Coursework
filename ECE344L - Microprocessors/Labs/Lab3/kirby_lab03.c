@@ -73,9 +73,6 @@ int main()
         DeviceInit();
         //Initialize timer for delay
         DelayInit();
-        //Initialize display
-        DisplayInit(coins);
-
 
         /* Perform the main application loop*/
         while (1)
@@ -99,13 +96,16 @@ int main()
                                 if ((button_in12 & 0x0080) != 0) // BTN2 pressed
                                         coins = coins+10;
                         }
-                        DelayMs(1);
                 }
                 // Handle BTN3 separately
                 if(button_in3 !=0)
                         coins=0;
-                DelayMs(1);
+
+                //Initialize display
+                DisplayInit(coins);
+
         }
+
 }
 
 /* -------------------------------------------------------------------------- */
@@ -127,39 +127,63 @@ int main()
 
 void DisplayInit(int coins)
 {
-        int msdelay = 600;
-        //Clear LEDs
-        PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
+        int msdelay = 500;
+        int timeout=0;
 
         switch (coins)
         {
-        case  5: PORTWrite (IOPORT_G, BIT_12);         //001
-                break;
-        case 10: PORTWrite (IOPORT_G, BIT_13);         //010
-                break;
-        case 15: PORTWrite (IOPORT_G, BIT_12|BIT_13);  //011
-                break;
-        case 20: PORTWrite (IOPORT_G, BIT_14);         //100
-                break;
-        case 25: PORTWrite (IOPORT_G, BIT_12|BIT_14);  //101
-                break;
-        case 30: PORTWrite (IOPORT_G, BIT_15);         //111
+        case  5:
+                //DelayMs(msdelay);
+                //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
                 DelayMs(msdelay);
+                PORTWrite (IOPORT_G, BIT_12);   //001
+                break;
+        case 10:
+                //DelayMs(msdelay);
+                //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
+                DelayMs(msdelay);
+                PORTWrite (IOPORT_G, BIT_13);   //010
+                break;
+        case 15:
+                //DelayMs(msdelay);
+                //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
+                DelayMs(msdelay);
+                PORTWrite (IOPORT_G, BIT_12|BIT_13);   //011
+                break;
+        case 20:
+                //DelayMs(msdelay);
+                //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
+                DelayMs(msdelay);
+                PORTWrite (IOPORT_G, BIT_14);                              //100
+                break;
+        case 25:
+                //DelayMs(msdelay);
+                //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
+                DelayMs(msdelay);
+                PORTWrite (IOPORT_G, BIT_12|BIT_14);                       //101
+                break;
+        case 30:
+                //DelayMs(msdelay);
+                //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
+                DelayMs(msdelay);
+                PORTWrite (IOPORT_G, BIT_15);                              //111
+                break;
+        case 35:
+                //DelayMs(msdelay);
+                //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
+                while(timeout<2)
+                {
+                  DelayMs(msdelay);
+                  PORTWrite (IOPORT_G, BIT_12|BIT_13|BIT_14);             //111+
+                  DelayMs(msdelay);
+                  PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
+                  timeout++;
+                }
+                  exit(1);
+                break;
+        default:
                 PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
-                break;
-        case 35: PORTWrite (IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);  //111+
-                DelayMs(msdelay);
-                PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14);
-                DelayMs(msdelay);
-                PORTWrite (IOPORT_G, BIT_12|BIT_13|BIT_14);
-                DelayMs(msdelay);
-                PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14);
-                DelayMs(msdelay);
-                PORTWrite (IOPORT_G, BIT_12|BIT_13|BIT_14);
-                DelayMs(msdelay);
-                PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
-                break;
-        default: PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
+                //PORTWrite (IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
         }
 }
 

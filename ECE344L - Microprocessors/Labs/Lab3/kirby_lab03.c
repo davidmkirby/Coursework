@@ -1,19 +1,24 @@
 /******************************************************************************/
 /*                                                                            */
-/*   led_blink_mx7.c  --                                                      */
+/*      ECE 344L    -    Microprocessors    -    Spring 2020                  */
+/*                                                                            */
+/*      kirby_lab03.c  -  Digital I/O and Finite State Machine                */
 /*                                                                            */
 /******************************************************************************/
-/*      Author: Edward Nava                                                   */
+/*                                                                            */
+/*      Author: David Kirby                                                   */
 /*                                                                            */
 /******************************************************************************/
+/*                                                                            */
 /*      File Description:                                                     */
-/*          This project cycles through LD1 to LD4 on chipKIT MX7 board       */
+/*          Implements a finite state machine using the LEDs and buttons on   */
+/*          the chipKIT MX7 board.                                            */
 /*                                                                            */
 /******************************************************************************/
+/*                                                                            */
 /*      Revision History:                                                     */
-/*                                                                            */
-/*                                                                            */
-/*      Modified by: E.J. Nava, 9/23/18                                       */
+/*          Original Source Code by: E.J. Nava, 9/23/18                       */
+/*          Modified Code by: David Kirby, 01-Mar-2020                        */
 /*                                                                            */
 /******************************************************************************/
 
@@ -45,6 +50,7 @@
 void DeviceInit();
 void DelayInit();
 void DelayMs(int cms);
+void DisplayInit(int coins);
 
 
 /* -------------------------------------------------------------------------- */
@@ -68,7 +74,7 @@ int main()
         //Initialize timer for delay
         DelayInit();
         //Initialize display
-        DisplayInit();
+        DisplayInit(coins);
 
 
         /* Perform the main application loop*/
@@ -93,10 +99,12 @@ int main()
                                 if ((button_in12 & 0x0080) != 0) // BTN2 pressed
                                         coins = coins+10;
                         }
+                        DelayMs(1);
                 }
                 // Handle BTN3 separately
                 if(button_in3 !=0)
-                        int coins=0;
+                        coins=0;
+                DelayMs(1);
         }
 }
 

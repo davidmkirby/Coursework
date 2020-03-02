@@ -68,6 +68,7 @@ int main()
         int button_in12 = 0;
         int button_in3 = 0;
         int coins = 0;
+        int msdelay = 100;
 
         //Set LD1 through LD4 as digital output
         DeviceInit();
@@ -99,8 +100,12 @@ int main()
                 }
                 // Handle BTN3 separately
                 if(button_in3 !=0)
-                        coins=0;
-
+                {
+                    coins=0;
+			              PORTWrite(IOPORT_G,BIT_12|BIT_13|BIT_14);
+			              DelayMs(msdelay);
+			              PORTClearBits(IOPORT_G,BIT_12|BIT_13| BIT_14|BIT_15);
+		            }
                 //Initialize display
                 DisplayInit(coins);
 
@@ -127,7 +132,7 @@ int main()
 
 void DisplayInit(int coins)
 {
-        int msdelay = 500;
+        int msdelay = 230;
         int timeout=0;
 
         switch (coins)
@@ -165,24 +170,32 @@ void DisplayInit(int coins)
         case 30:
                 //DelayMs(msdelay);
                 //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
-                DelayMs(msdelay);
-                PORTWrite (IOPORT_G, BIT_15);                              //111
+                while(timeout<3)
+                {
+                      DelayMs(msdelay);
+                      PORTWrite (IOPORT_G, BIT_15);                        //111
+                      DelayMs(msdelay);
+                      PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
+                      timeout++;
+                }
+                main();
                 break;
         case 35:
                 //DelayMs(msdelay);
                 //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
-                while(timeout<2)
+                while(timeout<3)
                 {
                         DelayMs(msdelay);
-                        PORTWrite (IOPORT_G, BIT_12|BIT_13|BIT_14);       //111+
+                        PORTWrite (IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);//111+
                         DelayMs(msdelay);
                         PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
                         timeout++;
                 }
-                exit(1);
+                main();
                 break;
         default:
                 PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
+                //Debug LEDs - send them all high at first, then trigger
                 //PORTWrite (IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
         }
 }

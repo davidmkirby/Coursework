@@ -1,0 +1,163 @@
+%&pdfLaTeX
+% !TEX encoding = UTF-8 Unicode
+\documentclass{article}
+\usepackage{listings}
+\usepackage{marginnote}
+\usepackage[top=1.5cm, bottom=1.5cm, outer=5cm, inner=2cm, heightrounded, marginparwidth=2.5cm, marginparsep=2cm]{geometry}
+\usepackage{ifxetex}
+\ifxetex
+\usepackage{fontspec}
+
+\setmainfont[Mapping=tex-text]{STIXGeneral}
+\else
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\fi
+\usepackage{textcomp}
+
+\usepackage{ulem}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+\usepackage{color}
+
+\definecolor{color02}{rgb}{0.03,0.23,0.42}
+\definecolor{color04}{rgb}{1.00,1.00,1.00}
+\definecolor{color05}{rgb}{0.30,0.30,0.30}
+\definecolor{color06}{rgb}{0.64,0.00,0.01}
+\definecolor{color07}{rgb}{0.33,0.84,0.16}
+\definecolor{color08}{rgb}{0.07,0.55,1.00}
+\definecolor{color09}{rgb}{0.50,0.00,1.00}
+
+\begin{document}
+
+\baselineskip=14pt
+{\large{}{\color{color02} Introduction}}
+
+The objective of this assignment was to learn how stack operations are done and
+to give us more practice with MIPS assembly language by learning to implement nested
+routines. In C, this is equivalent to nested for loops. The challenge for this
+lab, however, was to use stack pointers instead of storing information directly
+in registers. This lab was an introduction to push, pop, and register addressing,
+as well as more practice with memory addressing.
+
+{\large{}{\color{color02} Solution Methodology}}
+
+For this assignment, we wrote a main routine in which two 6\ensuremath{\times}1
+vectors were defined in a similar manner to how numbers\_to\_use: was implemented
+in lab 0, with some of the values being negative numbers. We configured the stack
+pointer and passed the parameters to a function called dot\_product which returned
+the result to main, as well as the two vector average values. All of this was done
+with overflow checking in mind. (see \emph{Source Code}). With the routine built,
+we attached and programmed the chipKit Pro MX4 board and ran the instructions.
+Initially, the program performed the mathematical functions and went into an infinite
+loop (see \emph{Figure 1}). Below is an example of the pseudocode used to design
+this recursive operation.
+
+\begin{center}
+\baselineskip=1pt
+{\color{color04} Pseudocode}
+\end{center}
+
+\baselineskip=14pt
+\leftskip=120pt
+int dot (int i)
+
+\{
+
+\parindent=18pt
+if (i \texttt{<} 6)
+
+\parindent=36pt
+vector1(i)*vector2(i);
+
+\parindent=18pt
+else sum(vector1(i)+vector2(i));
+
+\parindent=0pt
+\}
+
+\vspace{14pt}
+\leftskip=0pt
+One of the reasons for using the stack is to avoid delay hazards which results
+in registers being called before they are finished being executed. One solution
+is to push all registers that must be preserved onto the stack, just as we did
+with the saved registers in lab 0. The caller pushes any argument registers (\$a0--\$a3)
+or temporary registers (\$t0--\$t9) that are needed after the call. The callee
+pushes the return address register \$ra and any saved registers (\$s0--\$s7) used
+by the callee. The stack pointer \$sp is adjusted to account for number of registers
+placed on the stack. Upon the return, the registers are restored from memory and
+the stack pointer is readjusted.
+
+\begin{center}
+\textbf{Figure 1}
+\end{center}
+
+\baselineskip=14pt
+\leftskip=0pt
+These values are consistent with the calculations as performed in MATLAB (\emph{Figure
+2}).
+
+\begin{center}
+\textbf{Figure 2}
+\end{center}
+
+\baselineskip=14pt
+\leftskip=0pt
+{\large{}{\color{color02} Source Code}}
+
+\lstdefinestyle{customc}{
+  belowcaptionskip=1\baselineskip,
+  breaklines=true,
+  frame=L,
+  xleftmargin=\parindent,
+  language=C,
+  showstringspaces=false,
+  basicstyle=\footnotesize\ttfamily,
+  keywordstyle=\bfseries\color{green!40!black},
+  commentstyle=\itshape\color{purple!40!black},
+  identifierstyle=\color{blue},
+  stringstyle=\color{orange},
+}
+
+\lstdefinestyle{customasm}{
+  belowcaptionskip=1\baselineskip,
+  frame=L,
+  xleftmargin=\parindent,
+  language=[x86masm]Assembler,
+  basicstyle=\footnotesize\ttfamily,
+  commentstyle=\itshape\color{purple!40!black},
+}
+
+\lstset{escapechar=@,style=customc}
+
+\lstset{
+  language=C,                     % choose the language of the code
+  numbers=left,                   % where to put the line-numbers
+  stepnumber=2,                   % the step between two line-numbers.
+  numbersep=5pt,                  % how far the line-numbers are from the code
+  backgroundcolor=\color{white},  % choose the background color. You must add \usepackage{color}
+  showspaces=false,               % show spaces adding particular underscores
+  showstringspaces=false,         % underline spaces within strings
+  showtabs=false,                 % show tabs within strings adding particular underscores
+  tabsize=2,                      % sets default tabsize to 2 spaces
+  captionpos=b,                   % sets the caption-position to bottom
+  breaklines=true,                % sets automatic line breaking
+  breakatwhitespace=true,         % sets if automatic breaks should only happen at whitespace
+  title=\lstname,                 % show the filename of files included with \lstinputlisting;
+}
+
+\lstinputlisting{kirby_lab03.c}
+
+{\large{}{\color{color02} Conclusion}}
+
+Laboratory 2 was designed to familiarize students with stack operations and to
+give us more practice with MIPS assembly language by learning to implement nested
+routines. This was critical to understanding how to properly use push and pop to
+store and retrieve data as necessary. We also again made use of various registers
+and the HI and LO portions of the multiplication function to detect overflows.
+
+\newpage
+
+\end{document}

@@ -48,17 +48,9 @@ begin
               when b"1101" => --SRA
                   AluResult <= to_stdlogicvector(to_bitvector(AluInB) sra conv_integer(AluInA));
               when b"1110" => --LUI
-                  AluResult <= AluInA(31 downto 16) & AluInB(15 downto 0);
-              when b"0010" => --others
-                  NULL;
-              when b"0111" => --others
-                  NULL;
-              when b"0101" => --others
-                  NULL;
-              when b"1111" => --others
-                  NULL;
+                  AluResult <= AluInB(15 downto 0) & x"0000";
               when others => -- others
-                  NULL;
+                  AluResult <= (others => '-');
       end case;
   end process;
 end ALU;

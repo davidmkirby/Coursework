@@ -11,8 +11,8 @@ entity ALU is
 
 port( AluCtrl: in std_logic_vector(3 downto 0);
       AluInA, AluInB: in std_logic_vector(31 downto 0);
-      AluResult: out std_logic_vector(31 downto 0);
-      Equals: out std_logic
+      AluResult: out std_logic_vector(31 downto 0)--;
+--      Equals: out std_logic
 );
 end ALU;
 
@@ -48,7 +48,17 @@ begin
               when b"1101" => --SRA
                   AluResult <= to_stdlogicvector(to_bitvector(AluInB) sra conv_integer(AluInA));
               when b"1110" => --LUI
-                  AluResult <= AluInA(31 downto 16) and AluInB(15 downto 0);
+                  AluResult <= AluInA(31 downto 16) & AluInB(15 downto 0);
+              when b"0010" => --others
+                  NULL;
+              when b"0111" => --others
+                  NULL;
+              when b"0101" => --others
+                  NULL;
+              when b"1111" => --others
+                  NULL;
+              when others => -- others
+                  NULL;
       end case;
   end process;
 end ALU;

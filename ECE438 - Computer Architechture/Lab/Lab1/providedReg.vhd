@@ -12,12 +12,12 @@ use ieee.std_logic_unsigned.all;
 entity RegisterFile is
 
 port( RdRegA: in std_logic_vector(4 downto 0);
-    --insert code here for read port B
-WrReg: in std_logic_vector(4 downto 0);
-    Clk: in std_logic;
-     --something else is missing here...
-    WrData: in std_logic_vector(31 downto 0);
-RdDataA: out std_logic_vector(31 downto 0);
+      --insert code here for read port B
+      WrReg: in std_logic_vector(4 downto 0);
+      Clk: in std_logic;
+      --something else is missing here...
+      WrData: in std_logic_vector(31 downto 0);
+      RdDataA: out std_logic_vector(31 downto 0);
     --insert code here for read port B
 );
 end RegisterFile;

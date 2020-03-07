@@ -32,3 +32,6 @@ Temporary Items
 *.fdb_latexmk
 *.fls
 *.log
+*.pyg
+*.pygstyle
+*.pygtex

@@ -1,0 +1,66 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % uses T1 fonts (better quality)
+\usepackage{lmodern} % uses Latin Modern fonts
+\usepackage[dvipsnames]{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{nopageno} % no page numbers
+\usepackage{minted} % code syntax
+\usemintedstyle{pastie}
+
+\title{Lab Report 1}
+\begin{document}
+ \begin{titlepage}
+ \vspace*{\fill}
+ 	\begin{center}
+     \line(1,0){300}\\[0.65cm]
+ 	\Huge{\bfseries Lab 1}\\
+ 	 \line(1,0){300}\\
+ 	\textsc{\huge \textit{The Register File and ALU}}\\
+ 	\textsc{\LARGE David Kirby}\\
+ 	\textsc{\Large Due: 5 March 2020}\\[5.5cm]
+ 	\end{center}
+ 	\vfill
+ \end{titlepage}
+
+\section*{Introduction}
+This lab was designed as a refresher on HDL development by describing the register file and Arithmetic Logic Unit (ALU) in VHDL. We were provided most of the code describing the register file and were tasked with filling in critical missing pieces to implement it. For the ALU we were challenged with creating a finite state machine used to determine the arithmetic operation based on two input operands. This highlights a key difference between the register file and the ALU - the register file is asynchronous while the ALU is combinational logic.
+
+\section*{Deliverables}
+\begin{enumerate}
+
+\item Emailed all VHDL source files with comments to adtargh@unm.edu.
+
+\item
+\begin{enumerate}
+\item \textit{Two types of port maps can be used when instantiating a component in VHDL, namely positional and nominal.
+Describe the difference between these two port map styles.
+Which do you think would be preferred for processor design and why?}
+
+In positional port mapping, signals are connected up in the order in which the ports were declared. In nominal port mapping, ports are explicitly referenced and order is not important. In processor design, I would imagine nominal port mapping would be preferred as executions are not always done sequentially.
+
+\item \textit{How many flip-flops does our register file need when synthesized? How many flip-flops does our VHDL description of the register file imply?}
+
+Our register file needs 32 flip-flops for each of the 31 inputs (not including the \$zero register) and therefore needs a total of 992 flip-flops.
+
+\item \textit{Which VHDL simulator(s) have you used in the past.}
+
+I have only ever used Xilinx Vivado simulation software.
+
+\item \textit{What sources do you use as VHDL reference guides? Why?}
+
+I use old VHDL files from previous classes as reference since, for this lab at least, most of the register file and ALU code was created, we only needed to create the state machine.
+
+\end{enumerate}
+\end{enumerate}
+
+\newpage
+\section*{Source Code}
+\subsection*{RegisterFile.vhd}
+\inputminted[frame=lines, linenos]{vhdl}{RegisterFile.vhd}
+
+\newpage
+\subsection*{ALU.vhd}
+\inputminted[frame=lines, linenos]{vhdl}{ALU.vhd}
+
+\end{document}

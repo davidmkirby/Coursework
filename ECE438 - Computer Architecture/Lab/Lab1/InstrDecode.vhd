@@ -12,31 +12,32 @@ entity InstrDecode is
 
 port(
         --6-bit op field of instruction
-        Opcode: in std_logic_vector(5 downto 0);
+        Opcode:     in std_logic_vector(5 downto 0);
         --6-bit funct field of instruction
-        Funct: in std_logic_vector(5 downto 0);
+        Funct:      in std_logic_vector(5 downto 0);
         -- asserted when shamt field is input to ALU
-        UseShamt: out std_logic;
+        UseShamt:   out std_logic;
         -- asserted when the immediate field is input to ALU
-        UseImmed: out std_logic;
+        UseImmed:   out std_logic;
         -- asserted when immed needs to be sign extended
         SignExtend: out std_logic;
         -- asserted when instruction is a jump
-        Jump: out std_logic;
+        Jump:       out std_logic;
         -- asserted when instruction is a branch
-        Branch: out std_logic;
+        Branch:     out std_logic;
         -- Determines ALU operation, see ALU decode unit
-        AluOp: out std_logic_vector(3 downto 0);
+        AluOp:      out std_logic_vector(3 downto 0);
         -- selects between rt and rd for the register destination
-        RegDst: out std_logic;
+        -- rt = 0, rd = 1
+        RegDst:     out std_logic;
         -- asserted when reading from memory (loads!)
-        MemRdEn: out std_logic;
+        MemRdEn:    out std_logic;
         -- asserted when writing to memory (stores!)
-        MemWrEn: out std_logic;
+        MemWrEn:    out std_logic;
         -- selects the source for writing into register file
-        RegSrc: out std_logic;
+        RegSrc:     out std_logic;
         -- asserted when writing into register file
-        RegWrEn: out std_logic
+        RegWrEn:    out std_logic
         -- that's all folks!
 );
 end InstrDecode;
@@ -73,22 +74,40 @@ begin
                     RegSrc      <= '1';   -- use ALU ouput
                     RegWrEn     <= '1';   -- writing into register file
 
-                when b"001001" =>        -- ADDIU
-                    UseImmed    <= '1';  -- yes immediate
-                    SignExtend  <= '1';  -- addiu is sign-extended
-                    Jump        <= '0';  -- don't jump!
-                    Branch      <= '0';  -- don't branch either
-                    AluOp   <= b"1000";  -- use function field (from ALU.vhd)
-                    RegDst      <= '0';  -- rt specifies destination
-                    MemRdEn     <= '0';  -- leave memory alone
-                    MemWrEn     <= '0';  --
-                    RegSrc      <= '1';  -- use ALU ouput
-                    RegWrEn     <= '1';  -- writing into register file
-                    UseShamt    <= '0';  -- no shift amount
+                when b"001001" =>         -- ADDIU (from MIPS manual)
+                    UseImmed    <= '1';   -- yes immediate
+                    SignExtend  <= '1';   -- addiu is sign-extended
+                    Jump        <= '0';   -- don't jump!
+                    Branch      <= '0';   -- don't branch either
+                    AluOp   <= b"1000";   -- use function field (from ALU.vhd)
+                    RegDst      <= '0';   -- rt specifies destination
+                    MemRdEn     <= '0';   -- leave memory alone
+                    MemWrEn     <= '0';
+                    RegSrc      <= '1';   -- use ALU ouput
+                    RegWrEn     <= '1';   -- writing into register file
+                    UseShamt    <= '0';   -- no shift amount
+
+                when b"001100" =>         -- ANDI (from MIPS manual)
+                    UseImmed    <= '1';   -- yes immediate
+                    SignExtend  <= '1';   -- addiu is sign-extended
+                    Jump        <= '0';   -- don't jump!
+                    Branch      <= '0';   -- don't branch either
+                    AluOp   <= b"1000";   -- use function field (from ALU.vhd)
+                    RegDst      <= '0';   -- rt specifies destination
+                    MemRdEn     <= '0';   -- leave memory alone
+                    MemWrEn     <= '0';
+                    RegSrc      <= '1';   -- use ALU ouput
+                    RegWrEn     <= '1';   -- writing into register file
+                    UseShamt    <= '0';   -- no shift amount
 
 
-                        -- Fill in the rest of the supported instructions
-                        -- to avoid describing latches
+
+
+
+
+
+
+
                 when others =>
                         -- don't care because invalid instruction!
                         UseShamt <= '-';

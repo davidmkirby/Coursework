@@ -11,12 +11,12 @@ use ieee.std_logic_unsigned.all;
 
 entity RegisterFile is
 
-port( RdRegA: in std_logic_vector(4 downto 0);
-      RdRegB: in std_logic_vector(4 downto 0);
-      WrReg: in std_logic_vector(4 downto 0);
-      Clk: in std_logic;
-      RegWrEn: in std_logic;
-      WrData: in std_logic_vector(31 downto 0);
+port( RdRegA:   in std_logic_vector( 4 downto 0);
+      RdRegB:   in std_logic_vector( 4 downto 0);
+      WrReg:    in std_logic_vector( 4 downto 0);
+      Clk:      in std_logic;
+      RegWrEn:  in std_logic;
+      WrData:   in std_logic_vector(31 downto 0);
       RdDataA: out std_logic_vector(31 downto 0);
       RdDataB: out std_logic_vector(31 downto 0)
 );

@@ -1,0 +1,140 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % uses T1 fonts (better quality)
+\usepackage{lmodern} % uses Latin Modern fonts
+\usepackage[dvipsnames]{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{nopageno} % no page numbers
+\usepackage{minted} % code syntax
+\usemintedstyle{pastie}
+\usepackage{graphicx}
+\graphicspath{ {./img/} }
+
+\title{Wireshark Lab 02}
+\begin{document}
+ % \begin{titlepage}
+ % \vspace*{\fill}
+ % 	\begin{center}
+ %     \line(1,0){300}\\[0.65cm]
+ % 	\Huge{\bfseries Lab 2}\\
+ % 	 \line(1,0){300}\\
+ % 	\textsc{\huge \textit{The Register File and ALU}}\\
+ % 	\textsc{\LARGE David Kirby}\\
+ % 	\textsc{\Large Due: 5 March 2020}\\[5.5cm]
+ % 	\end{center}
+ % 	\vfill
+ % \end{titlepage}
+
+\section*{1. The Basic HTTP GET/response interaction}
+
+\begin{enumerate}
+
+\item Is your browser running HTTP version 1.0 or 1.1? What version of HTTP is the server running?
+
+\texttt{HTTP/1.1}
+
+\item What languages (if any) does your browser indicate that it can accept to the server?
+
+\texttt{en-us}
+
+\item What is the IP address of your computer? Of the gaia.cs.umass.edu server?
+
+\texttt{192.168.0.6}\textsf{ and }\texttt{128.119.245.12}
+
+\item What is the status code returned from the server to your browser?
+
+\texttt{200 OK}
+
+\item When was the HTML file that you are retrieving last modified at the server?
+
+\texttt{Sun, 08 Mar 2020 06:59:03 GMT}
+
+\item How many bytes of content are being returned to your browser?
+
+\texttt{128}
+
+\item By inspecting the raw data in the packet content window, do you see any headers within the data that are not displayed in the packet-listing window? If so, name one.
+
+\textsf{I don't see any headers displayed in the packet content window that aren't also displayed in the packet-listing window.}
+
+\end{enumerate}
+\includegraphics[width=0.5\textwidth]{lab2_part1_get}
+\includegraphics[width=0.5\textwidth]{lab2_part1_response}
+
+\section*{2. The HTTP CONDITIONAL GET/response interaction}
+\begin{enumerate}
+\setcounter{enumi}{7}
+\item Inspect the contents of the first HTTP GET request from your browser to the server. Do you see an “IF-MODIFIED-SINCE” line in the HTTP GET?
+
+\textsf{No, there is not an \texttt{IF-MODIFIED-SINCE} line.}
+
+\item Inspect the contents of the server response. Did the server explicitly return the contents of the file? How can you tell?
+
+\textsf{Yes, the server explicitly returned the contents of the file. The contents are shown below.}
+
+\item Now inspect the contents of the second HTTP GET request from your browser to the server. Do you see an “IF-MODIFIED-SINCE:” line in the HTTP GET? If so, what information follows the “IF-MODIFIED-SINCE:” header?
+
+\textsf{Yes, there is an \texttt{IF-MODIFIED-SINCE} line in the \texttt{HTTP GET}. The header value is: \texttt{Sun, 08 Mar 2020 06:59:03 GMT}.}
+
+\item What is the HTTP status code and phrase returned from the server in response to this second HTTP GET? Did the server explicitly return the contents of the file? Explain.
+
+\textsf{The HTTP status code and phrase returned from the server is: \texttt{304 Not Modified} and the server did not return the contents of the file because the contents have not been modified since the last request and are still cached locally.}
+
+\end{enumerate}
+\includegraphics[width=0.5\textwidth]{lab2_part2_get1}
+\includegraphics[width=0.5\textwidth]{lab2_part2_get2}\\
+\includegraphics[width=0.5\textwidth]{lab2_part2_response1}
+\includegraphics[width=0.5\textwidth]{lab2_part2_response2}
+
+\section*{3. Retrieving Long Documents}
+\begin{enumerate}
+\setcounter{enumi}{11}
+\item How many HTTP GET request messages did your browser send? Which packet number in the trace contains the GET message for the Bill or Rights?
+
+\textsf{The browser only sent one \texttt{HTTP GET} request. Packet number 22 contains the \texttt{GET} message.}
+
+\item Which packet number in the trace contains the status code and phrase associated with the response to the HTTP GET request?
+
+\textsf{Packet 28 contains the status code and phrase associated with the response.}
+
+\item What is the status code and phrase in the response?
+
+\texttt{200 OK}
+
+\item How many data-containing TCP segments were needed to carry the single HTTP response and the text of the Bill of Rights?
+
+\textsf{Four TCP segments were needed to carry the response and text.}
+\end{enumerate}
+\includegraphics[width=0.5\textwidth]{lab2_part3_get}
+\includegraphics[width=0.5\textwidth]{lab2_part3_response}
+
+\section*{4. HTML Documents with Embedded Objects}
+\begin{enumerate}
+\setcounter{enumi}{15}
+\item How many HTTP GET request messages did your browser send? To which Internet addresses were these GET requests sent?
+
+\textsf{There are three \texttt{HTTP GET} requests. In my trace, all three were sent to the same IP address: \texttt{128.119.245.12}.}
+
+\item Can you tell whether your browser downloaded the two images serially, or whether they were downloaded from the two web sites in parallel? Explain.
+
+\textsf{It appears that both images were downloaded in parallel as both requests were placed, then both images were received, as opposed to requesting one, receiving one, then requesting the second, receiving the second.}
+\includegraphics[width=0.85\textwidth]{lab2_part4_get1}
+
+\end{enumerate}
+
+\section*{5. HTTP Authentication}
+\begin{enumerate}
+\setcounter{enumi}{17}
+\item What is the server’s response (status code and phrase) in response to the initial HTTP GET message from your browser?
+
+\texttt{401 Unauthorized}
+
+\item When your browser sends the HTTP GET message for the second time, what new field is included in the HTTP GET message?
+
+\texttt{Authorization: Basic d2lyZXNoYXJrLXN0dWRlbnRzOm5ldHdvcms=}\\
+\texttt{Credentials: wireshark-students:network}
+\end{enumerate}
+\includegraphics[width=0.5\textwidth]{lab2_part5_get1}
+\includegraphics[width=0.5\textwidth]{lab2_part5_get2}
+
+\end{document}

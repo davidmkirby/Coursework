@@ -24,7 +24,65 @@
  % 	\end{center}
  % 	\vfill
  % \end{titlepage}
+{\fontfamily{phv}
+\center \Large \textbf{Course ID: ECE 440 Introduction to Computer Networks-Spring}
+\center \Large \textbf{David Kirby}\par
+\center \Large \textbf{Homework \#2}\par
+}
+\begin{enumerate}
+\item Problem P4, Chapter 2 (\textbf{40\%})\par
+Consider the following string of ASCII characters that were captured by Wireshark when the browser send an HTTP GET message. Answer the following questions, indicating where in the HTTP GET message below you find the answer.\par
+{\fontfamily{lmss}\textit{GET \fcolorbox{blue}{white}{/cs453/index.html} \fcolorbox{blue}{white}{HTTP/1.1}<cr><lf> Host: gaia.cs.umass.edu<cr> User-Agent: \fcolorbox{blue}{white}{Mozilla/5.0} (Windows;U; Windows NT 5.1; en-US; rv:1.7.2) GecKo/20040804 Netscape/7.2 (ax) <cr><lf> Accept: ext/xml, application/xml, application/xhtml+xml, text/html;q=0.9, text/plain; q=0.8, image/png, */*; q=0.5<cr><lf> Accept-Language: en-us, en;q=0.5<cr><lf> Accept-Encoding: zip, deflate<cr><lf> Accept-Charset: ISO-8859-1, utf-8; q=0.7, *; q=0.7<cr><lf>Keep-Alive: 300 \fcolorbox{blue}{white}{Connection:keep-alive}}}\par
+\begin{enumerate}
+  \item What is the URL of the document requested by the browser?\par
+  \texttt{/cs453/index.html}\par
+  \item What version of HTTP is the browser running?\par
+  \texttt{HTTP/1.1}\par
+  \item Does the browser request a non-persistent or a persistent connection?\par
+  \textsf{persistent}\par
+  \item What is the IP address of the host on which the browser is running?\par
+  \textsf{IP cannot be determined from the GET request}\par
+  \item What type of browser initiates this message? Why is the browser type needed in an HTTP request message?\par
+  \texttt{Mozilla/5.0} \textsf{The type of browser determines the type of content to send (i.e. command line vs. mobile vs. desktop).}\par
+\end{enumerate}
+  \item Problem P5, Chapter 2 (\textbf{30\%})\par
+  The text below shows the reply sent from the server in response to the HTTP GET message in the question above. Answer the following questions, indicating where in the message below you find the answer.\par
+{\fontfamily{lmss}\textit{HTTP/1.1 200 OK<cr><lf>Date: \fcolorbox{blue}{white}{Tue, 07 Mar 2008 12:39:45GMT}<cr><lf>Server: Apache/2.0.52 (Fedora) <cr><lf>Last-Modified: \fcolorbox{blue}{white}{Sat, 10 Dec 2005 18:27:46 GMT}<cr><lf>Etag: “526c3-f22-a88a4c80” Accept-Ranges: bytes<cr><lf>Content-Length: \fcolorbox{blue}{white}{3874}<cr><lf> Keep-Alive: timeout=max=100 Connection: \fcolorbox{blue}{white}{Keep-Alive}<cr><lf>Content Type: text/html; charset=ISO-8859-1<cr><lf><cr><lf>\fcolorbox{blue}{white}{<!doc}type html public “-//w3c//dtd html 4.0transitional//en”><lf><html><head><meta http-equiv=”Content-Type”context=”text/html; charset=iso-8859-1”><meta name=”GENERATOR”content=”Mozilla/4.79 [en] (Windows NT 5.0; U) Netscape]”><lf> <title>CMPSCI 453 / 591 / NTU-ST550ASpring 2005 homepage</title><lf></head><lf> <much more document text following here (not shown)>}}
+\begin{enumerate}
+  \item Was the server able to successfully find the document or not? What time was the document reply provided?\par
+  \textsf{Yes, the request was successful. \texttt{Tue, 07 Mar 2008 12:39:45 GMT}}\par
+  \item When was the document last modified?\par
+  \texttt{Sat, 10 Dec 2005 18:27:46 GMT}
+  \item How many bytes are there in the document being returned?\par
+  \texttt{3874 bytes}
+  \item What are the first 5 bytes of the document being returned? Did the server agree to a persistent connection?\par
+  \textsf{The first five bytes returned were \texttt{<!doc}. Yes, the server agreed to the persistent connection.}
+\end{enumerate}
+  \item Problem P22, Chapter 2 (\textbf{30\%})\par
+Consider distributing a file of F=15 Gbits to N peers. The server has an upload rate of $u_s=30 Mbps$, and each peer has a download rate of $d_i=2 Mbps$ and an upload rate of $u$. For $N=10$, $100$, and $1000$ and $u=300 Kbps$, $700 Kbps$, and $2 Mbps$, prepare a chart giving the minimum distribution time for each of the combinations of $N$ and $u$ for both client-server distribution and P2P distribution.\par
+\vspace*{5mm}
+end-to-end$_{C-S}=max\left\{ \frac{NF}{u_s},\frac{F}{d_{min}}\right\}$\par
 
+\hspace*{20mm}$max_{N=10}\left\{ \frac{(10)(15\times 10^9)}{30\times 10^6}=5\ 000s,\frac{15\times 10^9}{2\times 10^6}=7\ 500s\right\}=7\ 500s$\par
+\hspace*{18.5mm}$max_{N=100}\left\{ \frac{(100)(15\times 10^9)}{30\times 10^6}=50\ 000s,\frac{15\times 10^9}{2\times 10^6}=7\ 500s\right\}=50\ 000s$\par
+\hspace*{17mm}$max_{N=1000}\left\{ \frac{(1000)(15\times 10^9)}{30\times 10^6}=500\ 000s,\frac{15\times 10^9}{2\times 10^6}=7\ 500s\right\}=500\ 000s$\par
+\vspace*{5mm}
+end-to-end$_{P2P}=max\left\{ \frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+\sum_{i=1}^N u_i}\right\}$\par
+
+\hspace*{9.5mm}$max_{N=10, u_i=300}\left\{ \frac{(15\times 10^9)}{30\times 10^6}=500s,\frac{15\times 10^9}{2\times 10^6}=7\ 500s, \frac{(10)(15\times 10^9)}{30\times 10^6+10\times 300\times 10^3}=4\ 545.5s\right\}=7\ 500s$\par
+\hspace*{8mm}$max_{N=100, u_i=300}\left\{ \frac{(15\times 10^9)}{30\times 10^6}=500s,\frac{15\times 10^9}{2\times 10^6}=7\ 500s, \frac{(100)(15\times 10^9)}{30\times 10^6+100\times 300\times 10^3}=25\ 000s\right\}=25\ 000s$\par
+\hspace*{6.5mm}$max_{N=1000, u_i=300}\left\{ \frac{(15\times 10^9)}{30\times 10^6}=500s,\frac{15\times 10^9}{2\times 10^6}=7\ 500s, \frac{(1000)(15\times 10^9)}{30\times 10^6+1000\times 300\times 10^3}=45\ 455s\right\}=45\ 455s$\par
+
+\hspace*{9.5mm}$max_{N=10, u_i=700}\left\{ \frac{(15\times 10^9)}{30\times 10^6}=500s,\frac{15\times 10^9}{2\times 10^6}=7\ 500s, \frac{(10)(15\times 10^9)}{30\times 10^6+10\times 700\times 10^3}=4\ 054s\right\}=7\ 500s$\par
+\hspace*{8mm}$max_{N=100, u_i=700}\left\{ \frac{(15\times 10^9)}{30\times 10^6}=500s,\frac{15\times 10^9}{2\times 10^6}=7\ 500s, \frac{(100)(15\times 10^9)}{30\times 10^6+100\times 700\times 10^3}=15\ 000s\right\}=15\ 000s$\par
+\hspace*{6.5mm}$max_{N=1000, u_i=700}\left\{ \frac{(15\times 10^9)}{30\times 10^6}=500s,\frac{15\times 10^9}{2\times 10^6}=7\ 500s, \frac{(1000)(15\times 10^9)}{30\times 10^6+1000\times 700\times 10^3}=20\ 548s\right\}=20\ 548s$\par
+
+\hspace*{8mm}$max_{N=10, u_i=2000}\left\{ \frac{(15\times 10^9)}{30\times 10^6}=500s,\frac{15\times 10^9}{2\times 10^6}=7\ 500s, \frac{(10)(15\times 10^9)}{30\times 10^6+10\times 2000\times 10^3}=4\ 054s\right\}=7\ 500s$\par
+\hspace*{6.5mm}$max_{N=100, u_i=2000}\left\{ \frac{(15\times 10^9)}{30\times 10^6}=500s,\frac{15\times 10^9}{2\times 10^6}=7\ 500s, \frac{(100)(15\times 10^9)}{30\times 10^6+100\times 2000\times 10^3}=6\ 521s\right\}=7\ 500s$\par
+\hspace*{5mm}$max_{N=1000, u_i=2000}\left\{ \frac{(15\times 10^9)}{30\times 10^6}=500s,\frac{15\times 10^9}{2\times 10^6}=7\ 500s, \frac{(1000)(15\times 10^9)}{30\times 10^6+1000\times 2000\times 10^3}=7\ 389s\right\}=7\ 500s$\par
+
+\end{enumerate}
+\newpage
 \section*{1. The Basic HTTP GET/response interaction}
 
 \begin{enumerate}

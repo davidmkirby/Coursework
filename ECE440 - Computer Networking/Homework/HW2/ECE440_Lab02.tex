@@ -115,9 +115,9 @@ end-to-end$_{P2P}=max\left\{ \frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+\sum_
 
 \textsf{I don't see any headers displayed in the packet content window that aren't also displayed in the packet-listing window.}
 
+\includegraphics[width=0.90\textwidth]{lab2_part1_get}\\
+\includegraphics[width=0.90\textwidth]{lab2_part1_response}
 \end{enumerate}
-\includegraphics[width=0.5\textwidth]{lab2_part1_get}
-\includegraphics[width=0.5\textwidth]{lab2_part1_response}
 
 \section*{2. The HTTP CONDITIONAL GET/response interaction}
 \begin{enumerate}
@@ -138,11 +138,12 @@ end-to-end$_{P2P}=max\left\{ \frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+\sum_
 
 \textsf{The HTTP status code and phrase returned from the server is: \texttt{304 Not Modified} and the server did not return the contents of the file because the contents have not been modified since the last request and are still cached locally.}
 
+\includegraphics[width=0.90\textwidth]{lab2_part2_get1}\\
+\includegraphics[width=0.90\textwidth]{lab2_part2_get2}\\
+\includegraphics[width=0.90\textwidth]{lab2_part2_response1}\\
+\includegraphics[width=0.90\textwidth]{lab2_part2_response2}
+
 \end{enumerate}
-\includegraphics[width=0.5\textwidth]{lab2_part2_get1}
-\includegraphics[width=0.5\textwidth]{lab2_part2_get2}\\
-\includegraphics[width=0.5\textwidth]{lab2_part2_response1}
-\includegraphics[width=0.5\textwidth]{lab2_part2_response2}
 
 \section*{3. Retrieving Long Documents}
 \begin{enumerate}
@@ -162,9 +163,11 @@ end-to-end$_{P2P}=max\left\{ \frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+\sum_
 \item How many data-containing TCP segments were needed to carry the single HTTP response and the text of the Bill of Rights?
 
 \textsf{Four TCP segments were needed to carry the response and text.}
+
+\includegraphics[width=0.90\textwidth]{lab2_part3_get}\par
+\includegraphics[width=0.90\textwidth]{lab2_part3_response}
+
 \end{enumerate}
-\includegraphics[width=0.5\textwidth]{lab2_part3_get}
-\includegraphics[width=0.5\textwidth]{lab2_part3_response}
 
 \section*{4. HTML Documents with Embedded Objects}
 \begin{enumerate}
@@ -176,7 +179,8 @@ end-to-end$_{P2P}=max\left\{ \frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+\sum_
 \item Can you tell whether your browser downloaded the two images serially, or whether they were downloaded from the two web sites in parallel? Explain.
 
 \textsf{It appears that both images were downloaded in parallel as both requests were placed, then both images were received, as opposed to requesting one, receiving one, then requesting the second, receiving the second.}
-\includegraphics[width=0.85\textwidth]{lab2_part4_get1}
+
+\includegraphics[width=0.90\textwidth]{lab2_part4_get1}
 
 \end{enumerate}
 
@@ -191,8 +195,10 @@ end-to-end$_{P2P}=max\left\{ \frac{F}{u_s},\frac{F}{d_{min}},\frac{NF}{u_s+\sum_
 
 \texttt{Authorization: Basic d2lyZXNoYXJrLXN0dWRlbnRzOm5ldHdvcms=}\\
 \texttt{Credentials: wireshark-students:network}
+
+\includegraphics[width=0.90\textwidth]{lab2_part5_get1}\\
+\includegraphics[width=0.90\textwidth]{lab2_part5_get2}
+
 \end{enumerate}
-\includegraphics[width=0.5\textwidth]{lab2_part5_get1}
-\includegraphics[width=0.5\textwidth]{lab2_part5_get2}
 
 \end{document}

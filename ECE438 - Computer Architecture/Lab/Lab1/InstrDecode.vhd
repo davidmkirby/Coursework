@@ -47,14 +47,13 @@ end InstrDecode;
 architecture InstrDecode of InstrDecode is
 
 begin
-        --One big ol' case statement makes this description easy!
     process(Opcode, Funct) -- output depends on op field and funct
         begin
         case Opcode is
                 -- R-type instruction
-                        -- For our small instruction set, the R-type instruction
-                        -- is the only instruction where we have to look at the
-                        -- function field...
+                    -- For our small instruction set, the R-type instruction
+                    -- is the only instruction where we have to look at the
+                    -- function field...
                 when b"000000" =>   -- SLL, SRL, and SRA use the shamt field
                         if(Funct=b"000000"
                         or Funct=b"000010"
@@ -75,8 +74,8 @@ begin
                     RegWrEn     <= '1';   -- writing into register file
 
                 when b"001001" =>         -- ADDIU (from MIPS manual)
-                    UseImmed    <= '1';   -- yes immediate
-                    SignExtend  <= '1';   -- addiu is sign-extended
+                    UseImmed    <= '1';   -- immediate
+                    SignExtend  <= '1';   -- sign-extended
                     Jump        <= '0';   -- don't jump!
                     Branch      <= '0';   -- don't branch either
                     AluOp   <= b"1000";   -- use function field (from ALU.vhd)
@@ -88,11 +87,11 @@ begin
                     UseShamt    <= '0';   -- no shift amount
 
                 when b"001100" =>         -- ANDI (from MIPS manual)
-                    UseImmed    <= '1';   -- yes immediate
-                    SignExtend  <= '1';   -- addiu is sign-extended
+                    UseImmed    <= '1';   -- immediate
+                    SignExtend  <= '1';   -- sign-extended
                     Jump        <= '0';   -- don't jump!
                     Branch      <= '0';   -- don't branch either
-                    AluOp   <= b"1000";   -- use function field (from ALU.vhd)
+                    AluOp   <= b"0000";   -- use function field (from ALU.vhd)
                     RegDst      <= '0';   -- rt specifies destination
                     MemRdEn     <= '0';   -- leave memory alone
                     MemWrEn     <= '0';
@@ -100,29 +99,122 @@ begin
                     RegWrEn     <= '1';   -- writing into register file
                     UseShamt    <= '0';   -- no shift amount
 
+                when b"001101" =>         -- ORI (from MIPS manual)
+                    UseImmed    <= '1';   -- immediate
+                    SignExtend  <= '1';   -- sign-extended
+                    Jump        <= '0';   -- don't jump!
+                    Branch      <= '0';   -- don't branch either
+                    AluOp   <= b"0001";   -- use function field (from ALU.vhd)
+                    RegDst      <= '0';   -- rt specifies destination
+                    MemRdEn     <= '0';   -- leave memory alone
+                    MemWrEn     <= '0';
+                    RegSrc      <= '1';   -- use ALU ouput
+                    RegWrEn     <= '1';   -- writing into register file
+                    UseShamt    <= '0';   -- no shift amount
 
+                when b"001110" =>         -- XORI (from MIPS manual)
+                    UseImmed    <= '1';   -- immediate
+                    SignExtend  <= '1';   -- sign-extended
+                    Jump        <= '0';   -- don't jump!
+                    Branch      <= '0';   -- don't branch either
+                    AluOp   <= b"1010";   -- use function field (from ALU.vhd)
+                    RegDst      <= '0';   -- rt specifies destination
+                    MemRdEn     <= '0';   -- leave memory alone
+                    MemWrEn     <= '0';
+                    RegSrc      <= '1';   -- use ALU ouput
+                    RegWrEn     <= '1';   -- writing into register file
+                    UseShamt    <= '0';   -- no shift amount
 
+                when b"001011" =>         -- SLTIU (from MIPS manual)
+                    UseImmed    <= '1';   -- immediate
+                    SignExtend  <= '1';   -- sign-extended
+                    Jump        <= '0';   -- don't jump!
+                    Branch      <= '0';   -- don't branch either
+                    AluOp   <= b"1011";   -- use function field (from ALU.vhd)
+                    RegDst      <= '0';   -- rt specifies destination
+                    MemRdEn     <= '0';   -- leave memory alone
+                    MemWrEn     <= '0';
+                    RegSrc      <= '1';   -- use ALU ouput
+                    RegWrEn     <= '1';   -- writing into register file
+                    UseShamt    <= '0';   -- no shift amount
 
+                when b"100011" =>         -- LW (from MIPS manual)
+                    UseImmed    <= '0';   -- not immediate
+                    SignExtend  <= '1';   -- sign-extended
+                    Jump        <= '0';   -- don't jump!
+                    Branch      <= '0';   -- don't branch either
+                    AluOp   <= b"0000";   -- use add funct (from ALU.vhd)
+                    RegDst      <= '0';   -- rt specifies destination
+                    MemRdEn     <= '1';   -- read from memory
+                    MemWrEn     <= '0';
+                    RegSrc      <= '1';   -- use ALU ouput
+                    RegWrEn     <= '1';   -- writing into register file
+                    UseShamt    <= '0';   -- no shift amount
 
+                when b"101011" =>         -- SW (from MIPS manual)
+                    UseImmed    <= '0';   -- immediate
+                    SignExtend  <= '1';   -- sign-extended
+                    Jump        <= '0';   -- don't jump!
+                    Branch      <= '0';   -- don't branch either
+                    AluOp   <= b"0000";   -- use add funct (from ALU.vhd)
+                    RegDst      <= '0';   -- rt specifies destination
+                    MemRdEn     <= '0';
+                    MemWrEn     <= '1';   -- write to memory
+                    RegSrc      <= '1';   -- use ALU ouput
+                    RegWrEn     <= '0';   -- writing into register file
+                    UseShamt    <= '0';   -- no shift amount
 
+                when b"000100" =>         -- BEQ (from MIPS manual)
+                    UseImmed    <= '0';   -- immediate
+                    SignExtend  <= '1';   -- sign-extended
+                    Jump        <= '0';   -- don't jump!
+                    Branch      <= '1';   -- branch
+                    AluOp   <= b"1001";   -- use SUB funct (from ALU.vhd)
+                    RegDst      <= '0';   -- rt specifies destination
+                    MemRdEn     <= '0';   -- leave memory alone
+                    MemWrEn     <= '0';
+                    RegSrc      <= '1';   -- use ALU ouput
+                    RegWrEn     <= '0';   -- writing into register file
+                    UseShamt    <= '0';   -- no shift amount
 
+                when b"000010" =>         -- J (from MIPS manual)
+                    UseImmed    <= '0';   -- immediate
+                    SignExtend  <= '0';   -- sign-extended
+                    Jump        <= '1';   -- don't jump!
+                    Branch      <= '0';   -- branch
+                    AluOp   <= b"0000";   -- use function field (from ALU.vhd)
+                    RegDst      <= '-';   -- rt specifies destination
+                    MemRdEn     <= '0';   -- leave memory alone
+                    MemWrEn     <= '0';
+                    RegSrc      <= '1';   -- use ALU ouput
+                    RegWrEn     <= '0';   -- writing into register file
+                    UseShamt    <= '0';   -- no shift amount
 
+                when b"001111" =>         -- LUI (from MIPS manual)
+                    UseImmed    <= '1';   -- immediate
+                    SignExtend  <= '0';   -- sign-extended
+                    Jump        <= '0';   -- don't jump!
+                    Branch      <= '0';   -- branch
+                    AluOp   <= b"1110";   -- use function field (from ALU.vhd)
+                    RegDst      <= '0';   -- rt specifies destination
+                    MemRdEn     <= '0';   -- leave memory alone
+                    MemWrEn     <= '0';
+                    RegSrc      <= '1';   -- use ALU ouput
+                    RegWrEn     <= '1';   -- writing into register file
+                    UseShamt    <= '0';   -- no shift amount
 
-                when others =>
-                        -- don't care because invalid instruction!
-                        UseShamt <= '-';
-                        UseImmed <= '-';
-                        SignExtend <= '-';
-                        Jump <= '0'; --don't jump!
-                        Branch <= '0'; -- don't branch either
-                        AluOp <= (others => '-');
-                        -- fill in the rest here!
-                        MemRdEn <= '0'; --leave memory alone
-                        MemWrEn <= '0';
-                        -- finish this, but don't allow state to change
-                -- when an invalid instruction is encountered!
-                -- I'm going to test for this, so get it right...
+                when others =>         -- don't care because invalid instruction
+                    UseShamt    <= '-';
+                    UseImmed    <= '-';
+                    SignExtend  <= '-';
+                    Jump        <= '0';   -- don't jump!
+                    Branch      <= '0';   -- don't branch either
+                    AluOp <= (others => '-');
+                    RegDst      <= '0';   -- rt specifies destination
+                    MemRdEn     <= '0';   -- leave memory alone
+                    MemWrEn     <= '0';
+                    RegSrc      <= '-';   -- use ALU ouput
+                    RegWrEn     <= '0';   -- no writing into register file
         end case;
     end process;
-    -- was that so hard?!?
 end InstrDecode;

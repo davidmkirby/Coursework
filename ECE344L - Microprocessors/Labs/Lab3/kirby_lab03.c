@@ -37,7 +37,7 @@
 #pragma config FPLLMUL = MUL_20, FPLLIDIV = DIV_2
 #pragma config FPLLODIV = DIV_1
 #pragma config POSCMOD = EC, FNOSC = PRIPLL, FPBDIV = DIV_8
-#pragma config FSOSCEN = OFF            // Secondary oscillator enable
+#pragma config FSOSCEN = OFF // Secondary oscillator enable
 #define SYS_FREQ (80000000L)
 
 // *** these are preconfigured on the MX4 Board for a clock frequency of 80MHz
@@ -52,12 +52,11 @@ void DelayInit();
 void DelayMs(int cms);
 void DisplayInit(int coins);
 
-
 /* -------------------------------------------------------------------------- */
 /*                                  Definitions                               */
 /* -------------------------------------------------------------------------- */
 
-#define cntMsDelay  10000           //timer 1 delay for 1ms
+#define cntMsDelay 10000 //timer 1 delay for 1ms
 
 /* -------------------------------------------------------------------------- */
 /*                                     Main                                   */
@@ -79,38 +78,36 @@ int main()
         while (1)
         {
                 // Read buttons
-                button_in12 = PORTReadBits (IOPORT_G, BIT_6|BIT_7);
-                button_in3  = PORTReadBits (IOPORT_A, BIT_0);
+                button_in12 = PORTReadBits(IOPORT_G, BIT_6 | BIT_7);
+                button_in3 = PORTReadBits(IOPORT_A, BIT_0);
 
                 if (button_in12 != 0)
                 {
                         // drive both LD1 and LD2 high if both buttons pressed
                         if (((button_in12 & 0x0040) != 0) &&
                             ((button_in12 & 0x0080) != 0))
-                                coins = coins+15;
+                                coins = coins + 15;
                         else
                         {
                                 //drive LD1 high if only BTN1 pressed
-                                if ((button_in12 & 0x0040) !=0) // BTN1 pressed?
-                                        coins = coins+5;
+                                if ((button_in12 & 0x0040) != 0) // BTN1 pressed?
+                                        coins = coins + 5;
                                 //drive LD2 high if only BTN2 pressed
                                 if ((button_in12 & 0x0080) != 0) // BTN2 pressed
-                                        coins = coins+10;
+                                        coins = coins + 10;
                         }
                 }
                 // Handle BTN3 separately
-                if(button_in3 !=0)
+                if (button_in3 != 0)
                 {
-                    coins=0;
-                    PORTWrite(IOPORT_G,BIT_12|BIT_13|BIT_14);
-                    DelayMs(msdelay);
-                    PORTClearBits(IOPORT_G,BIT_12|BIT_13| BIT_14|BIT_15);
+                        coins = 0;
+                        PORTWrite(IOPORT_G, BIT_12 | BIT_13 | BIT_14);
+                        DelayMs(msdelay);
+                        PORTClearBits(IOPORT_G, BIT_12 | BIT_13 | BIT_14 | BIT_15);
                 }
                 //Initialize display
                 DisplayInit(coins);
-
         }
-
 }
 
 /* -------------------------------------------------------------------------- */
@@ -133,68 +130,68 @@ int main()
 void DisplayInit(int coins)
 {
         int msdelay = 230;
-        int timeout=0;
+        int timeout = 0;
 
         switch (coins)
         {
-        case  5:
+        case 5:
                 //DelayMs(msdelay);
                 //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
                 DelayMs(msdelay);
-                PORTWrite (IOPORT_G, BIT_12);   //001
+                PORTWrite(IOPORT_G, BIT_12); //001
                 break;
         case 10:
                 //DelayMs(msdelay);
                 //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
                 DelayMs(msdelay);
-                PORTWrite (IOPORT_G, BIT_13);   //010
+                PORTWrite(IOPORT_G, BIT_13); //010
                 break;
         case 15:
                 //DelayMs(msdelay);
                 //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
                 DelayMs(msdelay);
-                PORTWrite (IOPORT_G, BIT_12|BIT_13);   //011
+                PORTWrite(IOPORT_G, BIT_12 | BIT_13); //011
                 break;
         case 20:
                 //DelayMs(msdelay);
                 //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
                 DelayMs(msdelay);
-                PORTWrite (IOPORT_G, BIT_14);                              //100
+                PORTWrite(IOPORT_G, BIT_14); //100
                 break;
         case 25:
                 //DelayMs(msdelay);
                 //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
                 DelayMs(msdelay);
-                PORTWrite (IOPORT_G, BIT_12|BIT_14);                       //101
+                PORTWrite(IOPORT_G, BIT_12 | BIT_14); //101
                 break;
         case 30:
                 //DelayMs(msdelay);
                 //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
-                while(timeout<3)
+                while (timeout < 3)
                 {
-                      DelayMs(msdelay);
-                      PORTWrite (IOPORT_G, BIT_15);                        //111
-                      DelayMs(msdelay);
-                      PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
-                      timeout++;
+                        DelayMs(msdelay);
+                        PORTWrite(IOPORT_G, BIT_15); //111
+                        DelayMs(msdelay);
+                        PORTClearBits(IOPORT_G, BIT_12 | BIT_13 | BIT_14 | BIT_15);
+                        timeout++;
                 }
                 main();
                 break;
         case 35:
                 //DelayMs(msdelay);
                 //PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
-                while(timeout<3)
+                while (timeout < 3)
                 {
                         DelayMs(msdelay);
-                        PORTWrite (IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);//111+
+                        PORTWrite(IOPORT_G, BIT_12 | BIT_13 | BIT_14 | BIT_15); //111+
                         DelayMs(msdelay);
-                        PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
+                        PORTClearBits(IOPORT_G, BIT_12 | BIT_13 | BIT_14 | BIT_15);
                         timeout++;
                 }
                 main();
                 break;
         default:
-                PORTClearBits(IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
+                PORTClearBits(IOPORT_G, BIT_12 | BIT_13 | BIT_14 | BIT_15);
                 //Debug LEDs - send them all high at first, then trigger
                 //PORTWrite (IOPORT_G, BIT_12|BIT_13|BIT_14|BIT_15);
         }
@@ -226,11 +223,11 @@ void DeviceInit()
         //       LED3 is on RG14
         //       LED4 is on RG15
         //Set ports for onboard LEDs to outputs & clear them
-        PORTSetPinsDigitalOut (IOPORT_G, BIT_12|BIT_13| BIT_14|BIT_15);
-        PORTClearBits(IOPORT_G, BIT_12|BIT_13| BIT_14|BIT_15);
+        PORTSetPinsDigitalOut(IOPORT_G, BIT_12 | BIT_13 | BIT_14 | BIT_15);
+        PORTClearBits(IOPORT_G, BIT_12 | BIT_13 | BIT_14 | BIT_15);
         //Set ports for onboard BTNs as inputs
-        PORTSetPinsDigitalIn (IOPORT_G, BIT_6 | BIT_7);
-        PORTSetPinsDigitalIn (IOPORT_A, BIT_0);
+        PORTSetPinsDigitalIn(IOPORT_G, BIT_6 | BIT_7);
+        PORTSetPinsDigitalIn(IOPORT_A, BIT_0);
 }
 
 /* -------------------------------------------------------------------------- */
@@ -255,7 +252,7 @@ void DelayInit()
         unsigned int tcfg;
 
         /* Configure Timer 1 to count a 10MHz with a period of 0xFFFF*/
-        tcfg = T1_ON|T1_IDLE_CON|T1_SOURCE_INT|T1_PS_1_1|T1_GATE_OFF|T1_SYNC_EXT_OFF;
+        tcfg = T1_ON | T1_IDLE_CON | T1_SOURCE_INT | T1_PS_1_1 | T1_GATE_OFF | T1_SYNC_EXT_OFF;
         OpenTimer1(tcfg, 0xFFFF);
 }
 
@@ -279,10 +276,10 @@ void DelayMs(int cms)
 {
         int ims;
 
-        for (ims=0; ims<cms; ims++)
+        for (ims = 0; ims < cms; ims++)
         {
-                WriteTimer1(0);     // reset timer
-                while (ReadTimer1() < cntMsDelay); // wait for interval of 1 mS
+                WriteTimer1(0); // reset timer
+                while (ReadTimer1() < cntMsDelay)
+                        ; // wait for interval of 1 mS
         }
-
 }

@@ -1,0 +1,113 @@
+\special{papersize=8.5in,11in}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % uses T1 fonts (better quality)
+\usepackage{lmodern} % uses Latin Modern fonts
+\usepackage[dvipsnames]{xcolor}
+\usepackage{natbib,fancyhdr}
+
+\definecolor{DavidDarkBlue}{rgb}{.1,0,.2}  
+\definecolor{ChadBlue}{rgb}{.1,.1,.5}  
+\definecolor{ChadRoyal}{rgb}{.2,.2,.8}  
+%\definecolor{ChadGreen}{rgb}{0,.35,.1}
+%\definecolor{ChadGreen}{rgb}{0,.5,.25}  % Too bright
+%\definecolor{ChadGreen}{rgb}{0,.4,.2}    % Still too bright
+\definecolor{ChadGreen}{rgb}{0,.4,0}    % Dark Green
+%\definecolor{ChadRed}{rgb}{.8,.1,.2}    % Too bright
+\definecolor{ChadRed}{rgb}{.5,0,.5}  % purple
+
+
+% Fix title, sections, etc.
+\let\LaTeXtitle\title
+\renewcommand{\title}[1]{\LaTeXtitle{\bfseries \color{ChadBlue}{\Huge #1}}}
+\renewcommand{\abstractname}{\color{ChadBlue}Abstract}
+\renewcommand{\figurename}{\color{ChadBlue}Figure}
+\renewcommand{\tablename}{\color{ChadBlue}Table}
+
+\let\LaTeX@startsection\@startsection 
+\renewcommand{\@startsection}[6]{\LaTeX@startsection%
+{#1}{#2}{#3}{#4}{#5}{\color{ChadBlue}\raggedright #6}} 
+
+% %% % Fix periods at end of section numbers
+% %% \renewcommand \thesection {\@arabic\c@section.}
+% %% \renewcommand\thesubsection   {\thesection\@arabic\c@subsection}%.}
+% %% \renewcommand\thesubsubsection{\thesubsection \@arabic\c@subsubsection}%.}
+
+
+% \makeatletter
+% \renewcommand{\@seccntformat}[1]{
+%   \csname the#1\endcsname % Print sectional counter
+%   \ifnum\pdfstrcmp{#1}{section}=0 .\fi % If \section, print .
+%   \quad % Space between number and title
+% }
+% \makeatother
+
+% Margin, Paragraph Setup
+% \onehalfspacing
+% %\textheight=21.5cm \textwidth=14.95cm \topmargin=-5.5mm
+%\oddsidemargin=8mm \evensidemargin=8mm
+\textheight=20.5cm \textwidth=14.35cm \topmargin=0mm
+\oddsidemargin=11mm \evensidemargin=11mm
+%\setlength{\parindent}{0em} 
+%\setlength{\parskip}{1.5ex plus0.5ex minus0.5ex}
+%\setlength{\parsep}{0pt}
+\setlength{\parskip}{0pt}
+
+% % This is how to control linespacing using setspace
+% % (\singlespacing or doublespacing just call this command)
+% % \setstretch{1.4}
+
+%% Setting up page headers
+\pagestyle{fancy}
+\rhead[]{\thepage}
+\lhead[\thepage]{}
+\cfoot[]{} 
+\renewcommand{\headrulewidth}{0pt}
+
+% % Spacing in Tables and Figures
+% %\renewcommand{\tabcolsep}{1pt}   % space between columns
+% \renewcommand{\arraystretch}{1.5} % space between rows
+% \addtolength{\textfloatsep}{0pt} % space between floats and text
+% \addtolength{\abovecaptionskip}{0pt} % space above caption
+% \addtolength{\belowcaptionskip}{.15in} % space below caption
+
+% \newcommand{\spc}[0]{\vspace{.1in}}
+% \newcommand{\fignote}[2]{\begin{center}\parbox[c]{#1}{\footnotesize #2} \end{center}}
+% \newcommand{\tabnote}[2]{\begin{center}\parbox[c]{#1}{\footnotesize #2} \end{center}}
+% \newcommand{\clr}[1]{{\color{ChadBlue} #1}}
+% \newcommand{\boxeq}[1]{\boxed{\hspace{.25in} #1 \hspace{.25in}}} 
+
+% \newcommand{\bb}[1]{\color{ChadBlue}{#1}}
+% \newcommand{\clrg}[1]{\color{ChadGreen}{#1}}
+% \newcommand{\gn}[1]{{\color{ChadGreen}{#1}}}
+% \newcommand{\gr}[1]{\tiny\textcolor{green4}{#1}}
+% \newcommand{\rd}[1]{\textcolor{ChadRed}{#1}}
+% \newcommand{\rr}[1]{\textcolor{red}{#1}}
+% \newcommand{\imp}[0]{$\Rightarrow \,$} % implies
+
+% %% Shortcut commands
+% \newcommand{\growth}[1]{\frac{\dot{#1}_t}{{#1}_t}}
+% \newcommand{\prtl}[2]{\frac{\partial #1}{\partial #2}}
+% \newcommand{\prtlsec}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+% \newcommand{\commentno}[2]{\underset{\mbox{#2}}{#1}}
+% \newcommand{\comment}[2]{\underbrace{#1}_{\mbox{{\small \color{ChadGreen}#2}}}}
+% \newcommand{\cn}[1]{\citet*{#1}}
+% \newcommand{\cnp}[1]{(\citealt{#1})}  % (Jones 2002)
+% \newcommand{\up}[0]{\uparrow \hspace{-.5ex}}  % \! is a negative thinspace
+% \newcommand{\down}[0]{\downarrow \hspace{-.5ex}}
+% \newcommand{\query}[1]{{\it \color{red}[??? #1]}}
+
+
+% %\newcommand{\fignote}[2]{\begin{center}\parbox[c]{#1}{\footnotesize #2} \end{center}}
+% %\newcommand{\tabnote}[2]{\begin{center}\parbox[c]{#1}{\footnotesize #2} \end{center}}
+% \newcommand{\Prob}[1]{\mbox{\textnormal{Pr}} \, [#1] }
+% \newcommand{\SubSubSection}[1]{\subsubsection{#1} \baselineskip=18pt}
+% \newcommand{\problem}[2]{\hspace{.1in} {{\color{ChadBlue}{\bf #1:} #2}}}
+% \newcommand{\proptitle}[1]{\color{ChadBlue} \textnormal{(#1):}}
+% \newtheorem{proposition}{\color{ChadGreen} Proposition}
+% \newcommand{\assume}[2]{{\bf{Assumption #1}} (#2)} 
+% \newcommand{\Ex}[1]{\mbox{ }\mathbb{E}}
+% \newcommand{\Proof}[2]{{\hspace{-\parindent} {\color{ChadGreen}\bf Proof of Proposition}~\ref{#1}.}
+% {\color{ChadBlue} #2} \vspace{.1in}}
+
+
+% \newcommand{\pfrac}[2]{\left( \frac{#1}{#2} \right)}  % frac with large paren

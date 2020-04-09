@@ -37,7 +37,8 @@ Temporary Items
 *.pygstyle
 *.pygtex
 
-# Audio/Video files ignored  due to resource contraints
+# Audio/Video/subtitle files ignored  due to resource contraints
 *.mp4
 *.m4a
 *.m4v
+*.sbv

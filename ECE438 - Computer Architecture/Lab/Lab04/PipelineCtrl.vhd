@@ -25,7 +25,7 @@ end PipelineCtrl;
 
 architecture behv of PipelineCtrl is
 
-    begin
+begin
     ---------------------------------------------------
     --Pipeline control
     --The sensitivity list! Do something if any of these signals change
@@ -39,4 +39,3 @@ architecture behv of PipelineCtrl is
         else
         end if;
     end process;
-

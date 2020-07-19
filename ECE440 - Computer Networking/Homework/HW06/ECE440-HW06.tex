@@ -1,0 +1,48 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % uses T1 fonts (better quality)
+\usepackage{lmodern} % uses Times fonts
+% \usepackage{mathptmx} % uses Times fonts
+\usepackage[dvipsnames]{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{nopageno} % no page numbers
+\usepackage{graphicx}
+\usepackage{bm}
+\graphicspath{ {./img/} }
+\usepackage{booktabs}   % for table borders
+
+\title{ECE440-HW06}
+\begin{document}
+% \begin{titlepage}
+% \vspace*{\fill}
+ 	\begin{center}
+     \line(1,0){300}\\[0.25cm]
+ 	\Large{\bfseries ECE440: Homework \#6}\\
+ 	\textsc{\large David Kirby}\\
+ 	\textsc{\large Due: 07 May 2020}\\
+ 	\line(1,0){300}\\[0.75cm]
+ 	\end{center}
+ %	\vfill
+% \end{titlepage}
+
+\begin{enumerate}
+\bfseries \item Review Question R2, Chapter 6 (30\%)\\[1em]
+If all the links in the Internet were to provide reliable delivery service, would the TCP reliable delivery service be redundant? Why or why not?\par
+\mdseries No, the TCP reliable delivery service would not be redundant. Even though a link-layer protocol may provide reliable delivery service, and thereby provide bit-level error detection and correction, this only guarantees that the datagram will move across the link without error. It does not affect anything outside the link. For example, data could travel through the link fine, but arrive out of order.
+\bfseries \item Review Question R3, Chapter 6 (30\%)\\[1em]
+What are some of the possible services that a link-layer protocol can offer to the network layer? Which of these link-layer services have corresponding services in IP? In TCP?\par
+\mdseries Possible services that can be offered to the network layer by a link-layer protocol include:
+\begin{itemize}
+    \item Framing,
+    \item Link access,
+    \item Reliable delivery, and
+    \item Error detection \& correction.
+\end{itemize}
+Of these, framing, link access, and error detection \& correction have corresponding services in IP. All four of these services have corresponding services in TCP (as discussed in our first question).
+\bfseries \item Review Question R4, Chapter 6 (40\%)\\[1em]
+Suppose two nodes start to transmit at the same time a packet of length $\bm{L}$ over a broadcast channel of rate $\bm{R}$. Denote the propagation delay between the two nodes as $\bm{d_{prop}}$. Will there be a collision if $\bm{d_{prop} < \frac{L}{R}}$? Why or why not?\par
+\mdseries If $d_{prop} < \frac{L}{R}$ and the bits transmit at the same time then there will of course be collision as neither bit can propagate through the link before the other and both bits will be in the link at the same time, causing collision.
+\end{enumerate}
+\end{document}
+
+% \mathrm = unitalicize math fonts

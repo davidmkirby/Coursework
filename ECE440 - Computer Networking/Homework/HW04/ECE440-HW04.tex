@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % uses T1 fonts (better quality)
+\usepackage{lmodern} % uses Latin Modern fonts
+\usepackage[dvipsnames]{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{nopageno} % no page numbers
+\usepackage{graphicx}
+\graphicspath{ {./img/} }
+\usepackage{booktabs}   % for table borders
+
+\title{ECE440-HW03}
+\begin{document}
+\begin{center}
+    \line(1,0){300}\\[0.25cm]
+ 	\LARGE{\bfseries ECE440: Homework \#4}\\
+ 	\textsc{\LARGE David Kirby}\\
+ 	\textsc{\Large Due: 30 April 2020}\\
+ 	\line(1,0){300}\\[1.0cm]
+\end{center}
+\begin{enumerate}
+\large{\bfseries \item Problem P2, Chapter 4 (30\%)\par
+Suppose two packets arrive to two different input ports of a router at the same time. Also suppose there are no other packets anywhere in the router.%
+    \begin{enumerate}
+        \item Suppose the two packets are to be forwarded to two different output ports. Is it possible to forward the two packets through the switch fabric at the same time when the fabric uses a shared bus?\par
+        \mdseries Using \textit{switching via a shared bus}, if multiple packets arrive to the router at the same time, each at a different input port, all but one must wait since only one packet can cross the bus at a time.\par
+        \bfseries \item Suppose the two packets are to be forwarded to two different output ports. Is it possible to forward the two packets through the switch fabric at the same time when the fabric uses switching via memory?\par
+        \mdseries Using \textit{switching via memory}, two packets cannot be forwarded at the same time, even if they have different destination ports, since only one memory read/write can be done at a time over the shared system bus.\par
+        \bfseries \item Suppose the two packets are to be forwarded to the same output port. Is it possible to forward the two packets through the switch fabric at the same time when the fabric uses a crossbar?\par
+        \mdseries Using \textit{switching via crossbar}, unlike the previous two switching approaches, cross-bar switches are capable of forwarding multiple packets in parallel; however, if two packets from two different input ports are destined to the same output port, then one will have to wait at the input, since only one packet can be sent over any given bus at a time.
+    \end{enumerate}}\par
+\large{\bfseries \item Problem P8, Chapter 4 (30\%)\par
+Consider a router that interconnects three subnets: Subnet 1, Subnet 2, and Subnet 3. Suppose all of the interfaces in each of these three subnets are required to have the prefix 223.1.17/24. Also suppose that Subnet 1 is required to support at least 60 interfaces, Subnet 2 is to support at least 90 interfaces, and Subnet 3 is to support at least 12 interfaces. Provide three network addresses (of the form a.b.c.d/x) that satisfy these constraints.}\par
+Starting with the most significant bit,\\
+Subnet$_{2}: 90$ interfaces $\quad \Rightarrow \quad2^7=128\quad \Rightarrow \quad$
+				223.1.17.\textcolor{Red}{0}/\textcolor{Cyan}{25} through 223.1.17.\textcolor{Red}{127}/\textcolor{Cyan}{25}\\
+Subnet$_{1}: 60$ interfaces $\quad \Rightarrow \quad2^6=64\quad \Rightarrow \quad$
+				223.1.17.\textcolor{Red}{128}/\textcolor{Cyan}{26} through 223.1.17.\textcolor{Red}{191}/\textcolor{Cyan}{26}
+Subnet$_{3}: 12$ interfaces $\quad \Rightarrow \quad2^4=16\quad \Rightarrow \quad$
+				223.1.17.\textcolor{Red}{192}/\textcolor{Cyan}{27} through 223.1.17.\textcolor{Red}{207}/\textcolor{Cyan}{27}
+
+\large{\bfseries \item Problem P11 (consider four equal size subnets), Chapter 4 (40\%)\par
+Consider a subnet with prefix 128.119.40.128/26. Give an example of one IP address (of form xxx.xxx.xxx.xxx) that can be assigned to this network. Suppose an ISP owns the block of addresses of the form 128.119.40.64/26. Suppose it wants to create four equal size subnets from this block, with each block having the same number of IP addresses. What are the prefixes (of form a.b.c.d/x) for the four subnets?}\par
+26 bits are used for the IP address, leaving 6 bits for the subnet $\Rightarrow2^6=64$ giving us a range of 128.119.40.\textcolor{Red}{128} through 128.119.40.\textcolor{Red}{191}. Any address within this range (e.g. 128.119.40.129) could be used as an example assigned to this network.
+
+Again, the 26-bit subnet mask gives us the block 128.119.40.\textcolor{Red}{64} through 128.119.40.\textcolor{Red}{127}. Split up four equal ways we get:\par
+128.119.40.\textcolor{Red}{64}/\textcolor{Cyan}{28} through 128.119.40.\textcolor{Red}{79}/\textcolor{Cyan}{28}\\
+128.119.40.\textcolor{Red}{80}/\textcolor{Cyan}{28} through 128.119.40.\textcolor{Red}{95}/\textcolor{Cyan}{28}\\
+128.119.40.\textcolor{Red}{96}/\textcolor{Cyan}{28} through 128.119.40.\textcolor{Red}{111}/\textcolor{Cyan}{28}\\
+128.119.40.\textcolor{Red}{112}/\textcolor{Cyan}{28} through 128.119.40.\textcolor{Red}{127}/\textcolor{Cyan}{28}.\par
+Our subnet mask is 28 because we now need 28 bits for our IP address to block off each subnet properly.
+
+\end{enumerate}
+\end{document}

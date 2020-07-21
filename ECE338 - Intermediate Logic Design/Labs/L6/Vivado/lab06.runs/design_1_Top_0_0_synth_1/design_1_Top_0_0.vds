@@ -1,0 +1,321 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Thu Oct  3 19:46:17 2019
+# Process ID: 15326
+# Current directory: /media/psf/Home/OneDrive/OneDrive - University of New Mexico/FALL2019/ECE338/lab06/lab06.runs/design_1_Top_0_0_synth_1
+# Command line: vivado -log design_1_Top_0_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source design_1_Top_0_0.tcl
+# Log file: /media/psf/Home/OneDrive/OneDrive - University of New Mexico/FALL2019/ECE338/lab06/lab06.runs/design_1_Top_0_0_synth_1/design_1_Top_0_0.vds
+# Journal file: /media/psf/Home/OneDrive/OneDrive - University of New Mexico/FALL2019/ECE338/lab06/lab06.runs/design_1_Top_0_0_synth_1/vivado.jou
+#-----------------------------------------------------------
+source design_1_Top_0_0.tcl -notrace
+Command: synth_design -top design_1_Top_0_0 -part xc7z010clg400-1 -mode out_of_context
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z010'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 15469 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:09 . Memory (MB): peak = 1283.281 ; gain = 86.918 ; free physical = 71 ; free virtual = 729
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'design_1_Top_0_0' [/media/psf/Home/OneDrive/OneDrive - University of New Mexico/FALL2019/ECE338/lab06/lab06.srcs/sources_1/bd/design_1/ip/design_1_Top_0_0/synth/design_1_Top_0_0.vhd:69]
+INFO: [Synth 8-3491] module 'Top' declared at '/media/psf/Home/OneDrive/OneDrive - University of New Mexico/FALL2019/ECE338/lab06/lab06.srcs/sources_1/imports/ECE338/Top.vhd:5' bound to instance 'U0' of component 'Top' [/media/psf/Home/OneDrive/OneDrive - University of New Mexico/FALL2019/ECE338/lab06/lab06.srcs/sources_1/bd/design_1/ip/design_1_Top_0_0/synth/design_1_Top_0_0.vhd:93]
+INFO: [Synth 8-638] synthesizing module 'Top' [/media/psf/Home/OneDrive/OneDrive - University of New Mexico/FALL2019/ECE338/lab06/lab06.srcs/sources_1/imports/ECE338/Top.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'Top' (1#1) [/media/psf/Home/OneDrive/OneDrive - University of New Mexico/FALL2019/ECE338/lab06/lab06.srcs/sources_1/imports/ECE338/Top.vhd:18]
+INFO: [Synth 8-256] done synthesizing module 'design_1_Top_0_0' (2#1) [/media/psf/Home/OneDrive/OneDrive - University of New Mexico/FALL2019/ECE338/lab06/lab06.srcs/sources_1/bd/design_1/ip/design_1_Top_0_0/synth/design_1_Top_0_0.vhd:69]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[15]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[14]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[13]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[12]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[11]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[10]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[9]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[8]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[7]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[6]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[5]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[4]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[3]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[2]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[1]
+WARNING: [Synth 8-3331] design Top has unconnected port BRAM_PORTA_din[0]
+WARNING: [Synth 8-3331] design Top has unconnected port FCLK_CLK0
+WARNING: [Synth 8-3331] design Top has unconnected port FCLK_RESET0_N
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:15 . Memory (MB): peak = 1327.906 ; gain = 131.543 ; free physical = 116 ; free virtual = 705
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 1327.906 ; gain = 131.543 ; free physical = 118 ; free virtual = 718
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 1327.906 ; gain = 131.543 ; free physical = 118 ; free virtual = 718
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xc7z010clg400-1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+WARNING: [Constraints 18-5210] No constraint will be written out.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.21 ; elapsed = 00:00:01 . Memory (MB): peak = 1531.504 ; gain = 2.000 ; free physical = 78 ; free virtual = 441
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:45 ; elapsed = 00:02:19 . Memory (MB): peak = 1531.504 ; gain = 335.141 ; free physical = 215 ; free virtual = 1011
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z010clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:45 ; elapsed = 00:02:19 . Memory (MB): peak = 1531.504 ; gain = 335.141 ; free physical = 214 ; free virtual = 1011
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:45 ; elapsed = 00:02:19 . Memory (MB): peak = 1531.504 ; gain = 335.141 ; free physical = 214 ; free virtual = 1014
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:46 ; elapsed = 00:02:19 . Memory (MB): peak = 1531.504 ; gain = 335.141 ; free physical = 209 ; free virtual = 1014
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 80 (col length:40)
+BRAMs: 120 (col length: RAMB18 40 RAMB36 20)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+WARNING: [Synth 8-3330] design design_1_Top_0_0 has an empty top module
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_addr[12] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_addr[11] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_addr[10] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_addr[9] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_addr[8] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_addr[7] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_addr[6] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_addr[5] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_addr[4] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_addr[3] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_addr[2] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_addr[1] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_addr[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[15] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[14] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[13] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[12] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[11] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[10] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[9] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[8] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[7] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[6] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[5] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[4] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[3] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[2] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[1] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_dout[0] driven by constant 0
+INFO: [Synth 8-3917] design design_1_Top_0_0 has port BRAM_PORTA_we[0] driven by constant 0
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[15]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[14]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[13]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[12]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[11]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[10]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[9]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[8]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[7]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[6]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[5]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[4]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[3]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[2]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[1]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port BRAM_PORTA_din[0]
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port FCLK_CLK0
+WARNING: [Synth 8-3331] design design_1_Top_0_0 has unconnected port FCLK_RESET0_N
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:46 ; elapsed = 00:02:21 . Memory (MB): peak = 1531.504 ; gain = 335.141 ; free physical = 200 ; free virtual = 1025
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:59 ; elapsed = 00:02:39 . Memory (MB): peak = 1576.504 ; gain = 380.141 ; free physical = 70 ; free virtual = 898
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:59 ; elapsed = 00:02:39 . Memory (MB): peak = 1576.504 ; gain = 380.141 ; free physical = 73 ; free virtual = 898
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:59 ; elapsed = 00:02:40 . Memory (MB): peak = 1576.504 ; gain = 380.141 ; free physical = 70 ; free virtual = 898
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:00 ; elapsed = 00:02:41 . Memory (MB): peak = 1577.504 ; gain = 381.141 ; free physical = 70 ; free virtual = 897
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:00 ; elapsed = 00:02:41 . Memory (MB): peak = 1577.504 ; gain = 381.141 ; free physical = 70 ; free virtual = 897
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:00 ; elapsed = 00:02:41 . Memory (MB): peak = 1577.504 ; gain = 381.141 ; free physical = 70 ; free virtual = 897
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:00 ; elapsed = 00:02:41 . Memory (MB): peak = 1577.504 ; gain = 381.141 ; free physical = 70 ; free virtual = 897
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:00 ; elapsed = 00:02:41 . Memory (MB): peak = 1577.504 ; gain = 381.141 ; free physical = 70 ; free virtual = 897
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:00 ; elapsed = 00:02:41 . Memory (MB): peak = 1577.504 ; gain = 381.141 ; free physical = 70 ; free virtual = 897
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++-+-----+------+
+| |Cell |Count |
++-+-----+------+
++-+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |     0|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:00 ; elapsed = 00:02:41 . Memory (MB): peak = 1577.504 ; gain = 381.141 ; free physical = 70 ; free virtual = 897
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 19 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:30 ; elapsed = 00:01:01 . Memory (MB): peak = 1577.504 ; gain = 177.543 ; free physical = 126 ; free virtual = 955
+Synthesis Optimization Complete : Time (s): cpu = 00:01:00 ; elapsed = 00:02:41 . Memory (MB): peak = 1577.512 ; gain = 381.141 ; free physical = 125 ; free virtual = 956
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+44 Infos, 38 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:01:03 ; elapsed = 00:02:44 . Memory (MB): peak = 1596.504 ; gain = 400.223 ; free physical = 125 ; free virtual = 941
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/media/psf/Home/OneDrive/OneDrive - University of New Mexico/FALL2019/ECE338/lab06/lab06.runs/design_1_Top_0_0_synth_1/design_1_Top_0_0.dcp' has been generated.
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/media/psf/Home/OneDrive/OneDrive - University of New Mexico/FALL2019/ECE338/lab06/lab06.runs/design_1_Top_0_0_synth_1/design_1_Top_0_0.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file design_1_Top_0_0_utilization_synth.rpt -pb design_1_Top_0_0_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.14 ; elapsed = 00:00:00.29 . Memory (MB): peak = 1612.512 ; gain = 0.000 ; free physical = 82 ; free virtual = 942
+INFO: [Common 17-206] Exiting Vivado at Thu Oct  3 19:49:57 2019...

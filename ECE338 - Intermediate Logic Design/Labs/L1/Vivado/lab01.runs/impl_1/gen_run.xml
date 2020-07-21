@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="impl_1" LaunchPart="xc7z010clg400-1" LaunchTime="1568827143">
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="BG-DRC" Name="FA_ED.drc"/>
+  <File Type="BG-BGN" Name="FA_ED.bgn"/>
+  <File Type="BITSTR-SYSDEF" Name="FA_ED.sysdef"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="FA_ED.ltx"/>
+  <File Type="BITSTR-MMI" Name="FA_ED.mmi"/>
+  <File Type="BITSTR-BMM" Name="FA_ED_bd.bmm"/>
+  <File Type="BITSTR-NKY" Name="FA_ED.nky"/>
+  <File Type="BITSTR-RBT" Name="FA_ED.rbt"/>
+  <File Type="BITSTR-MSK" Name="FA_ED.msk"/>
+  <File Type="BG-BIN" Name="FA_ED.bin"/>
+  <File Type="BG-BIT" Name="FA_ED.bit"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="FA_ED_bus_skew_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="FA_ED_bus_skew_postroute_physopted.pb"/>
+  <File Type="RDI-RDI" Name="FA_ED.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="FA_ED_timing_summary_postroute_physopted.rpx"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="FA_ED_timing_summary_postroute_physopted.pb"/>
+  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="FA_ED_timing_summary_postroute_physopted.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="FA_ED_postroute_physopt_bb.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="FA_ED_postroute_physopt.dcp"/>
+  <File Type="ROUTE-BUS-SKEW" Name="FA_ED_bus_skew_routed.rpt"/>
+  <File Type="ROUTE-CLK" Name="FA_ED_clock_utilization_routed.rpt"/>
+  <File Type="ROUTE-SIMILARITY" Name="FA_ED_incremental_reuse_routed.rpt"/>
+  <File Type="ROUTE-TIMING-RPX" Name="FA_ED_timing_summary_routed.rpx"/>
+  <File Type="ROUTE-TIMING-PB" Name="FA_ED_timing_summary_routed.pb"/>
+  <File Type="ROUTE-TIMINGSUMMARY" Name="FA_ED_timing_summary_routed.rpt"/>
+  <File Type="ROUTE-STATUS-PB" Name="FA_ED_route_status.pb"/>
+  <File Type="ROUTE-STATUS" Name="FA_ED_route_status.rpt"/>
+  <File Type="ROUTE-PWR-RPX" Name="FA_ED_power_routed.rpx"/>
+  <File Type="ROUTE-PWR-SUM" Name="FA_ED_power_summary_routed.pb"/>
+  <File Type="ROUTE-PWR" Name="FA_ED_power_routed.rpt"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="FA_ED_methodology_drc_routed.pb"/>
+  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="FA_ED_methodology_drc_routed.rpx"/>
+  <File Type="ROUTE-METHODOLOGY-DRC" Name="FA_ED_methodology_drc_routed.rpt"/>
+  <File Type="ROUTE-DRC-RPX" Name="FA_ED_drc_routed.rpx"/>
+  <File Type="ROUTE-DRC-PB" Name="FA_ED_drc_routed.pb"/>
+  <File Type="ROUTE-DRC" Name="FA_ED_drc_routed.rpt"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="FA_ED_routed_bb.dcp"/>
+  <File Type="ROUTE-DCP" Name="FA_ED_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="FA_ED_routed_error.dcp"/>
+  <File Type="PHYSOPT-TIMING" Name="FA_ED_timing_summary_physopted.rpt"/>
+  <File Type="PHYSOPT-DRC" Name="FA_ED_drc_physopted.rpt"/>
+  <File Type="PHYSOPT-DCP" Name="FA_ED_physopt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-TIMING" Name="FA_ED_timing_summary_postplace_pwropted.rpt"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="FA_ED_postplace_pwropt.dcp"/>
+  <File Type="PLACE-TIMING" Name="FA_ED_timing_summary_placed.rpt"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="FA_ED_incremental_reuse_pre_placed.rpt"/>
+  <File Type="PLACE-SIMILARITY" Name="FA_ED_incremental_reuse_placed.rpt"/>
+  <File Type="PLACE-CTRL" Name="FA_ED_control_sets_placed.rpt"/>
+  <File Type="PLACE-UTIL-PB" Name="FA_ED_utilization_placed.pb"/>
+  <File Type="PLACE-UTIL" Name="FA_ED_utilization_placed.rpt"/>
+  <File Type="PLACE-CLK" Name="FA_ED_clock_utilization_placed.rpt"/>
+  <File Type="PLACE-IO" Name="FA_ED_io_placed.rpt"/>
+  <File Type="PLACE-DCP" Name="FA_ED_placed.dcp"/>
+  <File Type="PWROPT-TIMING" Name="FA_ED_timing_summary_pwropted.rpt"/>
+  <File Type="PWROPT-DRC" Name="FA_ED_drc_pwropted.rpt"/>
+  <File Type="PWROPT-DCP" Name="FA_ED_pwropt.dcp"/>
+  <File Type="OPT-TIMING" Name="FA_ED_timing_summary_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="FA_ED.hwdef"/>
+  <File Type="OPT-METHODOLOGY-DRC" Name="FA_ED_methodology_drc_opted.rpt"/>
+  <File Type="OPT-DRC" Name="FA_ED_drc_opted.rpt"/>
+  <File Type="OPT-DCP" Name="FA_ED_opt.dcp"/>
+  <File Type="INIT-TIMING" Name="FA_ED_timing_summary_init.rpt"/>
+  <File Type="ROUTE-BUS-SKEW-RPX" Name="FA_ED_bus_skew_routed.rpx"/>
+  <File Type="REPORTS-TCL" Name="FA_ED_reports.tcl"/>
+  <File Type="ROUTE-BUS-SKEW-PB" Name="FA_ED_bus_skew_routed.pb"/>
+  <File Type="PA-TCL" Name="FA_ED.tcl"/>
+  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="FA_ED_bus_skew_postroute_physopted.rpt"/>
+  <File Type="PA-DCP" Name="FA_ED.dcp"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/behaviorial_MUX.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="FA_ED"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2018"/>
+    <Step Id="init_design"/>
+    <Step Id="opt_design"/>
+    <Step Id="power_opt_design"/>
+    <Step Id="place_design"/>
+    <Step Id="post_place_power_opt_design"/>
+    <Step Id="phys_opt_design"/>
+    <Step Id="route_design"/>
+    <Step Id="post_route_phys_opt_design"/>
+    <Step Id="write_bitstream"/>
+  </Strategy>
+</GenRun>

@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Mon Sep 23 13:08:21 2019
+# Process ID: 3247
+# Current directory: /media/psf/Home/OneDrive/OneDrive - University of New Mexico/FALL2019/ECE338/lab04/lab04.runs/impl_1
+# Command line: vivado -log Counter.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Counter.tcl -notrace
+# Log file: /media/psf/Home/OneDrive/OneDrive - University of New Mexico/FALL2019/ECE338/lab04/lab04.runs/impl_1/Counter.vdi
+# Journal file: /media/psf/Home/OneDrive/OneDrive - University of New Mexico/FALL2019/ECE338/lab04/lab04.runs/impl_1/vivado.jou
+#-----------------------------------------------------------
+source Counter.tcl -notrace

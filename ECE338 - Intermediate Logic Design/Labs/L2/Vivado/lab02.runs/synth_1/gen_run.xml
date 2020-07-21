@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GenRun Id="synth_1" LaunchPart="xc7z010clg400-1" LaunchTime="1568657319">
+  <File Type="VDS-TIMING-PB" Name="Index_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="Index_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="Index.dcp"/>
+  <File Type="PA-TCL" Name="Index.tcl"/>
+  <File Type="REPORTS-TCL" Name="Index_reports.tcl"/>
+  <File Type="RDS-RDS" Name="Index.vds"/>
+  <File Type="RDS-PROPCONSTRS" Name="Index_drc_synth.rpt"/>
+  <File Type="RDS-UTIL" Name="Index_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="Index_utilization_synth.pb"/>
+  <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
+    <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/behaviorial.vhd">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <Config>
+      <Option Name="DesignMode" Val="RTL"/>
+      <Option Name="TopModule" Val="Index"/>
+      <Option Name="TopAutoSet" Val="TRUE"/>
+    </Config>
+  </FileSet>
+  <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
+    <Filter Type="Constrs"/>
+    <Config>
+      <Option Name="ConstrsType" Val="XDC"/>
+    </Config>
+  </FileSet>
+  <Strategy Version="1" Minor="2">
+    <StratHandle Name="Vivado Synthesis Defaults" Flow="Vivado Synthesis 2018"/>
+    <Step Id="synth_design"/>
+  </Strategy>
+</GenRun>

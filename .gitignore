@@ -38,10 +38,6 @@ FE Exam
 *.pygstyle
 *.pygtex
 
-# HTML files created by Vivado
-*.html
-*.htm
-
 # Audio/Video/subtitle files ignored  due to resource contraints
 *.mp4
 *.m4a

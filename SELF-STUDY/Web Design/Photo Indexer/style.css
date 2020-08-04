@@ -1,0 +1,230 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #15181a;
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: whitesmoke;
+  text-decoration: none;
+}
+
+.skw-pages {
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+}
+
+.skw-page {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+.skw-page__half {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100vh;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+}
+.skw-page__half--left {
+  left: 0;
+  -webkit-transform: translate3d(-32.4vh, 100%, 0);
+  transform: translate3d(-32.4vh, 100%, 0);
+}
+.skw-page__half--right {
+  left: 50%;
+  -webkit-transform: translate3d(32.4vh, -100%, 0);
+  transform: translate3d(32.4vh, -100%, 0);
+}
+.skw-page.active .skw-page__half {
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+}
+.skw-page__skewed {
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 140%;
+  height: 100%;
+  -webkit-transform: skewX(-18deg);
+  transform: skewX(-18deg);
+  background: #000;
+}
+.skw-page__half--left .skw-page__skewed {
+  left: -40%;
+}
+.skw-page__half--right .skw-page__skewed {
+  right: -40%;
+}
+.skw-page__content {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-flow: column wrap;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0 30%;
+  color: #fff;
+  -webkit-transform: skewX(18deg);
+  transform: skewX(18deg);
+  -webkit-transition: opacity 1s, -webkit-transform 1s;
+  transition: opacity 1s, -webkit-transform 1s;
+  transition: transform 1s, opacity 1s;
+  transition: transform 1s, opacity 1s, -webkit-transform 1s;
+  background-size: cover;
+}
+.skw-page__half--left .skw-page__content {
+  padding-left: 30%;
+  padding-right: 30%;
+  -webkit-transform-origin: 100% 0;
+  transform-origin: 100% 0;
+}
+.skw-page__half--right .skw-page__content {
+  padding-left: 30%;
+  padding-right: 30%;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+}
+.skw-page.inactive .skw-page__content {
+  opacity: 0.5;
+  -webkit-transform: skewX(18deg) scale(0.95);
+  transform: skewX(18deg) scale(0.95);
+}
+.skw-page__heading {
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  font-size: 25px;
+  text-align: center;
+}
+.skw-page__description {
+  font-size: 18px;
+  text-align: center;
+}
+.skw-page-1 .skw-page__half--left .skw-page__content {
+  /* Our Wedding */
+  background-image: url("/wedding/photos/bride+groom/CDWed2020_BrideGroom-146.jpg");
+}
+.skw-page-1 .skw-page__half--right .skw-page__content {
+  background: #292929;
+}
+.skw-page-2 .skw-page__half--left .skw-page__content {
+  background: #292929;
+}
+.skw-page-2 .skw-page__half--right .skw-page__content {
+  /* Morning */
+  background-image: url("/wedding/photos/morning/CDWed2020_morning-2.jpg");
+}
+.skw-page-3 .skw-page__half--left .skw-page__content {
+  /* Mass */
+  background-image: url("/wedding/photos/mass/CDWed2020_mass.jpg");
+}
+.skw-page-3 .skw-page__half--right .skw-page__content {
+  background: #292929;
+}
+.skw-page-4 .skw-page__half--left .skw-page__content {
+  background: #292929;
+}
+.skw-page-4 .skw-page__half--right .skw-page__content {
+  /* Wedding Party */
+  background-image: url("/wedding/photos/weddingParty/CDWed2020_BridalParty-21.jpg");
+}
+.skw-page-5 .skw-page__half--left .skw-page__content {
+  /* Bride + Groom */
+  background-image: url("/wedding/photos/bride+groom/CDWed2020_BrideGroom-430.jpg");
+}
+.skw-page-5 .skw-page__half--right .skw-page__content {
+  background: #292929;
+}
+.skw-page-6 .skw-page__half--left .skw-page__content {
+  background: #292929;
+}
+.skw-page-6 .skw-page__half--right .skw-page__content {
+  /* Reception */
+  background-image: url("/wedding/photos/reception/CDWed2020_Reception-10.jpg");
+}
+.scroll-down {
+  position: absolute;
+  bottom: 45%;
+  display: block;
+  text-align: center;
+  font-size: 20px;
+  z-index: 100;
+  text-decoration: none;
+  text-shadow: 0;
+  width: 13px;
+  height: 13px;
+  border-bottom: 2px solid #1d81af;
+  border-right: 2px solid #1d81af;
+  z-index: 9;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0%) rotate(45deg);
+  -moz-transform: translate(-50%, 0%) rotate(45deg);
+  transform: translate(-50%, 0%) rotate(45deg);
+  -webkit-animation: fade_move_down 1.5s ease-in-out infinite;
+  -moz-animation: fade_move_down 1.5s ease-in-out infinite;
+  animation: fade_move_down 1.5s ease-in-out infinite;
+}
+
+/*animated scroll arrow animation*/
+@-webkit-keyframes fade_move_down {
+  0% {
+    -webkit-transform: translate(0, -10px) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translate(0, 10px) rotate(45deg);
+    opacity: 0;
+  }
+}
+@-moz-keyframes fade_move_down {
+  0% {
+    -moz-transform: translate(0, -10px) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    -moz-transform: translate(0, 10px) rotate(45deg);
+    opacity: 0;
+  }
+}
+@keyframes fade_move_down {
+  0% {
+    transform: translate(0, -10px) rotate(45deg);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translate(0, 10px) rotate(45deg);
+    opacity: 0;
+  }
+}

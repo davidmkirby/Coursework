@@ -1,0 +1,3 @@
+# Alias to run a series of commands to upgrade, update, & cleanup Homebrew for MacOS, as well as update Oh My Zsh.
+
+alias update="brew update; brew upgrade; brew cleanup; omz update; clear; echo All finished!"

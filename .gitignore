@@ -37,8 +37,8 @@ FE Exam
 *.pyg
 *.pygstyle
 *.pygtex
-__latexindent_temp
-_minted
+__latexindent_temp*
+_minted*
 
 # Audio/Video/subtitle files ignored  due to resource contraints
 *.mp4

@@ -1,0 +1,31 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % uses T1 fonts (better quality)
+\usepackage{lmodern} % uses Latin Modern fonts
+\usepackage[dvipsnames]{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{nopageno} % no page numbers
+\usepackage{graphicx}
+
+\begin{document}
+% \begin{titlepage}
+% \vspace*{\fill}
+ 	\begin{center}
+     \line(1,0){300}\\[0.25cm]
+ 	\Large{\bfseries Lecture 27 Quiz}\\
+ 	\textsc{\large David Kirby}\\
+ 	\textsc{\large Due: 13 May 2020}\\
+ 	\line(1,0){300}\\[0.75cm]
+ 	\end{center}
+ %	\vfill
+% \end{titlepage}
+
+\begin{enumerate}
+\bfseries \item Describe the function of the TLB.\par
+\mdseries Operating systems use some form of Least Recently Used (LRU) to determine what goes into physical memory versus disk. The translation lookaside buffer acts as a small cache (typically fully associative) that stores the most recently used page table entries in order to speed things up. It is managed by the operating system.
+\bfseries \item What does the page table do?\par
+\mdseries Virtual memory provides an automatic mapping from virtual addresses of the program to physical addresses of the machine. Each virtual address space is broken up into pages and the page table keeps track of this address mapping.
+\bfseries \item Define swap space.\par
+\mdseries Page faults occur when a requested page is not in physical memory and the OS must retrieve it from the location on disk called swap space, where pages are stored. Swap space is the portion of virtual memory that is on the hard disk.
+\end{enumerate}
+\end{document}

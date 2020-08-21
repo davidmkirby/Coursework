@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % uses T1 fonts (better quality)
+\usepackage{lmodern} % uses Times fonts
+% \usepackage{mathptmx} % uses Times fonts
+% \mathrm = un-italicize math fonts
+\usepackage[dvipsnames]{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{nopageno} % no page numbers
+\usepackage{graphicx}
+\usepackage{bm}
+\graphicspath{ {./img/} }
+\usepackage{booktabs}   % for table borders
+
+\begin{document}
+ 	\begin{center}
+    \line(1,0){300}\\[0.25cm]
+ 	\Large{\bfseries ECE540: Homework \#1}\\
+ 	\textsc{\large David Kirby}\\
+ 	\textsc{\large Due: 07 September 2020}\\
+ 	\line(1,0){300}\\[0.75cm]
+ 	\end{center}
+
+\begin{enumerate}
+\item R2.  Describe the protocol that might be used by two people having a telephonic conversation to initiate and end the conversation.\\[1em]
+
+
+\item R3.  Why are standards important for protocols?\\[1em]
+Interoperability is the main purpose behind standards when developing protocols, otherwise protocols would not be able to communicate with each other.
+
+\item R13.  Suppose users share a 2 Mbps link. Also suppose each user transmits continuously at 1 Mbps when transmitting, but each user transmits only 20 percent of the time.
+    \begin{enumerate}
+        \item When circuit switching is used, how many users can be supported?\\[1em]
+        If each user is transmitting at 1 Mbps, then a maximum of two users can be supported (each user will utilize half of the available bandwidth).
+
+        \item For the remainder of this problem, suppose packet switching is used. Why will there be essentially no queuing delay before the link if two or fewer users transmit at the same time? Why will there be a queuing delay if three users transmit at the same time?\\[1em]
+
+        \item Find the probability that a given user is transmitting.\\[1em]
+
+        \item Suppose now there are three users. Find the probability that at any given time, all three users are transmitting simultaneously. Find the fraction of time during which the queue grows.
+    \end{enumerate}
+
+\item R18.  A user can directly connect to a server through either long-range wireless or a twisted-pair cable for transmitting a 1500-bytes file. The transmission rates of the wireless and wired media are 2 and 100 Mbps, respectively. Assume that the propagation speed in air is \(3 \times 10^8\) m/s, while the speed in the twisted pair is \(2 \times 10^8\) m/s. If the user is located 1 km away from the server, what is the nodal delay when using each of the two technologies?
+
+\item R23.  What are the five layers in the Internet protocol stack? What are the principal responsibilities of each of these layers?
+
+\item P1.  Design and describe an application-level protocol to be used between an automatic teller machine and a bank’s centralized computer. Your protocol should allow a user’s card and password to be verified, the account balance (which is maintained at the centralized computer) to be queried, and an account withdrawal to be made (that is, money disbursed to the user). Your protocol entities should be able to handle the all-too-common case in which there is not enough money in the account to cover the withdrawal. Specify your protocol by listing the messages exchanged and the action taken by the automatic teller machine or the bank’s centralized computer on transmission and receipt of messages. Sketch the operation of your protocol for the case of a simple withdrawal with no errors, using a diagram similar to that in Figure 1.2. Explicitly state the assumptions made by your protocol about the underlying end-to-end transport service.
+
+\item P4.  Consider the circuit-switched network in Figure 1.13. Recall that there are 4 circuits on each link. Label the four switches A, B, C, and D, going in the clockwise direction.
+    \begin{enumerate}
+        \item What is the maximum number of simultaneous connections that can be in progress at any one time in this network?
+        \item Suppose that all connections are between switches A and C. What is the maximum number of simultaneous connections that can be in progress?
+        \item Suppose we want to make four connections between switches A and C, and another four connections between switches B and D. Can we route these calls through the four links to accommodate all eight connections?
+    \end{enumerate}
+
+\item P16.  Consider a router buffer preceding an outbound link. In this problem, you will use Little’s formula, a famous formula from queuing theory. Let \textit{N} denote the average number of packets in the buffer plus the packet being transmitted. Let \textit{a} denote the rate of packets arriving at the link. Let \textit{d} denote the average total delay (i.e., the queuing delay plus the transmission delay) experienced by a packet. Little’s formula is \(N  =  a \times d\). Suppose that on average, the buffer contains 10 packets, and the average packet queuing delay is 10 msec. The link’s transmission rate is 100 packets/sec. Using Little’s formula, what is the average packet arrival rate, assuming there is no packet loss?
+
+\item P24.  Consider a user who needs to transmit 1.5 gigabytes of data to a server. The user lives in a small town where only dial-up access is available. A bus visits the small town once a day from the closest city, located 150 km away, and stops in front of the user’s house. The bus has a 100-Mbps WiFi connection. It can collect data from users in rural areas and transfer them to the Internet through a 1 Gbps link once it gets back to the city. Suppose the average speed of the bus is 60 km/h. What is the fastest way the user can transfer the data to the server?
+
+\item P31.  In modern packet-switched networks, including the Internet, the source host segments long, application-layer messages (for example, an image or a music file) into smaller packets and sends the packets into the network. The receiver then reassembles the packets back into the original message. We refer to this process as message segmentation. Figure 1.27 illustrates the end-to-end transport of a message with and without \textit{message segmentation}. Consider a message that is \(8 \times 10^6\)  bits long that is to be sent from source to destination in Figure 1.27. Suppose each link in the figure is 2 Mbps. Ignore propagation, queuing, and processing delays.
+    \begin{enumerate}
+        \item Consider sending the message from source to destination without message segmentation. How long does it take to move the message from the source host to the first packet switch? Keeping in mind that each switch uses store-and-forward packet switching, what is the total time to move the message from source host to destination host?
+        \item Now suppose that the message is segmented into 800 packets, with each packet being 10,000 bits long. How long does it take to move the first packet from source host to the first switch? When the first packet is being sent from the first switch to the second switch, the second packet is being sent from the source host to the first switch. At what time will the second packet be fully received at the first switch?
+        \item How long does it take to move the file from source host to destination host when message segmentation is used? Compare this result with your answer in part (a) and comment.
+    \end{enumerate}
+
+\end{enumerate}
+\end{document}

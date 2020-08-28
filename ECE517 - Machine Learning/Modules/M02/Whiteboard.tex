@@ -1,0 +1,82 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % uses T1 fonts (better quality)
+\usepackage{lmodern} % uses Times fonts
+% \usepackage{mathptmx} % uses Times fonts
+% \mathrm = un-italicize math fonts
+\usepackage[dvipsnames]{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{nopageno} % no page numbers
+\usepackage{graphicx}
+\usepackage{bm}
+\graphicspath{ {./img/} }
+\usepackage{booktabs}   % for table borders
+\usepackage{tikz}
+\usetikzlibrary{automata,shapes,matrix,arrows,decorations.pathmorphing}
+% \usepackage{accents}
+% \newcommand{\ubar}[1]{\underaccent{\bar}{#1}}
+\usepackage{amsmath,amsfonts,amssymb}
+\begin{document}
+\underline{Machine Learning}
+
+\begin{enumerate}
+    \item Structure\par
+    \( \bm{x} = \begin{Bmatrix}
+        x_1\\
+        \vdots\\
+        x_D
+        \end{Bmatrix}
+    \)
+    \fcolorbox{red}{white}{Data Structure}
+    \hspace{50mm}\vspace{10mm}
+    \( \bm{w} = \begin{bmatrix}
+        w_1\\
+        \vdots\\
+        w_D
+        \end{bmatrix}
+    \)
+
+    \begin{tikzpicture}[scale=2,shorten >=2pt]
+        \node (x4) at (1,1) {$x_4$};
+        \node (x3) at (1,2) {$x_3$};
+        \node (x2) at (1,3) {$x_2$};
+        \node (x1) at (1,4) {$x_1$};
+        \node[state] (+) at (3,2.5) {$+$};
+        \node (y) at (5,2.5) {$\hat{y}=f(\bm{x})$};
+        \path[*->,font=\scriptsize]
+        (x4) edge node[above]{$w_4$} (+)
+        (x3) edge node[above]{$w_3$} (+)
+        (x2) edge node[above]{$w_2$} (+)
+        (x1) edge node[above]{$w_1$} (+);
+        \path[->,font=\scriptsize]
+        (+) edge node[above] {$Output$} (y);
+    \end{tikzpicture}
+    \fcolorbox{red}{white}{Machine Structure}
+
+    \begin{align}
+        \hat{y}=f(\bm{x}) &= \bm{w}^\top \bm{x}+b \\
+                          &= \sum_{i=1}^{D}w_{i}x_{i}+b
+        \end{align}
+
+    \item Criterion = optimize \textbf{w} and b (e.g.\ minimize the mean square error)\par
+
+    \(\underset{\bm{w},b}{\text{minimize}} \underset{p(x,y)}{\mathbb{E}}\)
+    \(\left\{ \lvert y-\left(\bm{w}^\top \bm{x}+b\right)\rvert^2 \right\}
+    \)\par
+    \(\qquad\quad\nearrow\)\\[-0.25em]
+    \scriptsize{Expectation w.r.t.\ density}\normalsize
+
+    \begin{tikzpicture}
+        \draw[thick,->] (0,0) -- (4.5,0);
+        \draw[thick,->] (0,0) -- (0,4.5);
+    \draw (1,1) parabola (4,4);
+    \end{tikzpicture}
+
+
+    \item Algorithm
+    \item Primal \(arrow\) Dual
+\end{enumerate}
+
+
+
+\end{document}

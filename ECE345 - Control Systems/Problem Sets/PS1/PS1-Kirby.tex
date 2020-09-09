@@ -19,20 +19,20 @@
 
 \begin{document}
  	\begin{center}
- 	\LARGE{ECE 345 / ME 380:Introduction to Control Systems\\Problem Set \#1}\\[1.5em]
+ 	\LARGE{ECE 345 / ME 380: Introduction to Control Systems\\Problem Set \#1}\\[1.5em]
  	\large David Kirby\\[1.5em]
  	\large \textbf{Due Thursday, September 3, 2020 at 3:30pm}\\[2.5em]
  	\end{center}
 
 \begin{enumerate}
-    \item (+5 points) Consider lateral control of a rocket with a gimbaled engine. The equations of motion describe the relationship between the pitch, \(\theta(t)\), the lateral deviation, \(h(t)\), and the torque, \(f(t)\), from the engine with constant rocket speed \(V\) and positive, constant values \(k1,k0\). Presume all initial conditions are zero.
+    \item (+5 points) Consider lateral control of a rocket with a gimbaled engine. The equations of motion describe the relationship between the pitch, \(\theta(t)\), the lateral deviation, \(h(t)\), and the torque, \(f(t)\), from the engine with constant rocket speed \(V\) and positive, constant values \(k_1,k_0\). Presume all initial conditions are zero.
     \begin{align}
         J\ddot{\theta}(t)&=-k_{1}\dot{\theta}(t)-k_{0}\theta(t)+f(t)\\
         \dot{h}(t)&=V\theta(t)\notag
     \end{align}
     \begin{enumerate}
         \item Find the transfer function representation for the system with input \(F(s)\) and output \(H(s)\).\\[1em]
-        Transforms of equations (1) \& (2)
+        Transforms of equation (1)
         \begin{align*}
             Js^{2}\theta(s)&=-k_{1}s\theta(s)-k_{0}\theta(s)+F(s)\\
             sH(s)&=V\theta(s)
@@ -95,23 +95,24 @@
                     \draw[->, very thick](0.5,-1)--(0.5,0);
                     \draw[->, very thick](0.5,2)--(0.5,1);
                     \node at (0.5,0.5) {$\bm{m_1}$};
-                    \node at (0.5,-1.33) {$K_{2}y$};
-                    \node at (0.5,2.25) {$\left(K_1+K_2\right)x$};
+                    \node at (0.5,-1.33) {$k_{2}y$};
+                    \node at (0.5,2.25) {$\left(k_1+k_2\right)x$};
                 &
                     \filldraw[inner color=InnerBlue,outer color=OuterBlue, thick] (0,0)rectangle (1,1);
                     \draw[->, very thick](0.75,-1)--(0.75,0);
                     \draw[->, very thick](0.25,-1)--(0.25,0);
                     \node at (0.5,0.5) {$\bm{m_2}$};
                     \node at (0.5,-1.33)[left] {$u$};
-                    \node at (0.5,-1.33)[right] {$K_2\left(x-y\right)$};\\
+                    \node at (0.5,-1.33)[right] {$k_2\left(x-y\right)$};\\
                 };
             \end{tikzpicture}
         \end{center}
         \begin{align*}
-            m_1\ddot{x}&=-(K_1+K_2)x+K_2y\\
-            m_2\ddot{y}&=u+K_2(x-y)
+            m_1\ddot{x}&=-(k_1+k_2)x+k_2y\\
+            m_2\ddot{y}&=u+k_2(x-y)
         \end{align*}
-        \item What is the transfer function with input \(U(s)\) and output \(X(s)\)?
+        \item What is the transfer function with input \(U(s)\) and output \(X(s)\)?\\[1em]
+        Plugging in our given constants, we obtain:
         \begin{align*}
             \ddot{x}=-2x+y\qquad\rightarrow\qquad s^2X(s)&=-2X(s)+Y(s)\\
             \ddot{y}=x+y+u\qquad\rightarrow\qquad s^2Y(s)&=X(s)-Y(s)+U(s)\\

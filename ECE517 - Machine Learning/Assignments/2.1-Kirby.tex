@@ -1,0 +1,39 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % uses T1 fonts (better quality)
+\usepackage{lmodern} % uses Latin Modern fonts
+\usepackage[margin=1in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ragged2e}
+\renewcommand{\baselinestretch}{1.15}
+\usepackage{tikz}
+\usetikzlibrary{automata,scopes,shapes,matrix,arrows,decorations.pathmorphing}
+\tikzset{>={stealth}}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage[makeroom]{cancel}
+\definecolor{OuterBlue}{HTML}{1370AA}
+\definecolor{InnerBlue}{HTML}{9BC4DD}
+\usepackage{pdfpages}
+
+\begin{document}
+    \begin{center}
+    \line(1,0){300}\\[0.25cm]
+ 	\Large{\bfseries ECE517: Assignment 2.1}\\
+ 	\textsc{\large David Kirby}\\
+ 	\textsc{\large Due: 09 September 2020}\\
+ 	\line(1,0){300}\\[0.75cm]
+     \end{center}
+
+\noindent A variation of the MMSE criterion minimizes the norm of the weight vector \textbf{w}. This is a way to control the complexity of the structure. The corresponding function is
+\begin{align}
+    \mathcal{L}\left(\bm{\mathrm {x,w}}\right)=\mathbb{E}\left[e^2 \right]+\bm{\lambda} \parallel \bm{\mathrm {w}}\parallel ^2
+\end{align}
+\begin{enumerate}
+    \item Make the derivation of the closed solution for \textbf{w}.
+    \item Work out an iterative solution using the same technique as used in the Least Mean Squares algorithm.
+    \item Comment and compare both solutions in a short conclusion section.
+\end{enumerate}
+The derivations must be complete and the solution should be briefly but completely explained. See the rubric for this and any other homework.
+\end{document}

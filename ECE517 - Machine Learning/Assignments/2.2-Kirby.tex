@@ -26,6 +26,25 @@
  	\line(1,0){300}\\[0.75cm]
      \end{center}
 
-\noindent Write a complete derivation of the proof that the maximization of margin \textit{d} is equivalent to minimize the norm of the parameter vector in the maximum margin machine presented in the last set of slides of this module.
+\noindent Write a complete derivation of the proof that the maximization of margin \textit{d} is equivalent to minimize the norm of the parameter vector in the maximum margin machine presented in the last set of slides of this module.\par
 
+\noindent The equation for the hyperplane bisecting our data is
+\begin{align}
+	\bm{\mathrm{w^\top x_{0}}}+b=0
+\end{align}
+where \textbf{w} is the norm of the parameter vector. From there, we are able to determine two support vectors on either side corresponding to our data +1 and \(-\)1, as well as the margin. These equations are respectively
+\begin{align}
+	\bm{\mathrm{w^\top x_{0}}}+b&=+1\\
+	\bm{\mathrm{w^\top x_{0}}}+b&=-1
+\end{align}
+The distance from these support vectors to the hyperplane is the margin and given by
+\begin{align}
+	\bm{\mathrm{x_1}} &=\bm{\mathrm{x_{0}}}+\rho\bm{\mathrm{w}}\\
+	d&=\parallel\bm{\mathrm{x_1}}-\bm{\mathrm{x_{0}}}\parallel=\rho\bm{\mathrm{w}}
+\end{align}
+where \(\bm{\mathrm{x_{0}}}\) is a point on the hyperplane and \(\bm{\mathrm{x_1}}\) is a point normal to \(\bm{\mathrm{x_{0}}}\) and \(\rho=\frac{1}{\parallel\bm{\mathrm{w}}\parallel^2}\). Using equations (1) and (5), we can solve for \textit{d} in terms of the norm
+\begin{align}
+	d&=\rho\parallel\bm{\mathrm{w}}\parallel=\frac{1}{\parallel\bm{\mathrm{w}}\parallel}
+\end{align}
+From equation (6) we can see that as \(\parallel\bm{\mathrm{w}}\parallel \) goes to infinity, \textit{d} goes to 0 and vice versa, thus proving that the maximization of margin \textit{d} is equivalent to the minimization of the norm of the parameter vector.
 \end{document}

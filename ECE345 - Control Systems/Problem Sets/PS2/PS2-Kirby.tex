@@ -32,16 +32,19 @@
     \begin{enumerate}
         \item Find the poles and the zeros of \(G(s)\).
         \begin{align*}
+            \text{By inspection:}&\\
             \text{poles: }s&=0,-4,-10\\
             \text{zeros: }s&=-2
         \end{align*}
         \item Put the transfer function \(G(s)\) in proper form, with one polynomial in the numerator and one polynomial in the denominator.
         \begin{align*}
-            G(s)=\frac{2s+4}{s^3+14s^2+40s}
+            \text{Expanding equation (1):}&\\
+            G(s)&=\frac{2s+4}{s^3+14s^2+40s}
         \end{align*}
         \item Find the characteristic equation of \(G(s)\).
         \begin{align*}
-            \Delta(s)=s^3+14s^2+40s=0
+            \Delta(s)&=\text{nullified denominator of }G(s)\text{:}\\
+            &=s^3+14s^2+40s=0
         \end{align*}
     \end{enumerate}
     \item (+10 points) The longitudinal dynamics of a vertical take-off and landing aircraft that is hovering are described by:
@@ -70,16 +73,16 @@
         \begin{align*}
             \Delta(s)&=|sI-A|\\
             &=
-            \det \begin{bmatrix*}[r]
+            \Bigg|\begin{bmatrix*}[r]
                 &s &&-1 &&0&\\
                 &0 &&s &&-1&\\
                 &0 &&5 &&s+2&
-            \end{bmatrix*}\\
+            \end{bmatrix*}\Bigg|\\
             &=s^3+2s^2+5s
         \end{align*}
         \item Where are the poles of the system located?
         \begin{align*}
-            \text{Eigenvalues}(A)&=0,-1\pm 2i
+            \text{poles}&=\text{Eigenvalues}(A)\\&=0,-1\pm 2i
         \end{align*}
     \end{enumerate}
     \item (+10 points) State-space representations are not unique. A single system can be represented in several possible ways. Consider the following two systems:
@@ -146,23 +149,53 @@
         \end{cases}
     \end{align*}
     % \newpage
-    \begin{figure}[h!]
-        \centering
-        \includegraphics[width=0.4\textwidth]{PS2-Q3.png}
-        % \caption{}
-        % \label{fig:Title}
-    \end{figure}
     \begin{enumerate}
         \item Find the transfer function \(G_1(s)=C_1{(sI-A_1)}^{-1}B_1+D_1\) for System 1.
         \begin{align*}
-            G_1(s)&=-\frac{2}{s+2}+\frac{3}{s+3}\\[0.75em]
+            G_1(s)&=
+            \begin{bmatrix*}[r]
+                &1&1&
+            \end{bmatrix*}
+            {\left(
+                \begin{bmatrix*}[r]
+                    &s & 0&\\
+                    &0 & s&
+                \end{bmatrix*}-
+                \begin{bmatrix*}[r]
+                    &-3 & 0&\\
+                    &0 & -2&
+                \end{bmatrix*}
+            \right)}^{-1}
+            \begin{bmatrix*}[r]
+                &3&\\
+                &-2&
+            \end{bmatrix*}\\
+            &=-\frac{2}{s+2}+\frac{3}{s+3}\\[0.75em]
             &=\frac{s}{s^2+5s+6}
         \end{align*}
         \item Find the transfer function \(G_2(s)=C_2{(sI-A_2)}^{-1}B_2+D_2\) for System 2.
         \begin{align*}
-            G_1(s)=\frac{s}{s^2+5s+6}
+            G_2(s)&=
+            \begin{bmatrix*}[r]
+                &0&1&
+            \end{bmatrix*}
+            {\left(
+                \begin{bmatrix*}[r]
+                    &s & 0&\\
+                    &0 & s&
+                \end{bmatrix*}-
+                \begin{bmatrix*}[r]
+                    &0 & 1&\\
+                    &-6 & -5&
+                \end{bmatrix*}
+            \right)}^{-1}
+            \begin{bmatrix*}[r]
+                &0&\\
+                &1&
+            \end{bmatrix*}\\
+            &=\frac{s}{s^2+5s+6}
         \end{align*}
-        \item Describe the relationship between \(G_1\) and \(G2\).  What zeros and/or poles do they have in common?\\[1em]
+        \item Describe the relationship between \(G_1\) and \(G_2\). What zeros and/or poles do they have in common?\\[1em]
         Even though the state-space representations are different, \(G_1\) and \(G_2\) have the exact same transfer functions. This is because, as the problem stated, state-space representations are not unique and a single system can be represented in several possible ways.
         \begin{align*}
             \text{poles for both: }s&=-2,-3\\
@@ -173,8 +206,14 @@
     \begin{align}
         G(s)=\frac{3}{s^2+Ks+3}
     \end{align}
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[width=0.4\textwidth]{PS2-Q3.png}
+        % \caption{}
+        % \label{fig:Title}
+    \end{figure}
     \begin{enumerate}
-        \item Using Matlab, follow the steps below for each of \(K= 1,2,3,4\). Use the \texttt{diary} or \texttt{publish} commands to record your code, and hand in the history of Matlab command-line inputs and outputs as well as the \textit{single} plot that you generate. \textit{Note: Please append the Matlab file and plot to your homework, so that you hand in a \textbf{single}.pdf. Multiple files will not be accepted.}
+        \item Using Matlab, follow the steps below for each of \(K= 1,2,3,4\). Use the \texttt{diary} or \texttt{publish} commands to record your code, and hand in the history of Matlab command-line inputs and outputs as well as the \textit{single} plot that you generate. \textit{Note: Please append the Matlab file and plot to your homework, so that you hand in a \textbf{single} pdf. Multiple files will not be accepted.}
         \begin{enumerate}
             \item First create transfer functions \(G_1(s)\text{,} \cdots\text{, } G_4(s)\). For example, for the first system,
 \begin{verbatim}
@@ -188,7 +227,7 @@
         Please see the final two pages for Matlab code and figure.
         \end{enumerate}
         \item Consider the oscillatory nature of the step responses. What happens as \(K\) increases? Which value of \(K\) produces the most oscillatory response? Which produces the least?\\[1em]
-        \(K\) has the effect of being a dampening agent in our step responses. As \(K\) increases, the oscillations decrease; thus, \(K=1\) is the least damped and most oscillatory response, while \(K=4\) is the most damped and exhibits the least oscillatory response.
+        \(K\) has the effect of being a damping agent in our step responses. As \(K\) increases, the oscillations decrease; thus, \(K=1\) is the least damped and most oscillatory response, while \(K=4\) is the most damped and exhibits the least oscillatory response.
     \end{enumerate}
 \end{enumerate}
 \includepdf[pages=-]{PS02-Matlab.pdf}

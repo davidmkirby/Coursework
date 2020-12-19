@@ -40,8 +40,10 @@ FE Exam
 __latexindent_temp*
 _minted*
 
-# Audio/Video/subtitle files ignored  due to resource contraints
+# Audio/Video/subtitle files ignored due to resource contraints
 *.mp4
 *.m4a
 *.m4v
 *.sbv
+
+Textbook*

@@ -34,6 +34,7 @@ FE Exam
 *.fdb_latexmk
 *.fls
 *.log
+*.out
 *.pyg
 *.pygstyle
 *.pygtex

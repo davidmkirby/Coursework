@@ -1,0 +1,32 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % uses T1 fonts (better quality)
+\usepackage{lmodern} % uses Latin Modern fonts
+\usepackage[margin=1in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ragged2e}
+\renewcommand{\baselinestretch}{1.15}
+\usepackage{tikz}
+\usetikzlibrary{automata,scopes,shapes,matrix,arrows,decorations.pathmorphing}
+\tikzset{>={stealth}}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage[makeroom]{cancel}
+\usepackage{pdfpages}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{rotating}
+\definecolor{CrispBlue}{HTML}{0176AE}
+
+
+\begin{document}
+\begin{center}
+\LARGE{ECE 595: Learning and Control\\Paper \#1 Summary}\\[1.5em]
+\large David Kirby\\[1.5em]
+\large \textbf{Due Friday, January 22, 2021 at 9:00 AM}\\[2.5em]
+\end{center}
+
+\noindent This paper posits that through the use of the generalized duality theorem and reproducing kernel Hilbert spaces (RKHS), it is possible, and in certain cases beneficial, to implement kernel distributionally robust optimization. The authors show that small RKHSs provides robustness against large sets of distributions, while also proving that universal RKHSs are large enough for DRO applications. The benefit of this is that the density of the RKHSs reduces the worst-case risk. Duality also allows us to work with ambiguous sets since we no longer require the loss function to be affine, quadratic, or in a known Hilbert space. It also no longer requires the Lipschitz constant or RKHS norm of the loss function. Even though I've study a little on duality, I will certainly have to do some more research into what this practically means. I can see the value when illustrated in Figure 1, reducing the probability range, but I got lost in the paper's notation. I will have to commit to reading more of the textbook to better understand and come at this with a stronger background.
+
+\end{document}

@@ -1,0 +1,14 @@
+\contentsline {section}{1\ \ \ \ List of Figures}{1}{figure.caption.1}%
+\contentsline {section}{\numberline {2}Abstract}{2}{section.2}%
+\contentsline {section}{\numberline {3}Introduction}{2}{section.3}%
+\contentsline {section}{\numberline {4}Deployment}{3}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Keystone}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Glance}{11}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Nova}{13}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Neutron}{19}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Horizon}{23}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Cinder}{25}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Swift}{28}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Heat (extra credit)}{33}{subsection.4.8}%
+\contentsline {section}{\numberline {5}Conclusion}{34}{section.5}%
+\contentsline {section}{\numberline {6}References}{35}{section.6}%

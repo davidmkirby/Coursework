@@ -1,0 +1,18 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces Apple Silicon-Based MacBook Air Specs.\relax }}{3}{figure.caption.2}%
+\contentsline {figure}{\numberline {2}{\ignorespaces Network Interface Configurations.\relax }}{4}{figure.caption.3}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Multiple Nodes Used for OpenStack Deployment.\relax }}{5}{figure.caption.4}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Ping Test Between Nodes.\relax }}{6}{figure.caption.5}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Keystone: Generate Token.\relax }}{8}{figure.caption.6}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Keystone: Create Users.\relax }}{9}{figure.caption.7}%
+\contentsline {figure}{\numberline {7}{\ignorespaces Keystone: Retrieve Users \& Roles.\relax }}{9}{figure.caption.8}%
+\contentsline {figure}{\numberline {8}{\ignorespaces Keystone: User Scripts.\relax }}{10}{figure.caption.9}%
+\contentsline {figure}{\numberline {9}{\ignorespaces Glance: Import Cirros.\relax }}{12}{figure.caption.10}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Glance: Image List.\relax }}{13}{figure.caption.11}%
+\contentsline {figure}{\numberline {11}{\ignorespaces Nova: Catalog List.\relax }}{19}{figure.caption.12}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Neutron: Create Network.\relax }}{23}{figure.caption.13}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Horizon: Services Information.\relax }}{25}{figure.caption.14}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Cinder: Create and List Volumes.\relax }}{28}{figure.caption.15}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Swift: Rebalancing the Rings.\relax }}{32}{figure.caption.16}%
+\contentsline {figure}{\numberline {16}{\ignorespaces Heat: Orchestration Services.\relax }}{33}{figure.caption.17}%
+\contentsline {figure}{\numberline {17}{\ignorespaces Conclusion: Horizon Dashboard Showing All Services.\relax }}{34}{figure.caption.18}%
+\contentsline {figure}{\numberline {18}{\ignorespaces Conclusion: Horizon Dashboard Showing Created VM.\relax }}{35}{figure.caption.19}%

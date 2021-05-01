@@ -1,0 +1,1446 @@
+% !TEX program = xelatex
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{nopageno} % no page numbers
+
+\usepackage{graphicx}
+\graphicspath{ {./graphics/} }
+\usepackage[dvipsnames]{xcolor}
+\definecolor{CrispBlue}{HTML}{0176AE}
+
+\usepackage{fontspec}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\BeforeBeginEnvironment{verbatim}{\begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black]}%
+\AfterEndEnvironment{verbatim}{\end{tcolorbox}}%
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage{subcaption}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\usepackage{tocloft}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{ECE 530: Cloud Computing}
+\rhead{Homework \#1}
+\rfoot{Page \thepage}
+
+\renewcommand{\listfigurename}{List of Figures}
+
+\begin{document}
+\setmainfont{SF Pro Text}
+\setsansfont{SF Pro Text}
+\setmonofont{SF Mono}
+\renewcommand{\familydefault}{\sfdefault}
+
+\thispagestyle{empty}
+\begin{titlepage}
+\vspace*{\fill}
+\begin{center}
+\textsc{\Huge{ECE 530: Cloud Computing}}\\[3em]
+\textsc{\LARGE Homework \#1: OpenStack IaaS Deployment}\\[6em]
+\textsc{\Large\hspace{2em} Amber Disher -- 101839171 -- adisher1@unm.edu\\[1em]
+Marshall Hundemer -- 101736010 -- mhundemer@unm.edu\\[1em]
+\hspace{3.5em} David Kirby -- 101652098 -- davidkirby@unm.edu}\\[3em]
+\textsc{\Large Spring 2021}
+\end{center}
+\vfill
+\begin{figure}[h]
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=0.5\linewidth]{OpenStack.png}
+\end{subfigure}
+\begin{subfigure}{0.6\textwidth}\hspace{1em}
+\includegraphics[width=0.8\linewidth]{new-soe-logo.png}
+\end{subfigure}
+\end{figure}
+\end{titlepage}
+\setcounter{figure}{0}
+
+\tableofcontents
+
+\addcontentsline{toc}{section}{1\ \ \ \ List of Figures}
+\listoffigures
+\newpage
+\setcounter{section}{+1}
+
+\hypersetup{
+    linkcolor=CrispBlue,
+    urlcolor=CrispBlue,
+    breaklinks=true
+}
+\section{Abstract}
+OpenStack is an open source cloud computing software designed for automation. For homework \#1 we were tasked to deploy OpenStack on a number of virtual machines (VMs) on our system and install some core services. For our purposes, we needed to deploy the following services:
+
+\begin{itemize}
+    \item \textbf{Keystone:} Keystone is the identity service used by OpenStack for authentication (authN) and high-level authorization (authZ).
+    \item \textbf{Glance:} Glance image services include discovering, registering, and retrieving virtual machine (VM) images. Glance has a RESTful API that allows querying of VM image metadata as well as retrieval of the actual image.
+    \item \textbf{Nova:} Compute (Nova) is a cloud computing fabric controller, which is the main part of an IaaS system. It is designed to manage and automate pools of computer resources and can work with widely available virtualization technologies, as well as bare metal and high-performance computing (HPC) configurations.
+    \item \textbf{Neutron:} Neutron is an OpenStack project to provide “network connectivity as a service” between interface devices (e.g., vNICs) managed by other OpenStack services (e.g., nova).
+    \item \textbf{Horizon:} Dashboard provides administrators and users a graphical interface to access, provision, and automate cloud-based resources. The dashboard is one of several ways users can interact with OpenStack resources.
+    \item \textbf{Cinder:} Block Storage provides persistent block-level storage devices for use with OpenStack compute instances. Block storage volumes are fully integrated into OpenStack Compute and the Dashboard allowing for cloud users to manage their own storage needs.
+\end{itemize}
+
+\section{Introduction}
+Critically, for this class we were required to deploy these services without the use of automated deployment software (e.g., DevStack) as they would perform all steps and we would learn very little. The instructions we followed were found on the \href{https://docs.openstack.org/train/install/}{OpenStack website}, as well as \textit{Learning OpenStack Networking - Third Edition}, written by James Denton and published by Packt Publishing. We found this book on \href{https://learning.oreilly.com/library/view/learning-openstack-networking/9781788392495/}{O'Reilly's book website}, to which UNM has graciously provided access for all students and staff.
+
+Once services were deployed, we were then tasked to provision a subnet, a VM, and a storage volume. As we began deploying services, we came to understand that most of these basic services depend on one another to operate and each VM needs to be able to communicate with the others. As such, networking was critical to starting out.
+
+The machine on which we chose to deploy also presented a novel challenge -- an Apple silicon-based MacBook Air M1. While this computer satisfied all of the hardware requirements (i.e., 6 core CPU, 6 GB RAM, 200 GB storage), the fact that it was an ARM processor meant that we were limited on which virtualization software to run our VMs. As of this assignment, the authors are only aware of one solution for running native Linux distributions on Apple silicon-- a beta technical preview edition of \href{https://www.parallels.com/blogs/parallels-desktop-apple-silicon-mac/}{Parallels Desktop for Mac with Apple M1 chip}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{AppleSpecs.png}
+    \caption{Apple Silicon-Based MacBook Air Specs.}
+    \label{fig:AppleSpecs}
+\end{figure}
+
+
+
+
+
+
+\section{Deployment}
+For our deployment, we were limited in choices of robust, ARM-based Linux distributions, ultimately choosing Ubuntu Server for ARM, a Ubuntu 20.04.2 LTS edition. We installed a fresh VM using Parallels and Ubuntu Server, making sure to plan for the other nodes required in later steps. Specifically, this required configuring the VMs with three network interfaces -- one for outside internet communication and two for internal communication between VMs. It was important to configure the outward-facing interface to share the hosts internet, while the other two interfaces where configured in bridge mode. Our network configurations can be seen in Figure~\ref{fig:Network}, page~\pageref{fig:Network}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.7\textwidth]{Network.png}
+    \caption{Network Interface Configurations.}
+    \label{fig:Network}
+\end{figure}
+
+For this assignment we needed a minimum of five VMs to accommodate the all of the various services: controller node (\texttt{controller01}), compute node (\texttt{compute01}), block storage node (\texttt{block01}), and two object storage nodes for containers (\texttt{object01} \& \texttt{object02}). To simplify the process, once \texttt{controller01} was created, updated, and configured with basic settings, we created linked clones of the VM. This maintained all of the installed packages and settings and saved us from having to start from scratch with each new node. For transparency, below are the commands we ran after initial Ubuntu install. Most of these are personal preferences (e.g., using zsh instead of bash and installing a GUI on top of the server CLI).
+
+\begin{verbatim}
+    sudo apt-get install zsh
+    chsh -s $(which zsh) && sudo chsh -s $(which zsh)
+    sudo apt update && sudo apt upgrade -y
+    sudo apt install tasksel -y
+    sudo tasksel install ubuntu-desktop
+    sudo systemctl set-default multi-user.target
+    hostnamectl set-hostname controller01
+\end{verbatim}
+\newpage
+Next, we began installing the basic packages needed to deploy OpenStack and would be required on all nodes. It is important to note notation -- \texttt{\#} denotes command was run as root user, if no prompt is shown, a regular user account was used. Here are the commands used to enable the repository for Ubuntu Cloud Archive, install the python OpenStack client, and MariaDB packages.
+
+\begin{verbatim}
+    # add-apt-repository cloud-archive:victoria
+    # apt install python3-openstackclient
+    # apt install mariadb-server python3-pymysql
+\end{verbatim}
+
+Next we configured MariaDB by modifying \texttt{/etc/mysql/mariadb.conf.d/99-openstack.cnf} with our \texttt{controller01} management IP.
+
+\begin{verbatim}
+    [mysqld]
+
+    bind-address = 10.211.55.16
+
+    default-storage-engine = innodb
+    innodb_file_per_table = on
+    max_connections = 4096
+    collation-server = utf8_general_ci
+    character-set-server = utf8
+\end{verbatim}
+
+We restarted and secured MariaDB.
+
+\begin{verbatim}
+    # service mysql restart
+    # mysql_secure_installation
+\end{verbatim}
+
+Next, we installed the message queue for Ubuntu (rabbitmq); this coordinates operations and status information among services. Note: we used the same password for all services, databases, and nodes with the obvious stipulation that this is a proof-of-concept deployment.
+
+\begin{verbatim}
+    # apt install rabbitmq-server
+    # rabbitmqctl add_user openstack RABBIT_PASS
+    # rabbitmqctl set_permissions openstack ".*" ".*" ".*"
+\end{verbatim}
+
+We then installed memcached for Ubuntu allowing for cached tokens and edited the configuration file \texttt{/etc/memcached.conf} with our management IP, afterwhich we restarted the memcached service. Note that the OpenStack website instructions called for \texttt{python-memcache}, but due to our ARM configuration, we needed to use \texttt{python3-memcache}.
+
+\begin{verbatim}
+    # apt install memcached python3-memcache
+\end{verbatim}
+\begin{verbatim}
+    -l 10.211.55.16
+\end{verbatim}
+\begin{verbatim}
+    # service memcached restart
+\end{verbatim}
+
+The OpenStack documentation gave an option for installing Etcd, a distributed reliable key-value store for distributed key locking, storing configuration, keeping track of service live-ness and other scenarios; however, due to compatibility issues with our python3 setup, we were unable to get Etcd working.
+
+Once our \texttt{controller01} node was initialized, we made linked clones of our \texttt{controller01} VM to use for our other nodes.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.57\textwidth]{Nodes.png}
+    \caption{Multiple Nodes Used for OpenStack Deployment.}
+    \label{fig:Nodes}
+\end{figure}
+\newpage
+
+Knowing how critical it was for our nodes to be able to communicate with each other we went through a series of ping tests to confirm everything was working as expected. We also mapped our managment IPs to their hostnames to make things easier.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.99\textwidth]{PingTest.png}
+    \caption{Ping Test Between Nodes.}
+    \label{fig:PingTest}
+\end{figure}
+
+
+
+
+
+
+\subsection{Keystone}
+Next, we began deployment of the OpenStack services, starting with the identity service Keystone on the \texttt{controller01} node. We started by creating and configuring the identity service in MariaDB.
+
+\begin{verbatim}
+    # mysql
+    MariaDB [(none)]> CREATE DATABASE keystone;
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON keystone.* TO 
+        'keystone'@'localhost' IDENTIFIED BY 'KEYSTONE_DBPASS';
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON keystone.* TO 
+        'keystone'@'%' IDENTIFIED BY 'KEYSTONE_DBPASS';
+    exit;
+\end{verbatim}
+
+Once MariaDB was configured, we set out installing and configuring Keystone.
+
+\begin{verbatim}
+    # apt install keystone
+\end{verbatim}
+
+And editing the config file \texttt{/etc/keystone/keystone.conf}
+
+\begin{verbatim}
+    [database]
+    # ...
+    connection = mysql+pymysql://keystone:KEYSTONE_DBPASS@controller/
+        keystone
+\end{verbatim}
+Populating the database.
+\begin{verbatim}
+    # su -s /bin/sh -c "keystone-manage db_sync" keystone
+\end{verbatim}
+Initializing the Fernet key repositories which allows Keystone to run keystone under another operating system user/group.
+
+\begin{verbatim}
+    # keystone-manage fernet_setup --keystone-user keystone 
+        --keystone-group keystone
+    # keystone-manage credential_setup --keystone-user keystone 
+        --keystone-group keystone
+\end{verbatim}
+
+Next we needed to bootstrap the Keystone service. Note that while OpenStack website calls there controller node \texttt{controller}, we called ours \texttt{controller01}. We followed the example from \textit{Learning OpenStack Networking} and allowed for expansion to multiple controller nodes if necessary. We use this same naming convention for the other nodes, which proved beneficial when we introduced multiple object nodes later in the deployment.
+
+\begin{verbatim}
+    # keystone-manage bootstrap --bootstrap-password ADMIN_PASS 
+        --bootstrap-admin-url http://controller01:5000/v3/ 
+        --bootstrap-internal-url http://controller01:5000/v3/ 
+        --bootstrap-public-url http://controller01:5000/v3/ 
+        --bootstrap-region-id RegionOne
+\end{verbatim}
+
+Once keystone was bootstrapped, we restarted our Apache server and began configuring our first keystone accounts (\texttt{admin} and \texttt{demo}) as well as some projects and roles. We then assigned these users to our newly created roles.
+
+\begin{verbatim}
+    # service apache2 restart
+\end{verbatim}
+
+\begin{verbatim}
+    export OS_USERNAME=admin
+    export OS_PASSWORD=ADMIN_PASS
+    export OS_PROJECT_NAME=admin
+    export OS_USER_DOMAIN_NAME=Default
+    export OS_PROJECT_DOMAIN_NAME=Default
+    export OS_AUTH_URL=http://controller01:5000/v3
+    export OS_IDENTITY_API_VERSION=3
+\end{verbatim}
+\begin{verbatim}
+    openstack domain create --description "An Example Domain" example
+    openstack project create --domain default --description 
+        "Service Project" service
+    openstack project create --domain default --description 
+        "Demo Project" myproject
+    openstack user create --domain default --password-prompt demo
+    openstack role create myrole
+    openstack role add --project myproject --user demo myrole
+\end{verbatim}
+
+We then needed to test our Keystone installation by unsetting the login credentials and requesting an \texttt{admin} authenication token and then a \texttt{demo} authenication token. \textbf{This satisfies the grading checklist for Keystone (see Figure~\ref{fig:Keystone}, page~\pageref{fig:Keystone}, Figure~\ref{fig:CreateUsers}, page~\pageref{fig:CreateUsers}, and Figure~\ref{fig:RetrieveUserRole}, page~\pageref{fig:RetrieveUserRole}).}
+
+\begin{verbatim}
+    unset OS_AUTH_URL OS_PASSWORD
+    openstack --os-auth-url http://controller01:5000/v3
+        --os-project-domain-name Default
+        --os-user-domain-name Default 
+        --os-project-name admin 
+        --os-username admin token issue
+    openstack --os-auth-url http://controller01:5000/v3 
+        --os-project-domain-name Default
+        --os-user-domain-name Default
+        --os-project-name myproject
+        --os-username demo token issue
+\end{verbatim}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.96\textwidth]{Keystone.png}
+    \caption{Keystone: Generate Token.}
+    \label{fig:Keystone}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.96\textwidth]{CreateUsers.png}
+    \caption{Keystone: Create Users.}
+    \label{fig:CreateUsers}
+\end{figure}
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.96\textwidth]{RetrieveUserRole.png}
+    \caption{Keystone: Retrieve Users \& Roles.}
+    \label{fig:RetrieveUserRole}
+\end{figure}
+
+To make things easier for deploying the remaining services, OpenStack recommended creating OpenStack client environment scripts for the \texttt{admin} \texttt{demo}users, respectively. Using the scripts allows us to source admin authenication privileges by entering \texttt{source admin-openrc}.
+
+\begin{verbatim}
+    export OS_PROJECT_DOMAIN_NAME=Default
+    export OS_USER_DOMAIN_NAME=Default
+    export OS_PROJECT_NAME=admin
+    export OS_USERNAME=admin
+    export OS_PASSWORD=ADMIN_PASS
+    export OS_AUTH_URL=http://controller01:5000/v3
+    export OS_IDENTITY_API_VERSION=3
+    export OS_IMAGE_API_VERSION=2
+
+    export OS_PROJECT_DOMAIN_NAME=Default
+    export OS_USER_DOMAIN_NAME=Default
+    export OS_PROJECT_NAME=myproject
+    export OS_USERNAME=myuser
+    export OS_PASSWORD=DEMO_PASS
+    export OS_AUTH_URL=http://controller01:5000/v3
+    export OS_IDENTITY_API_VERSION=3
+    export OS_IMAGE_API_VERSION=2
+\end{verbatim}
+
+For example, we are able to issue a token as shown in Figure~\ref{fig:Scripts}, page~\pageref{fig:Scripts}.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.96\textwidth]{Scripts.png}
+    \caption{Keystone: User Scripts.}
+    \label{fig:Scripts}
+\end{figure}
+
+\subsection{Glance}
+Once Keystone was installed, we began installing the remaining services. Glance is OpenStack's image services. Because of our ARM configuration, we required using an image file that was also compatible with ARM. Since our homework guidelines called for Cirros, we opted for the latest ARM version -- 0.5.2-aarch64. First, we needed to setup the database for Glance.
+
+\begin{verbatim}
+    # mysql
+    MariaDB [(none)]> CREATE DATABASE glance;
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON glance.* TO
+        'glance'@'localhost' IDENTIFIED BY 'GLANCE_DBPASS';
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON glance.* TO 
+        'glance'@'%' IDENTIFIED BY 'GLANCE_DBPASS';
+    exit;
+\end{verbatim}
+
+Then creating our Glance user with the newly created Keystone tools.
+
+\begin{verbatim}
+    openstack user create --domain default --password-prompt glance
+    openstack role add --project service --user glance admin
+    openstack service create --name glance --description 
+        "OpenStack Image" image
+    openstack endpoint create --region RegionOne image public 
+        http://controller01:9292
+    openstack endpoint create --region RegionOne image internal 
+        http://controller01:9292
+    openstack endpoint create --region RegionOne image admin 
+        http://controller01:9292
+\end{verbatim}
+
+Once the database and identity services were set up, we began installing and configuring Glance at \texttt{/etc/glance/glance-api.conf}
+
+\begin{verbatim}
+    # apt install glance
+\end{verbatim}
+
+\begin{verbatim}
+    [database]
+    connection = 
+        mysql+pymysql://glance:GLANCE_DBPASS@controller01/glance
+
+    [keystone_authtoken]
+    www_authenticate_uri = http://controller01:5000
+    auth_url = http://controller01:5000
+    memcached_servers = controller01:11211
+    auth_type = password
+    project_domain_name = Default
+    user_domain_name = Default
+    project_name = service
+    username = glance
+    password = GLANCE_PASS
+\end{verbatim}
+\begin{verbatim}
+    [paste_deploy]
+    flavor = keystone
+
+    [glance_store]
+    stores = file,http
+    default_store = file
+    filesystem_store_datadir = /var/lib/glance/images/
+\end{verbatim}
+
+Populate the image service database, restart the service, and verify operation.
+
+\begin{verbatim}
+    # su -s /bin/sh -c "glance-manage db_sync" glance
+    # service glance-api restart
+
+    source admin-openrc
+    wget https://github.com/cirros-dev/cirros/releases/download/0.5.2/
+        cirros-0.5.2-aarch64-disk.img
+    glance image-create --name "cirros" --file 
+        cirros-0.5.2-aarch64-disk.img --disk-format qcow2
+        --container-format bare --visibility=public
+
+    glance image-list
+\end{verbatim}
+
+By importing Cirros and retrieving the images list, \textbf{this satisfies the grading checklist for Glance (see Figure~\ref{fig:ImportCirros}, page~\pageref{fig:ImportCirros} and Figure~\ref{fig:ImageList}, page~\pageref{fig:ImageList})}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.88\textwidth]{ImportCirros.png}
+    \caption{Glance: Import Cirros.}
+    \label{fig:ImportCirros}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.75\textwidth]{ImageList.png}
+    \caption{Glance: Image List.}
+    \label{fig:ImageList}
+\end{figure}
+
+
+
+
+
+
+
+\subsection{Nova}
+Once we had a working instance of Keystone and Glance, we moved on to one of the more complex services, Nova. Most of the early steps are similar for each service -- create databases, create service credentials, and create endpoints.
+
+\begin{verbatim}
+    # mysql
+    MariaDB [(none)]> CREATE DATABASE nova_api;
+    MariaDB [(none)]> CREATE DATABASE nova;
+    MariaDB [(none)]> CREATE DATABASE nova_cell0;
+
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_api.* TO
+        'nova'@'localhost' IDENTIFIED BY 'NOVA_DBPASS';
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_api.* TO 
+        'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';
+
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova.* TO 
+        'nova'@'localhost' IDENTIFIED BY 'NOVA_DBPASS';
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova.* TO 
+        'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';
+
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_cell0.* TO 
+        'nova'@'localhost' IDENTIFIED BY 'NOVA_DBPASS';
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON nova_cell0.* TO 
+        'nova'@'%' IDENTIFIED BY 'NOVA_DBPASS';
+    exit;
+\end{verbatim}
+
+\begin{verbatim}
+    source admin-openrc
+    openstack user create --domain default --password-prompt nova
+    openstack role add --project service --user nova admin
+    openstack service create --name nova --description 
+        "OpenStack Compute" compute
+\end{verbatim}
+
+\begin{verbatim}
+    openstack endpoint create --region RegionOne compute public 
+        http://controller01:8774/v2.1
+    openstack endpoint create --region RegionOne compute internal 
+        http://controller01:8774/v2.1        
+    openstack endpoint create --region RegionOne compute admin 
+        http://controller01:8774/v2.1
+\end{verbatim}
+
+We also needed to install the Placement service in support of Nova.
+
+\begin{verbatim}
+    # mysql
+    MariaDB [(none)]> CREATE DATABASE placement;
+
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON placement.* TO
+        'placement'@'localhost' IDENTIFIED BY 'PLACEMENT_DBPASS';
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON placement.* TO
+        'placement'@'%' IDENTIFIED BY 'PLACEMENT_DBPASS';
+    exit;
+\end{verbatim}
+
+\begin{verbatim}
+    source admin-openrc
+    openstack user create --domain default --password-prompt placement
+    openstack role add --project service --user placement admin
+    openstack service create --name placement --description 
+        "Placement API" placement
+    openstack endpoint create --region RegionOne placement 
+        public http://controller01:8778
+    openstack endpoint create --region RegionOne placement 
+        internal http://controller01:8778
+    openstack endpoint create --region RegionOne placement 
+        admin http://controller01:8778
+\end{verbatim}
+
+Once Placement and Nova databases were setup, we began installing and configuring the services.
+
+\begin{verbatim}
+    # apt install placement-api
+\end{verbatim}
+
+Configured \texttt{/etc/placement/placement.conf}
+
+\begin{verbatim}
+    [placement_database]
+    connection = mysql+pymysql://placement:PLACEMENT_DBPASS@
+        controller01/placement
+    [api]
+    auth_strategy = keystone
+
+    [keystone_authtoken]
+    auth_url = http://controller01:5000/v3
+    memcached_servers = controller01:11211
+    auth_type = password
+    project_domain_name = Default
+    user_domain_name = Default
+    project_name = service
+    username = placement
+    password = PLACEMENT_PASS
+\end{verbatim}
+
+Configuring and verifying Placement service.
+
+\begin{verbatim}
+    # su -s /bin/sh -c "placement-manage db sync" placement
+    # service apache2 restart
+    source admin-openrc
+    placement-status upgrade check
+    pip3 install osc-placement
+    openstack --os-placement-api-version 1.2 resource class list 
+        --sort-column name
+    openstack --os-placement-api-version 1.6 trait list 
+        --sort-column name
+\end{verbatim}
+
+\begin{verbatim}
+    # apt install nova-api nova-conductor nova-novncproxy 
+        nova-scheduler
+\end{verbatim}
+Configured \texttt{/etc/nova/nova.conf}
+
+\begin{verbatim}
+    [api_database]
+    connection = mysql+pymysql://nova:NOVA_DBPASS@
+        controller01/nova_api
+
+    [database]
+    connection = mysql+pymysql://nova:NOVA_DBPASS@
+        controller01/nova
+    
+    [DEFAULT]
+    transport_url = rabbit://openstack:RABBIT_PASS@
+        controller01:5672/
+    my_ip = 10.211.55.16
+
+    [api]
+    auth_strategy = keystone
+\end{verbatim}
+
+\begin{verbatim}
+    [keystone_authtoken]
+    www_authenticate_uri = http://controller01:5000/
+    auth_url = http://controller01:5000/
+    memcached_servers = controller01:11211
+    auth_type = password
+    project_domain_name = Default
+    user_domain_name = Default
+    project_name = service
+    username = nova
+    password = NOVA_PASS
+
+    [neutron]
+    auth_url = http://controller01:5000
+    auth_type = password
+    project_domain_name = default
+    user_domain_name = default
+    region_name = RegionOne
+    project_name = service
+    username = neutron
+    password = NEUTRON_PASS
+    service_metadata_proxy = true
+    metadata_proxy_shared_secret = METADATA_SECRET
+
+    [vnc]
+    enabled = true
+    server_listen = $my_ip
+    server_proxyclient_address = $my_ip
+
+    [glance]
+    api_servers = http://controller01:9292
+
+    [oslo_concurrency]
+    lock_path = /var/lib/nova/tmp
+
+    [placement]
+    region_name = RegionOne
+    project_domain_name = Default
+    project_name = service
+    auth_type = password
+    user_domain_name = Default
+    auth_url = http://controller01:5000/v3
+    username = placement
+    password = PLACEMENT_PASS
+\end{verbatim}
+
+Next, populating the database based on these config files, verifying operation, and restarting services.
+
+\begin{verbatim}
+    # su -s /bin/sh -c "nova-manage api_db sync" nova
+    # su -s /bin/sh -c "nova-manage cell_v2 map_cell0" nova
+    # su -s /bin/sh -c "nova-manage cell_v2 create_cell 
+        --name=cell1 --verbose" nova
+    # su -s /bin/sh -c "nova-manage db sync" nova
+    # su -s /bin/sh -c "nova-manage cell_v2 list_cells" nova
+
+    # service nova-api restart
+    # service nova-scheduler restart
+    # service nova-conductor restart
+    # service nova-novncproxy restart
+\end{verbatim}
+
+At this point, we have only configured our controller node. The next few steps show how we configured our compute node (\texttt{compute01}). Note that we need to use the management IP of the \texttt{compute01} node for this configuration.
+
+\begin{verbatim}
+    # apt install nova-compute
+\end{verbatim}
+Configure \texttt{/etc/nova/nova.conf}.
+
+\begin{verbatim}
+    [DEFAULT]
+    transport_url = rabbit://openstack:RABBIT_PASS@controller01
+    [api]
+    auth_strategy = keystone
+
+    [keystone_authtoken]
+    www_authenticate_uri = http://controller01:5000/
+    auth_url = http://controller01:5000/
+    memcached_servers = controller01:11211
+    auth_type = password
+    project_domain_name = Default
+    user_domain_name = Default
+    project_name = service
+    username = nova
+    password = NOVA_PASS
+
+    [DEFAULT]
+    my_ip = 10.211.55.19
+
+    [neutron]
+    auth_url = http://controller01:5000
+    auth_type = password
+    project_domain_name = default
+    user_domain_name = default
+    region_name = RegionOne
+    project_name = service
+    username = neutron
+    password = NEUTRON_PASS
+\end{verbatim}
+
+\begin{verbatim}
+    [vnc]
+    enabled = true
+    server_listen = 0.0.0.0
+    server_proxyclient_address = $my_ip
+    novncproxy_base_url = http://controller01:6080/vnc_auto.html
+
+    [glance]
+    api_servers = http://controller01:9292
+
+    [oslo_concurrency]
+    lock_path = /var/lib/nova/tmp
+
+    [placement]
+    region_name = RegionOne
+    project_domain_name = Default
+    project_name = service
+    auth_type = password
+    user_domain_name = Default
+    auth_url = http://controller01:5000/v3
+    username = placement
+    password = PLACEMENT_PASS
+\end{verbatim}
+
+To wrap things up with the compute node, we needed to determine whether our compute node supports hardware acceleration for virtual machines. Given that Parallels is still in technical preview, it's no surprise that it did not support hardware acceleration. Therefore, we needed to configure libvirt to use QEMU instead of KVM by editing \texttt{/etc/nova/nova-compute.conf}
+
+\begin{verbatim}
+    egrep -c '(vmx|svm)' /proc/cpuinfo
+\end{verbatim}
+
+\begin{verbatim}
+    [libvirt]
+    virt_type = qemu
+\end{verbatim}
+
+Next we needed to set up and verify Nova on the compute node, Figure~\ref{fig:ImageList}, page~\pageref{fig:ImageList} confirms this.
+
+\begin{verbatim}
+    # service nova-compute restart
+    source admin-openrc
+    openstack compute service list --service nova-compute
+    # su -s /bin/sh -c "nova-manage cell_v2 discover_hosts 
+        --verbose" nova
+    openstack compute service list
+    openstack catalog list
+    openstack image list
+    nova-status upgrade check
+\end{verbatim}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.9\textwidth]{NovaCatalog.png}
+    \caption{Nova: Catalog List.}
+    \label{fig:NovaCatalog}
+\end{figure}
+
+The VM we created is shown in the conclusion section Figure~\ref{fig:NovaComplete}, page~\pageref{fig:HorizonComplete}. \textbf{This satisfies the grading checklist for Nova.}
+
+
+
+
+
+
+\subsection{Neutron}
+Before we could create a VM as called for in the homework instructions, we needed to install a networking service. While the homework called for Nova-networking, that service has been deprecated and with approval from the professor opted for installing Neutron instead. First we needed to configure name resolutions. In our case, we did most of this during the initial network setup by configuring \texttt{/etc/hosts} on nodes \texttt{controller01}, \texttt{compute01}, and \texttt{block01}.
+
+\begin{verbatim}
+    # controller
+    10.211.55.16        controller01
+
+    # compute1
+    10.211.55.19        compute01
+
+    # block1
+    10.211.55.34        block01
+
+    # object1
+    10.211.55.41        object01
+
+    # object2
+    10.211.55.47        object02
+\end{verbatim}
+
+After verifying all nodes were able to ping each other and external sites, we proceeded with install Neutron, first on the controller node.
+
+\begin{verbatim}
+    # mysql
+    MariaDB [(none)]> CREATE DATABASE neutron;
+
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON neutron.* TO
+        'neutron'@'localhost' IDENTIFIED BY 'NEUTRON_DBPASS';
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON neutron.* TO
+        'neutron'@'%' IDENTIFIED BY 'NEUTRON_DBPASS';
+    exit;
+\end{verbatim}
+
+\begin{verbatim}
+    source admin-openrc
+    openstack user create --domain default --password-prompt neutron
+    openstack role add --project service --user neutron admin
+    openstack service create --name neutron --description 
+        "OpenStack Networking" network
+    openstack endpoint create --region RegionOne network public 
+        http://controller01:9696
+    openstack endpoint create --region RegionOne network internal 
+        http://controller01:9696
+    openstack endpoint create --region RegionOne network admin 
+        http://controller01:9696
+\end{verbatim}
+
+We then configured \texttt{/etc/neutron/neutron.conf}
+
+\begin{verbatim}
+    [DEFAULT]
+    core_plugin = ml2
+    service_plugins =
+    transport_url = rabbit://openstack:RABBIT_PASS@controller01
+    auth_strategy = keystone
+    notify_nova_on_port_status_changes = true
+    notify_nova_on_port_data_changes = true
+
+    [keystone_authtoken]
+    www_authenticate_uri = http://controller01:5000
+    auth_url = http://controller01:5000
+    memcached_servers = controller01:11211
+    auth_type = password
+    project_domain_name = default
+    user_domain_name = default
+    project_name = service
+    username = neutron
+    password = NEUTRON_PASS
+
+    [nova]
+    auth_url = http://controller01:5000
+    auth_type = password
+    project_domain_name = default
+    user_domain_name = default
+    region_name = RegionOne
+    project_name = service
+    username = nova
+    password = NOVA_PASS
+\end{verbatim}
+
+\begin{verbatim}
+    [database]
+    connection = mysql+pymysql://neutron:NEUTRON_DBPASS@
+        controller01/neutron
+
+    [oslo_concurrency]
+    lock_path = /var/lib/neutron/tmp
+\end{verbatim}
+
+Next we needed to configure \texttt{/etc/neutron/plugins/ml2/ml2\_conf.ini}, the ML2 plugin which uses the Linux bridge mechanism to build layer-2 (bridging and switching) virtual networking infrastructure for instances.
+
+\begin{verbatim}
+    [ml2]
+    type_drivers = flat,vlan
+    tenant_network_types =
+    mechanism_drivers = linuxbridge
+    extension_drivers = port_security
+
+    [ml2_type_flat]
+    flat_networks = provider
+    
+    [securitygroup]
+    enable_ipset = true
+\end{verbatim}
+
+Then configured the Linux bridge plugin \texttt{/etc/neutron/plugins/ml2/linuxbridge\_agent.ini}.
+
+\begin{verbatim}
+    [linux_bridge]
+    physical_interface_mappings = provider:eth0
+
+    [vxlan]
+    enable_vxlan = false
+
+    [securitygroup]
+    enable_security_group = true
+    firewall_driver = neutron.agent.linux.iptables_firewall.
+        IptablesFirewallDriver
+    net.bridge.bridge-nf-call-iptables
+    net.bridge.bridge-nf-call-ip6tables
+\end{verbatim}
+
+Finally, we needed to modify \texttt{/etc/neutron/dhcp\_agent.ini}.
+
+\begin{verbatim}
+    [DEFAULT]
+    interface_driver = linuxbridge
+    dhcp_driver = neutron.agent.linux.dhcp.Dnsmasq
+    enable_isolated_metadata = true
+\end{verbatim}
+
+Once the controller node was configured, we moved to configuring the compute node and the file \texttt{/etc/nova/nova.conf}.
+
+\begin{verbatim}
+    [neutron]
+    auth_url = http://controller01:5000
+    auth_type = password
+    project_domain_name = default
+    user_domain_name = default
+    region_name = RegionOne
+    project_name = service
+    username = neutron
+    password = NEUTRON_PASS
+    service_metadata_proxy = true
+    metadata_proxy_shared_secret = METADATA_SECRET
+\end{verbatim}
+
+To finalize and verify the Neutron service, we ran the following commands on \texttt{controller01} and \texttt{compute01}, respectively.
+
+\begin{verbatim}
+    # ln -s /etc/apparmor.d/usr.sbin.dnsmasq /etc/apparmor.d/disable/
+    # systemctl restart apparmor
+    # systemctl restart openstack-nova-api.service
+    # systemctl enable openstack-neutron.service
+        openstack-neutron-linuxbridge-agent.service
+        openstack-neutron-dhcp-agent.service
+        openstack-neutron-metadata-agent.service
+    # systemctl start openstack-neutron.service
+        openstack-neutron-linuxbridge-agent.service
+        openstack-neutron-dhcp-agent.service
+        openstack-neutron-metadata-agent.service
+\end{verbatim}
+
+\begin{verbatim}
+    # systemctl restart openstack-nova-compute.service
+    # systemctl enable openstack-neutron-linuxbridge-agent.service
+    # systemctl start openstack-neutron-linuxbridge-agent.service
+\end{verbatim}
+
+To verify everything is working correctly:
+
+\begin{verbatim}
+    source admin-openrc
+    openstack extension list --network
+    openstack network agent list
+\end{verbatim}
+
+This finally allows us to create a network and subnet for use with our images, which in this example is named "provider". \textbf{This satisfies the grading checklist for Neutron (see Figure~\ref{fig:CreateNetwork}, page~\pageref{fig:CreateNetwork}).}
+
+\begin{verbatim}
+    source admin-openrc
+    openstack network create --share --external
+        --provider-physical-network provider
+        --provider-network-type flat provider
+    openstack subnet create --network provider
+        --allocation-pool start=203.0.113.101,end=203.0.113.250
+        --dns-nameserver 8.8.4.4 --gateway 203.0.113.1
+        --subnet-range 203.0.113.0/24 provider
+\end{verbatim}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.93\textwidth]{CreateNetwork.png}
+    \caption{Neutron: Create Network.}
+    \label{fig:CreateNetwork}
+\end{figure}
+
+
+
+
+
+\subsection{Horizon}
+
+Thus far, everything we had done was in the CLI, but Horizon gives a graphical dashboard through which we can create instances, manage users, and install new images.
+
+\begin{verbatim}
+    # apt install openstack-dashboard
+\end{verbatim}
+
+Configure \texttt{/etc/openstack-dashboard/local\_settings.py}.
+
+\begin{verbatim}
+    OPENSTACK_HOST = "controller01"
+    ALLOWED_HOSTS = ['*']
+    SESSION_ENGINE = 'django.contrib.sessions.backends.cache'
+
+    CACHES = {
+        'default': {
+        'BACKEND':'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': 'controller:11211',
+        }
+    }
+    OPENSTACK_KEYSTONE_URL = "http://%s/identity/v3" % OPENSTACK_HOST
+    OPENSTACK_KEYSTONE_MULTIDOMAIN_SUPPORT = True
+    OPENSTACK_API_VERSIONS = {
+        "identity": 3,
+        "image": 2,
+        "volume": 3,
+    }
+    OPENSTACK_KEYSTONE_DEFAULT_DOMAIN = "Default"
+    OPENSTACK_KEYSTONE_DEFAULT_ROLE = "user"
+    OPENSTACK_NEUTRON_NETWORK = {
+        'enable_router': False,
+        'enable_quotas': False,
+        'enable_ipv6': False,
+        'enable_distributed_router': False,
+        'enable_ha_router': False,
+        'enable_lb': False,
+        'enable_firewall': False,
+        'enable_vpn': False,
+        'enable_fip_topology_check': False,
+    }
+\end{verbatim}
+
+Then after modifying \texttt{/etc/apache2/conf-available/openstack-dashboard.conf}
+
+\begin{verbatim}
+    WSGIApplicationGroup %{GLOBAL}
+\end{verbatim}
+
+\begin{verbatim}
+    # systemctl reload apache2.service
+\end{verbatim}
+
+We were able to restart our Apache server to finalize installation. To verify installation, we navigate to http://controller01/horizon. This works both inside and outside of our VMs as we have opened it up to the external network. Logging in with the user/password combination we created in Keystone, we are able to see the dashboard. \textbf{This satisfies the grading checklist for Horizon (see Figure~\ref{fig:Horizon}, page~\pageref{fig:Horizon}).}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.99\textwidth]{Horizon.png}
+    \caption{Horizon: Services Information.}
+    \label{fig:Horizon}
+\end{figure}
+
+
+
+
+
+
+\newpage
+\subsection{Cinder}
+
+This section describes how to install and configure storage nodes for the block storage service to be used on \texttt{block01} node. As with the other nodes, we need to configure MariaDB and Keystone.
+
+\begin{verbatim}
+    # mysql
+    MariaDB [(none)]> CREATE DATABASE cinder;
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON cinder.* TO 
+        'cinder'@'localhost' IDENTIFIED BY 'CINDER_DBPASS';
+    MariaDB [(none)]> GRANT ALL PRIVILEGES ON cinder.* TO 
+        'cinder'@'%' IDENTIFIED BY 'CINDER_DBPASS';
+    exit;
+\end{verbatim}
+
+\begin{verbatim}
+    source admin-openrc
+    openstack user create --domain default --password-prompt cinder
+    openstack role add --project service --user cinder admin
+    openstack service create --name cinderv2 --description 
+        "OpenStack Block Storage" volumev2
+    openstack service create --name cinderv3 --description 
+        "OpenStack Block Storage" volumev3
+\end{verbatim}
+
+\begin{verbatim}
+    openstack endpoint create --region RegionOne volumev2 
+        public http://controller01:8776/v2/%\(project_id\)s
+    openstack endpoint create --region RegionOne volumev2 
+        internal http://controller01:8776/v2/%\(project_id\)s
+    openstack endpoint create --region RegionOne volumev2 
+        admin http://controller01:8776/v2/%\(project_id\)s
+    openstack endpoint create --region RegionOne volumev3
+        public http://controller01:8776/v3/%\(project_id\)s
+    openstack endpoint create --region RegionOne volumev3
+        internal http://controller01:8776/v3/%\(project_id\)s
+    openstack endpoint create --region RegionOne volumev3
+        admin http://controller01:8776/v3/%\(project_id\)s
+\end{verbatim}
+
+On our \texttt{controller01} node, we install and configured the Cinder service by modifying the config file \texttt{/etc/cinder/cinder.conf}.
+
+\begin{verbatim}
+    # apt install cinder-api cinder-scheduler
+\end{verbatim}
+
+\begin{verbatim}
+    [database]
+    connection = mysql+pymysql://cinder:CINDER_DBPASS@
+        controller01/cinder
+    [DEFAULT]
+    transport_url = rabbit://openstack:RABBIT_PASS@controller01
+    auth_strategy = keystone
+    my_ip = 10.211.55.16
+
+    [keystone_authtoken]
+    www_authenticate_uri = http://controller01:5000
+    auth_url = http://controller01:5000
+    memcached_servers = controller01:11211
+    auth_type = password
+    project_domain_name = default
+    user_domain_name = default
+    project_name = service
+    username = cinder
+    password = CINDER_PASS
+
+    [oslo_concurrency]
+    lock_path = /var/lib/cinder/tmp
+\end{verbatim}
+
+We populated the database with these changes.
+
+\begin{verbatim}
+    # su -s /bin/sh -c "cinder-manage db sync" cinder
+\end{verbatim}
+
+Next we configured the \texttt{compute01} node for Cinder by modifying \texttt{/etc/nova/nova.conf}.
+
+\begin{verbatim}
+    [cinder]
+    os_region_name = RegionOne
+\end{verbatim}
+
+Restarted the \texttt{compute01} API and block storage services.
+
+\begin{verbatim}
+    # service nova-api restart
+    # service cinder-scheduler restart
+    # service apache2 restart
+\end{verbatim}
+
+The next steps were performed on the \texttt{block01} node. We install a local volume management tool, created a LVM physical volume, groups, and configured permissions.
+
+\begin{verbatim}
+    # apt install lvm2 thin-provisioning-tools
+    # pvcreate /dev/sdb
+    # vgcreate cinder-volumes /dev/sdb
+\end{verbatim}
+
+Edited the \texttt{/etc/lvm/lvm.conf}
+
+\begin{verbatim}
+    devices {
+        filter = [ "a/sdb/", "r/.*/"]
+    }
+\end{verbatim}
+
+After preparing the physical volume, it was time to install Cinder on the \texttt{block01} node.
+
+\begin{verbatim}
+    # apt install cinder-volume
+\end{verbatim}
+
+And then configure \texttt{/etc/cinder/cinder.conf}
+
+\begin{verbatim}
+    [database]
+    connection = mysql+pymysql://cinder:CINDER_DBPASS@
+        controller01/cinder
+
+    [DEFAULT]
+    transport_url = rabbit://openstack:RABBIT_PASS@controller01
+    auth_strategy = keystone
+    my_ip = 10.211.55.34
+    enabled_backends = lvm
+    glance_api_servers = http://controller01:9292
+
+    [keystone_authtoken]
+    www_authenticate_uri = http://controller01:5000
+    auth_url = http://controller01:5000
+    memcached_servers = controller01:11211
+    auth_type = password
+    project_domain_name = default
+    user_domain_name = default
+    project_name = service
+    username = cinder
+    password = CINDER_PASS
+
+    [oslo_concurrency]
+    lock_path = /var/lib/cinder/tmp
+\end{verbatim}
+
+\begin{verbatim}
+    [lvm]
+    volume_driver = cinder.volume.drivers.lvm.LVMVolumeDriver
+    volume_group = cinder-volumes
+    target_protocol = iscsi
+    target_helper = tgtadm
+\end{verbatim}
+
+Once configured, we restarted all cinder services on \texttt{block01}
+\begin{verbatim}
+    # service tgt restart
+    # service cinder-volume restart
+\end{verbatim}
+
+Once the services were restarted, we created a volume using our newly installed Horizon dashboard. \textbf{This satisfies the grading checklist for Cinder (see Figure~\ref{fig:Cinder}, page~\pageref{fig:Cinder}).}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.99\textwidth]{Cinder.png}
+    \caption{Cinder: Create and List Volumes.}
+    \label{fig:Cinder}
+\end{figure}
+
+
+
+
+
+
+\subsection{Swift}
+
+The last service we were tasked to install was Swift, OpenStack's container service. Running through the same database and Keystone user creation methods as for the other services, we created two more nodes to be used for object storage. Each of these nodes needed to have two physical volumes created as in the block storage node. These multiple nodes and volumes allow us to balance our loads based on demand.
+
+\begin{verbatim}
+    source admin-openrc
+    openstack user create --domain default --password-prompt swift
+    openstack role add --project service --user swift admin
+    openstack service create --name swift --description 
+        "OpenStack Object Storage" object-store
+    openstack endpoint create --region RegionOne object-store 
+        public http://controller01:8080/v1/AUTH_%\(project_id\)s
+    openstack endpoint create --region RegionOne object-store 
+        internal http://controller01:8080/v1/AUTH_%\(project_id\)s
+    openstack endpoint create --region RegionOne object-store 
+        admin http://controller01:8080/v1/AUTH_%\(project_id\)s
+    # apt-get install swift swift-proxy python-swiftclient 
+        python-keystoneclient python-keystonemiddleware
+    # curl -o /etc/swift/proxy-server.conf https://opendev.org/
+        openstack/swift/raw/branch/master/etc/proxy-server.conf-sample
+\end{verbatim}
+
+Edited the config \texttt{/etc/swift/proxy-server.conf}
+
+\begin{verbatim}
+    [DEFAULT]
+    bind_port = 8080
+    user = swift
+    swift_dir = /etc/swift
+
+    [pipeline:main]
+    pipeline = catch_errors gatekeeper healthcheck proxy-logging
+    cache container_sync bulk ratelimit authtoken keystoneauth
+    container-quotas account-quotas slo dlo versioned_writes 
+    proxy-logging proxy-server
+    [app:proxy-server]
+    use = egg:swift#proxy
+    account_autocreate = True
+    [filter:keystoneauth]
+    use = egg:swift#keystoneauth
+    operator_roles = admin,user
+    [filter:authtoken]
+    paste.filter_factory = keystonemiddleware.auth_token:
+        filter_factory
+    www_authenticate_uri = http://controller01:5000
+    auth_url = http://controller01:5000
+    memcached_servers = controller01:11211
+    auth_type = password
+    project_domain_id = default
+    user_domain_id = default
+    project_name = service
+    username = swift
+    password = SWIFT_PASS
+    delay_auth_decision = True
+
+    [filter:cache]
+    use = egg:swift#memcache
+    memcache_servers = controller01:11211
+\end{verbatim}
+
+This completes the controller node setup, which then led us to setting up the separate object storage nodes. Since each of these would be identical, we created and configured one, then cloned it, but changed the hostname and updated all config file with corresponding IP addresses.
+
+\begin{verbatim}
+    # apt-get install xfsprogs rsync
+    # mkfs.xfs /dev/sdb
+    # mkfs.xfs /dev/sdc
+    # mkdir -p /srv/node/sdb
+    # mkdir -p /srv/node/sdc
+
+    # blkid
+    UUID="<UUID-from-output-above>" /srv/node/sdb xfs noatime 0 2
+    UUID="<UUID-from-output-above>" /srv/node/sdc xfs noatime 0 2
+
+    # mount /srv/node/sdb
+    # mount /srv/node/sdc
+\end{verbatim}
+
+Created the \texttt{/etc/rsyncd.conf} and added the following, making sure to adjust the IP based on which object node we were working.
+
+\begin{verbatim}
+    uid = swift
+    gid = swift
+    log file = /var/log/rsyncd.log
+    pid file = /var/run/rsyncd.pid
+    address = 10.211.55.41 (47)
+
+    [account]
+    max connections = 2
+    path = /srv/node/
+    read only = False
+    lock file = /var/lock/account.lock
+
+    [container]
+    max connections = 2
+    path = /srv/node/
+    read only = False
+    lock file = /var/lock/container.lock
+
+    [object]
+    max connections = 2
+    path = /srv/node/
+    read only = False
+    lock file = /var/lock/object.lock
+\end{verbatim}
+We edited the \texttt{/etc/default/rsync} file.
+
+\begin{verbatim}
+    RSYNC_ENABLE=true
+\end{verbatim}
+
+Then started the rsync service and began installing services.
+
+\begin{verbatim}
+    # service rsync start
+    # apt-get install swift swift-account swift-container
+        swift-object
+    # curl -o /etc/swift/account-server.conf https://opendev.org/
+      openstack/swift/raw/branch/master/etc/account-server.conf-sample
+    # curl -o /etc/swift/container-server.conf https://opendev.org/
+     openstack/swift/raw/branch/master/etc/container-server.conf-sample
+    # curl -o /etc/swift/object-server.conf https://opendev.org/
+        openstack/swift/raw/branch/master/etc/object-server.conf-sample
+\end{verbatim}
+Edited the \texttt{/etc/swift/account-server.conf}, \texttt{/etc/swift/container-server.conf}, and \texttt{/etc/swift/object-server.conf} files with the following data, substituting their respective servers under the pipeline and respective IP addresses based on object node.
+
+\begin{verbatim}
+    [DEFAULT]
+    bind_ip = 10.211.55.41 (47)
+    bind_port = 6202
+    user = swift
+    swift_dir = /etc/swift
+    devices = /srv/node
+    mount_check = True
+
+    [pipeline:main]
+    pipeline = healthcheck recon account-server
+\end{verbatim}
+
+We changed ownership of the mount points to swift.
+
+\begin{verbatim}
+    # chown -R swift:swift /srv/node
+    # mkdir -p /var/cache/swift
+    # chown -R root:swift /var/cache/swift
+    # chmod -R 775 /var/cache/swift
+\end{verbatim}
+
+Once nodes were configured properly, we began creating and distributing initial account, container, and object rings. The ring builder creates configuration files that each node uses to determine and deploy the storage architecture. We need to run the ring builder for each physical volume on each object storage node -- a total of four times. We then verified the ring contents and rebalanced the ring. These steps needed to be repeated on the object server, container server, and account server.
+
+\begin{verbatim}
+    # cd /etc/swift
+    # swift-ring-builder account.builder create 10 3 1
+    # swift-ring-builder account.builder add --region 1 --zone 1 
+        --ip 10.211.55.41 --port 6202 --device sdb --weight 100
+    # swift-ring-builder account.builder add --region 1 --zone 1 
+        --ip 10.211.55.41 --port 6202 --device sdc --weight 100
+    # swift-ring-builder account.builder add --region 1 --zone 1 
+        --ip 10.211.55.47 --port 6202 --device sdb --weight 100
+    # swift-ring-builder account.builder add --region 1 --zone 1 
+        --ip 10.211.55.47 --port 6202 --device sdc --weight 100
+    
+    # swift-ring-builder account.builder
+
+    # swift-ring-builder account.builder rebalance
+\end{verbatim}
+
+Figure~\ref{fig:Rebalance}, page~\pageref{fig:Rebalance} shows the output of the rebalancing.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.99\textwidth]{Rebalance.png}
+    \caption{Swift: Rebalancing the Rings.}
+    \label{fig:Rebalance}
+\end{figure}
+
+After distribute the ring configuration files \texttt{account.ring.gz}, \texttt{container.ring.gz}, and \texttt{object.ring.gz} to the \texttt{/etc/swift} directory on each storage node, we set out finalizing installation.
+
+We obtained and edited the \texttt{/etc/swift/swift.conf} file from the object storage source repository. Once edited as shown below, we copied this file to each of the storage nodes.
+
+\begin{verbatim}
+    # curl -o /etc/swift/swift.conf https://opendev.org/
+        openstack/swift/raw/branch/master/etc/swift.conf-sample
+\end{verbatim}
+
+\begin{verbatim}
+    [swift-hash]
+        swift_hash_path_suffix = HASH_PATH_SUFFIX
+        swift_hash_path_prefix = HASH_PATH_PREFIX
+
+    [storage-policy:0]
+    name = Policy-0
+    default = yes
+\end{verbatim}
+
+On each node, it was important to give proper permission to this file, then restarted all storage services.
+
+\begin{verbatim}
+    # chown -R root:swift /etc/swift
+    # service memcached restart
+    # service swift-proxy restart
+    # swift-init all start
+\end{verbatim}
+
+Unfortunately, after restarting the nodes, both object nodes became corrupted and could no longer boot into an operating system. Therefore we were unable to create a container or upload/download a file as called for in the homework. We will continue to work on rebuilding the VMs, but it will not be done in time for the deadline.
+
+
+
+
+
+
+
+
+\subsection{Heat (extra credit)}
+
+We were able to install an extra orchestration service, Heat. Figures~\ref{fig:Heat}, page~\pageref{fig:Heat} show our Horizon dashboard with the Heat services running.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.65\textwidth]{Heat.png}
+    \caption{Heat: Orchestration Services.}
+    \label{fig:Heat}
+\end{figure}
+
+
+
+
+\newpage
+
+\section{Conclusion}
+
+In conclusion, we were able to get most services running on our OpenStack deployment with the lone exception being Swift. We can certainly appreciate the learning experience of manually deploying OpenStack as it not only gave us insight into how to install the various services, but also how to troubleshoot. There were many times where we needed to go back and delete a service, user, group, etc. in order to retry an installation. This homework, while challenging, was very beneficial in learning an overview of OpenStack. Figures~\ref{fig:HorizonComplete} and~\ref{fig:NovaComplete}, page~\pageref{fig:HorizonComplete} show our Horizon dashboard with all services appearing along with their endpoints.
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.99\textwidth]{HorizonComplete.png}
+    \caption{Conclusion: Horizon Dashboard Showing All Services.}
+    \label{fig:HorizonComplete}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.99\textwidth]{NovaComplete.png}
+    \caption{Conclusion: Horizon Dashboard Showing Created VM.}
+    \label{fig:NovaComplete}
+\end{figure}
+
+
+
+
+
+\newpage
+
+
+\section{References}
+
+Denton, James \textit{Learning OpenStack Networking - Third Edition}, Packt Publishing, 2018. O'reilly Media, https://learning.oreilly.com/library/view/learning-openstack-networking/9781788392495/.\par
+
+“Overview.” OpenStack Docs: Overview, 
+https://docs.openstack.org/install-guide/overview.html.
+\end{document}

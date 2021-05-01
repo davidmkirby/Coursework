@@ -1,0 +1,48 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % uses T1 fonts (better quality)
+\usepackage{lmodern} % uses Latin Modern fonts
+\usepackage[margin=1in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ragged2e}
+\renewcommand{\baselinestretch}{1.15}
+\usepackage{tikz}
+\usetikzlibrary{automata,scopes,shapes,matrix,arrows,decorations.pathmorphing}
+\tikzset{>={stealth}}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage[makeroom]{cancel}
+\usepackage{pdfpages}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{rotating}
+\usepackage{hyperref}
+\definecolor{CrispBlue}{HTML}{0176AE}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=CrispBlue,
+    urlcolor=CrispBlue,
+    breaklinks=true
+}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\begin{document}
+\begin{center}
+\LARGE{ECE 595: Learning and Control\\Paper Review: Real-Time Risk-Aware Nonlinear Continuous-Time Safety Verification for Autonomous Systems}\\[1.5em]
+\large David Kirby\\[1.5em]
+% \large \textbf{Due Friday, April 9, 2021 at 9:00 AM}\\[2.5em]
+\end{center}
+
+% The authors focus on computationally-efficient, risk-aware safety verification algorithms. These are relevant for  We have studied at least one of the papers they reference ([6] ``A probabilistic particle-control approximation of chance-constrained stochastic predictive control.''). In this paper, the authors transform probabilistic safety verification problems into deterministic safety verifications. They use polynomial sum-of-squares to represent the uncertainty constraints and continuous time trajectories. As a result, the authors surmise that they no longer need to sample uncertainty points or time discretization.
+
+The authors are presenting computationally-efficient safety verification algorithms that attempt to eliminate the need for sampling and time discretization when dealing with continuous-time state trajectories and uncertain time-varying, nonlinear safety constraints. These are practical for autonomous vehicles that encounter time-varying obstacles, such as other vehicles while changing lanes. Through the use of moments of probability distribution and convex optimization using semidefinite programming, they transform the probabilistic safety verification problem into a deterministic one. Further, the authors use sum-of-squares polynomials to verify these safety constraints, bounding them within a tube representing families of trajectories.
+
+The paper touches on a few of the topics we've discussed this semester including referencing one paper from Blackmore et al. about probabilistic particle-control approximation of chance-constrained predictive control. In that paper, Blackmore brought up pertinent limitations to non-predictive control methods including assumptions of additive Gaussian noise and convex feasible regions not applying. Would these same limitations apply to this paper's methods? We also discussed a paper from Fan et al. on deep learning tubes for tube MPC in which those authors argue that Gaussian process moment matching for uncertainty can under and overestimate the distribution of trajectories.
+
+Despite possible limitations, this paper offers novel and computationally efficient algorithms for approaching the time-varying obstacle control problem. The use of moments to quickly transform from a probabilistic to deterministic safety verification problem and then the ability to add robustness with sum-of-squares polynomials is beneficial in scenarios where computational resources are limited and time is critical. The authors also note that these algorithms can be incorporated into standard motion planning algorithms such as rapidly-exploring random tree and probabilistic roadmap, expanding the paper's usefulness.
+
+
+
+\end{document}

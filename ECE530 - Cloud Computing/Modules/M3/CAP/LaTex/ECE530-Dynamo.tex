@@ -1,0 +1,68 @@
+% !TEX program = xelatex
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{nopageno} % no page numbers
+
+\usepackage{graphicx}
+\graphicspath{ {./graphics/} }
+\usepackage[dvipsnames]{xcolor}
+\definecolor{CrispBlue}{HTML}{0176AE}
+
+\usepackage{fontspec}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\BeforeBeginEnvironment{verbatim*}{\begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black]}%
+\AfterEndEnvironment{verbatim*}{\end{tcolorbox}}%
+
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage{subcaption}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\usepackage{tocloft}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{ECE 530: Cloud Computing}
+\rhead{Homework \#3}
+\rfoot{Page \thepage}
+
+\renewcommand{\listfigurename}{List of Figures}
+
+\begin{document}
+\setmainfont{SF Pro Text}
+\setsansfont{SF Pro Text}
+\setmonofont{SF Mono}
+\renewcommand{\familydefault}{\sfdefault}
+
+\thispagestyle{empty}
+\begin{center}
+\textsc{\Huge{ECE 530: Cloud Computing}}\\[2em]
+\textsc{\LARGE Dynamo Reading Assignment}\\[2em]
+\textsc{\Large David Kirby -- 101652098 -- davidkirby@unm.edu}\\[2em]
+\textsc{\Large Spring 2021}
+\end{center}
+
+\hypersetup{
+    linkcolor=CrispBlue,
+    urlcolor=CrispBlue,
+    breaklinks=true
+}
+
+In this paper, the authors describe the inner workings of Amazon's Dynamo, a highly available key-value storage system used by some of its core services, including e-commerce. Dynamo is a distributed data store used to manage the state of services. Its high reliability requirements as well as robustness to handle the very diverse set of applications mean that the database must be partitioned and replicated using consistent hashing and object versioning. This paper gets into the weeds fairly quickly with their explanation of update control using quorum-like techniques, and gossip-based distributed failure detection and membership; however, one important take away from this paper is the fact that Dynamo is entirely decentralized, requiring minimal manual administration. Another defining contribution Dynamo provides is an ``eventually-consistent'' storage system which incrementally scales to changing demand and accommodating various SLAs by tuning parameters. Due to Amazon's widespread distributed network, it was necessary to build a decentralized system that could be combined to provide a single, highly-available system.
+
+
+
+\end{document}

@@ -1,0 +1,70 @@
+% !TEX program = xelatex
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{nopageno} % no page numbers
+
+\usepackage{graphicx}
+\graphicspath{ {./graphics/} }
+\usepackage[dvipsnames]{xcolor}
+\definecolor{CrispBlue}{HTML}{0176AE}
+
+\usepackage{fontspec}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\BeforeBeginEnvironment{verbatim*}{\begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black]}%
+\AfterEndEnvironment{verbatim*}{\end{tcolorbox}}%
+
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage{subcaption}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\usepackage{tocloft}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{ECE 530: Cloud Computing}
+\rhead{Homework \#3}
+\rfoot{Page \thepage}
+
+\renewcommand{\listfigurename}{List of Figures}
+
+\begin{document}
+\setmainfont{SF Pro Text}
+\setsansfont{SF Pro Text}
+\setmonofont{SF Mono}
+\renewcommand{\familydefault}{\sfdefault}
+
+\thispagestyle{empty}
+\begin{center}
+\textsc{\Huge{ECE 530: Cloud Computing}}\\[2em]
+\textsc{\LARGE Kafka Reading Assignment}\\[2em]
+\textsc{\Large David Kirby -- 101652098 -- davidkirby@unm.edu}\\[2em]
+\textsc{\Large Spring 2021}
+\end{center}
+
+\hypersetup{
+    linkcolor=CrispBlue,
+    urlcolor=CrispBlue,
+    breaklinks=true
+}
+
+In this paper, the authors describe their design and implementation of a distributed messaging system for collecting and delivering log data with minimal latency. The authors state that previous solutions for this sort of data meant physically scraping log files for analysis. More modern systems have implemented aggregators to automate the scraping process for offline processing, dumped in a data warehouse. What the author are proposing in their messaging system, Kafka, allows for support of real-time applications logging and processing in addition to traditional offline analytics, even providing an API to allow other applications to consume this real-time data.
+
+To create Kafka, the authors focused on three design principles: efficiency on a single partition, distributed coordination, and delivery guarantees. In experiments, the authors show that, when compared with other messaging services (e.g., Apache ActiveMQ and RabbitMQ), Kafka achieves much higher throughput. It also provides distributed support and scales incredibly well. After having implemented a version of RabbitMQ when we built our OpenStack deployment for homework \#1, I am curious to research more into Kafka and its other implementations.
+
+
+
+\end{document}

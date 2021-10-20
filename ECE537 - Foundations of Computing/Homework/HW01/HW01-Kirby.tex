@@ -1,0 +1,36 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % uses T1 fonts (better quality)
+\usepackage{lmodern} % uses Latin Modern fonts
+\usepackage[margin=1in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ragged2e}
+\renewcommand{\baselinestretch}{1.15}
+\usepackage{tikz}
+\usetikzlibrary{automata,scopes,shapes,matrix,arrows,decorations.pathmorphing}
+\tikzset{>={stealth}}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage[makeroom]{cancel}
+\usepackage{pdfpages}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{rotating}
+\usepackage{minted} % code syntax
+\definecolor{CrispBlue}{HTML}{0176AE}
+
+\begin{document}
+\begin{center}
+\LARGE{ECE 537: Foundations of Computing\\Homework \#1}\\[1.5em]
+\large David Kirby\\[1.5em]
+\large \textbf{Due Thursday, September 2, 2021 at 11:59pm}\\[2.5em]
+\end{center}
+
+\noindent The values that we determined in lecture were the same as derived in the program:\par
+$EH = \log(n) = 2.0794415416798357$
+
+\section*{Source Code}
+\subsection*{HW01.py}
+\inputminted[frame=lines, linenos]{python}{HW01.py}
+\end{document}

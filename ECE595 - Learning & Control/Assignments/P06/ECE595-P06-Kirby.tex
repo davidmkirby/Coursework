@@ -1,0 +1,38 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc} % uses T1 fonts (better quality)
+\usepackage{lmodern} % uses Latin Modern fonts
+\usepackage[margin=1in]{geometry}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ragged2e}
+\renewcommand{\baselinestretch}{1.15}
+\usepackage{tikz}
+\usetikzlibrary{automata,scopes,shapes,matrix,arrows,decorations.pathmorphing}
+\tikzset{>={stealth}}
+\usepackage{mathtools}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage[makeroom]{cancel}
+\usepackage{pdfpages}
+\usepackage{amssymb}
+\usepackage{gensymb}
+\usepackage{rotating}
+\usepackage{hyperref}
+\definecolor{CrispBlue}{HTML}{0176AE}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=CrispBlue,
+    urlcolor=CrispBlue,
+    breaklinks=true
+}
+
+\begin{document}
+\begin{center}
+\LARGE{ECE 595: Learning and Control\\Paper \#6 Summary}\\[1.5em]
+\large David Kirby\\[1.5em]
+\large \textbf{Due Friday, April 9, 2021 at 9:00 AM}\\[2.5em]
+\end{center}
+
+\noindent This paper expands upon a paper the authors previously published on a Neural Contraction Metric, this time adding robustness for stochastic disturbances. The authors use spectral normalization in order to get to a Lipschitz continuous state, which the authors argue ensures exponential boundedness of the mean squared distance for typically unbounded stochastic disturbances. They then use convex optimization to further bound the mean squared distance. After researching the Lipschitz conditions for Karthik's and my paper, I could see how this paper would prove very useful for autonomous UAVs.
+
+\end{document}

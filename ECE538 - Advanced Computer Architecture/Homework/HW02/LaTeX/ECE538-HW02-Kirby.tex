@@ -64,7 +64,7 @@
 
         \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=]
             \begin{enumerate}
-                \item Compulsory: These are the intitial misses due to an empty (cold) cache.
+                \item Compulsory: These are the initial misses due to an empty (cold) cache.
                 \item Conflict: These are the misses due to a rigid block placement strategy (i.e. low associativity).
                 \item Capacity: These are misses due to the cache being too small to hold the entire working set of data and instructions.
             \end{enumerate}
@@ -119,7 +119,10 @@ Assume you have an \textit{in-order} RISC processor that has a CPI of 1.3 with a
             \begin{align*}
                 \text{CPI} &= \frac{\text{clock cycles}}{\text{instruction}} + \text{miss rate} \times \text{miss penalty}\\
                 &= 1.3 + 0.01 \times 20 + 0.38 \times 0.03 \times 20\\
-                &= 1.728\ \frac{\text{clock cycles}}{\text{instruction}}
+                &= 1.728\ \frac{\text{clock cycles}}{\text{instruction}}\\[1em]
+                \text{Speedup} &= \frac{\text{CPI}_\text{stalls}}{\text{CPI}_\text{ideal}}\\
+                &= \frac{1.728}{1.3}\\
+                &=1.329 \times
             \end{align*}
         \end{tcolorbox}
         \vspace{\stretch{1}}
@@ -167,14 +170,18 @@ You are designing a System On a Chip (SoC) with your 5-stage pipelined RISC proc
         \part[5] Assuming the Fetch and Memory stages of your processor only access memory and the flip-flop overhead is 0.1 ns, what is the fastest achievable clock rate of your processor when directly fetching instructions from the program ROM?
         
         \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=]
-            
+            \begin{align*}
+                \text{Clock rate} &= \frac{1}{\text{ROM access time} + \text{overhead}}\\
+                &= \frac{1}{2\text{ ns} + 0.1 \text{ ns}}\\
+                &= 476 \text{ MHz}
+            \end{align*}
         \end{tcolorbox}
         \vspace{\stretch{1}}
 
         \part[5] Assuming accesses to program ROM are cached in a 4KB instruction cache with an access time of 0.5 ns, what is the fastest achievable clock rate of your processor?
 
         \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=]
-            
+            Since the access time for the instruction cache is less than the critical path of the processor (i.e., 0.5 ns < 1 ns), the processor will actually be the bottleneck in this scenario; therefore, the fastest achievable clock rate would be 1 GHz.
         \end{tcolorbox}
         \vspace{\stretch{1}}
 
@@ -183,14 +190,24 @@ You are designing a System On a Chip (SoC) with your 5-stage pipelined RISC proc
         \textit{Hint:} Start by calculating the miss penalty in clock cycles and remember a cache miss fills an entire line.
 
         \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=]
-            
+            \begin{align*}
+                \text{Miss penalty} &= 1^{\text{st}}\text{ cycle to detect miss} + \text{\# of ROM to fill cache} \times \text{Time to determine \# of cycles to read the ROM}\\
+                &= 1\text{ cc} + \text{ROM} \times 2.1 \text{ ns}\\
+                \frac{\text{Memory stall cycles}}{\text{Instruction}} &= \text{Instruction count} \times \text{\# of misses} \times \text{Miss penalty}\\
+                &= \\
+                &= 
+            \end{align*}
         \end{tcolorbox}
         \vspace{\stretch{1}}
 
         \part[10] Without the instruction cache, the processor is able to complete 4 million instructions from the same workload in 4.8 million clock cycles. What will be the CPI of your processor with the 4KB instruction cache, assuming the same workload?
         
         \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=]
-            
+            \begin{align*}
+                \text{CPI}_{\text{initial}} &= \frac{4.8\text{ million clock cycles}}{4 \text{ million instructions}}\\
+                &= 1.2\ \frac{\text{clock cycles}}{\text{instruction}}\\[1em]
+                \frac{\text{Stalls}}{\text{Instruction}} &= 1 \text{ cycle}
+            \end{align*}
         \end{tcolorbox}
         \vspace{\stretch{1}}
     \end{parts}
@@ -211,49 +228,29 @@ Assume that both \texttt{X} and \texttt{Y} are stored in the row major order and
         \part[5] Execute the code on your laptop and report the execution time. Would loop interchange help improve the performance of the code? Give explanation.
 
         \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=]
-            
+            Transpose using the base code took 14.690 milliseconds to execute. Interchanging the loops certainly helps by increasing the locality of the data. When an array is loaded into cache from memory, it loads the entire block, meaning the next call will only have to go to cache, and not memory. When using loop exchange, the transpose took 10.229 milliseconds to execute, which equates to a 1.436\( \times \) speedup.
         \end{tcolorbox}
         \vspace{\stretch{1}}
 
         \part[10] Rewrite the code by applying blocking (the software technique to improve data reuse). Use a blocking factor that leads to a noticeable performance improvement on the same computer as the one used in (a). Explain your reason for choosing the specific blocking factor.
 
         \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=]
-            
+            The main purpose of loop-blocking is to eliminate as many cache misses as possible by breaking up the memory into smaller chunks. In this case I chose to break it up into 8-bit chunks, and then transposing from there.
         \end{tcolorbox}
         \vspace{\stretch{1}}
 
         \part[10] Execute the new code and report the execution time. Make a comparison with the results reported in (a).
         \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=]
-            
+            Loop-blocking resulted in a transpose time of 8.697 milliseconds, which compared to our results in (a) equates to a 1.689\( \times \) speedup over the base code and a 1.176\( \times \) speedup over the interchanged code. See figure below for outputs.
         \end{tcolorbox}
+        \begin{figure}[ht]
+            \centering
+            \includegraphics[width=\linewidth]{timeTrials.png}
+            % \caption{Time trials of transposes.}
+            % \label{fig:timeTrials}
+        \end{figure}
+
         \vspace{\stretch{1}}
     \end{parts}
 \end{questions}
 \end{document}
-
-
-% #include <stdio.h>
-
-% int main()
-% {
-%     register int i, j; /* i, j are in the processor registers */ 
-%     register float sum1, sum2;
-%     float Y[64][64], X[64][64];
-%     // float Y[1024][1024], X[1024][1024];
-
-    
-%     for (i = 0; i < 64; i++) {
-%         for (j = 0; j < 64; j++) {
-%             Y[i][j];
-%         }
-%         for (j = 0; j < 32; j++) {
-%             sum2 += X[i][2*j];
-%         }
-%     }
-% printf("i = %d", i);
-% printf("\nj = %d", j);
-% printf("\nY = %u", Y);
-% // printf("\nX = ");printf("%f", X[1]);
-
-%     return 0;
-% }

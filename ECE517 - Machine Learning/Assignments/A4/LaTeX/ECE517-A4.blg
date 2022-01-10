@@ -1,0 +1,122 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: ECE517-A4.aux
+The style file: IEEEtran.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: IEEEabrv.bib
+Database file #2: bibliography.bib
+Warning--I didn't find a database entry for "mcknightbailey97"
+Warning--I didn't find a database entry for "kleinrock74"
+Warning--I didn't find a database entry for "faulhaber11"
+Warning--I didn't find a database entry for "seganusenet"
+Warning--I didn't find a database entry for "napsterbandwidth"
+Warning--I didn't find a database entry for "jobsandnapster"
+Warning--I didn't find a database entry for "Forbes_Scaleback"
+Warning--I didn't find a database entry for "FCCpledge"
+Warning--I didn't find a database entry for "IEEE_InternetCoping"
+Warning--I didn't find a database entry for "IEEE_broadbandRights"
+Warning--I didn't find a database entry for "FCC_Dissent"
+Warning--I didn't find a database entry for "MIT_Economist"
+Warning--I didn't find a database entry for "IPv6_Adoption"
+Warning--I didn't find a database entry for "IEEE_Deployability"
+Warning--I didn't find a database entry for "IA_IE"
+Warning--I didn't find a database entry for "eisenhowerarpa"
+Warning--I didn't find a database entry for "arpanetswitch"
+Warning--I didn't find a database entry for "meineldigitalcomms"
+Warning--I didn't find a database entry for "nsfnet"
+Warning--I didn't find a database entry for "quartermanarpa"
+Warning--I didn't find a database entry for "twobildevices"
+Warning--I didn't find a database entry for "nytimesmilnet"
+Warning--I didn't find a database entry for "haubenusenet98"
+Warning--I didn't find a database entry for "eternalseptember"
+Warning--I didn't find a database entry for "aolsize"
+Warning--I didn't find a database entry for "eternalseptember94"
+Warning--I didn't find a database entry for "bernersleehttp"
+Warning--I didn't find a database entry for "bernersleewebsoftware"
+Warning--I didn't find a database entry for "firstwebservers"
+Warning--I didn't find a database entry for "w3catalog"
+Warning--I didn't find a database entry for "bernersleewebcatalog"
+Warning--I didn't find a database entry for "mosaicbrowser"
+Warning--I didn't find a database entry for "nsfbackbone"
+Warning--I didn't find a database entry for "nsfcommerceorder"
+Warning--I didn't find a database entry for "netscapessl"
+Warning--I didn't find a database entry for "netscapeipo"
+Warning--I didn't find a database entry for "netscapebubble"
+Warning--I didn't find a database entry for "ljungvist02"
+Warning--I didn't find a database entry for "virtualcurrencyhistory"
+Warning--I didn't find a database entry for "napsterlimewiredates"
+Warning--I didn't find a database entry for "spangler15"
+Warning--I didn't find a database entry for "netflixadds4k"
+Warning--I didn't find a database entry for "tvprice"
+Warning--I didn't find a database entry for "hulu4k"
+Warning--I didn't find a database entry for "displus4k"
+Warning--I didn't find a database entry for "MIT_LackOfInnovation"
+Warning--I didn't find a database entry for "IEEE_COBOL"
+Warning--I didn't find a database entry for "Graphic_CDN"
+Warning--I didn't find a database entry for "HBO"
+Warning--I didn't find a database entry for "wu03"
+Warning--I didn't find a database entry for "weitzner06"
+Warning--I didn't find a database entry for "wirednetneutrality"
+Warning--I didn't find a database entry for "weitzner07"
+Warning--I didn't find a database entry for "xumoacquisition"
+Warning--I didn't find a database entry for "COIT"
+Warning--I didn't find a database entry for "BEREC"
+Warning--I didn't find a database entry for "DA_DE"
+Warning--I didn't find a database entry for "MGI_AA"
+Warning--I didn't find a database entry for "IDC_EDM"
+Warning--I didn't find a database entry for "IDC_PD"
+Warning--I didn't find a database entry for "EC_EDS"
+Warning--I didn't find a database entry for "ETNO_SDC"
+Warning--I didn't find a database entry for "ETNO_DCV"
+Warning--I didn't find a database entry for "BCG_CK"
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+
+Done.
+You've used 0 entries,
+            4087 wiz_defined-function locations,
+            1431 strings with 18611 characters,
+and the built_in function-call counts, 104 in all, are:
+= -- 0
+> -- 0
+< -- 0
++ -- 0
+- -- 0
+* -- 19
+:= -- 27
+add.period$ -- 0
+call.type$ -- 0
+change.case$ -- 0
+chr.to.int$ -- 0
+cite$ -- 0
+duplicate$ -- 0
+empty$ -- 1
+format.name$ -- 0
+if$ -- 3
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 0
+newline$ -- 23
+num.names$ -- 0
+pop$ -- 0
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 2
+skip$ -- 1
+stack$ -- 0
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 5
+type$ -- 0
+warning$ -- 0
+while$ -- 0
+width$ -- 0
+write$ -- 22
+(There were 64 warnings)

@@ -1,0 +1,124 @@
+% !TEX program = xelatex
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{nopageno} % no page numbers
+
+\usepackage{graphicx}
+\graphicspath{ {./graphics/} }
+\usepackage[dvipsnames]{xcolor}
+\definecolor{CrispBlue}{HTML}{0176AE}
+
+\usepackage{fontspec}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\BeforeBeginEnvironment{verbatim*}{\begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black]}%
+\AfterEndEnvironment{verbatim*}{\end{tcolorbox}}%
+
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage{subcaption}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\usepackage{tocloft}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{ECE 517: Machine Learning}
+\rhead{Assignment 2.2}
+\rfoot{Page \thepage}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{bm}
+
+\renewcommand{\listfigurename}{List of Figures}
+
+\begin{document}
+\setmainfont{SF Pro Text}
+\setsansfont{SF Pro Text}
+\setmonofont{SF Mono}
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\thispagestyle{empty}
+\begin{titlepage}
+\vspace*{\fill}
+\begin{center}
+\textsc{\Huge{ECE 517: Machine Learning}}\\[3em]
+\textsc{\LARGE Assignment 2.2: Maximum Margin Machine}\\[6em]
+\textsc{\Large David Kirby -- 101652098 -- davidkirby@unm.edu}\\[3em]
+\textsc{\Large Fall 2021}
+\end{center}
+\vfill
+\begin{figure}[h]
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=0.25\linewidth]{learning.png}
+\end{subfigure}
+\begin{subfigure}{0.6\textwidth}\hspace{1em}
+\includegraphics[width=0.8\linewidth]{new-soe-logo.png}
+\end{subfigure}
+\end{figure}
+\end{titlepage}
+\setcounter{figure}{0}
+
+% \tableofcontents
+
+% \addcontentsline{toc}{section}{1\ \ \ \ List of Figures}
+% \listoffigures
+% \newpage
+% \setcounter{section}{+1}
+
+\hypersetup{
+    linkcolor=CrispBlue,
+    urlcolor=CrispBlue,
+    breaklinks=true
+}
+% \section{Abstract}
+% Docker is a platform to easily maintain highly configurable instances. It can be set up and ran in milliseconds, and can create globally accessible services. For homework \#3 we were tasked to create a Dockerfile that can build images automatically, then to deploy a distributed database based on Linux containers. Our deployment must contain at least two containers and therefore at least two database instances. The instances must be connected to each other and contain part of the data.
+
+
+% \section{Introduction}
+% For our deployment we chose MongoDB, a document-oriented NoSQL database. To create our images we used the Dockerfile shown in the \nameref{sec:Appendix}. We quickly learned that Dockerfiles are limited in their build capabilities, notably with creating networks and creating multiple images at once. These issues can be solved using docker-compose, but that is beyond the scope of this assignment.
+
+
+
+
+
+
+% \section{Deployment}
+Write a complete derivation of the proof that the maximization of margin \textit{d} is equivalent to minimize the norm of the parameter vector in the maximum margin machine presented in the last set of slides of this module.
+
+\begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=\ ]
+    The equation for the hyperplane bisecting our data is
+\begin{align}
+	\bm{\mathrm{w^\top x}}_{0}+b=0
+\end{align}
+where \( \bm{\mathrm{w}} \) is the norm of the parameter vector. From there, we are able to determine two support vectors on either side corresponding to our data +1 and \(-\)1, as well as the margin. These equations are respectively:
+\begin{align}
+	\notag\bm{\mathrm{w^\top x}}_{0}+b&=+1\\
+	\notag\bm{\mathrm{w^\top x}}_{0}+b&=-1
+\end{align}
+The distance from these support vectors to the hyperplane is the margin and given by
+\begin{align}
+	\notag\bm{\mathrm{x}}_1 &=\bm{\mathrm{x}}_{0}+\rho\bm{\mathrm{w}}\\
+	d&=\parallel\bm{\mathrm{x}}_1-\bm{\mathrm{x}}_{0}\parallel=\rho\bm{\mathrm{w}}
+\end{align}
+where \(\bm{\mathrm{x}}_{0}\) is a point on the hyperplane and \(\bm{\mathrm{x_1}}\) is a point normal to \(\bm{\mathrm{x}}_{0}\) and \(\rho=\frac{1}{\parallel\bm{\mathrm{w}}\parallel^2}\). Using equations (1) and (2), we can solve for \textit{d} in terms of the norm
+\begin{align}
+	d&=\rho\parallel\bm{\mathrm{w}}\parallel=\frac{1}{\parallel\bm{\mathrm{w}}\parallel}
+\end{align}
+From equation (3) we can see that as \(\parallel\bm{\mathrm{w}}\parallel \) goes to infinity, \textit{d} goes to 0 and vice versa, thus proving that the maximization of margin \textit{d} is equivalent to the minimization of the norm of the parameter vector.
+\end{tcolorbox}
+
+\end{document}

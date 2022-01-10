@@ -1,0 +1,458 @@
+% !TEX program = xelatex
+\documentclass[11pt]{article}
+\usepackage{fontspec}
+\usepackage[T1]{fontenc} % uses T1 fonts (better quality)
+\usepackage{lmodern} % uses Latin Modern fonts
+\usepackage[margin=1in]{geometry} % not needed with exam class
+\usepackage[dvipsnames]{xcolor}
+% \usepackage{ragged2e}
+% \renewcommand{\baselinestretch}{1.15}
+\usepackage{tikz}
+\usetikzlibrary{automata,scopes,shapes,matrix,arrows,decorations.pathmorphing}
+\tikzset{>={stealth}}
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{bm}
+
+\usepackage{graphicx}
+\graphicspath{ {./graphics/} }
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\usepackage[dvipsnames]{xcolor}
+\definecolor{CrispBlue}{HTML}{0176AE}
+
+\usepackage[makeroom]{cancel}
+\definecolor{OuterBlue}{HTML}{1370AA}
+\definecolor{InnerBlue}{HTML}{9BC4DD}
+\usepackage{pdfpages}
+
+\BeforeBeginEnvironment{verbatim}{\footnotesize}%
+\AfterEndEnvironment{verbatim}{\textnormal}%
+
+% \setcounter{secnumdepth}{0}
+
+\begin{document}
+% \setmainfont{SF Pro Text}
+% \setsansfont{SF Pro Text}
+\setmonofont{SF Mono}
+% \renewcommand{\familydefault}{\sfdefault}
+
+\title{Midterm Review}
+\author{David Kirby}
+\maketitle
+\tableofcontents
+
+\newpage
+\section{Performance: Metrics \& Enhancement Techniques}
+
+\subsection{Factors affecting execution time?}
+\begin{equation}
+    \text{Execution Time} = \text{IC} \times \text{CPI} \times \text{T}
+\end{equation}
+\begin{itemize}
+    \item Instruction count (IC): Application/program; ISA.
+    \item Clock per instruction (CPI): ISA; Datapath design; Parallel and pipeline HW design.
+    \item Clock period (T): Semiconductor technology; Datapath design and
+    implementation.
+    \item Decrease in one may lead to increase in other two.
+\end{itemize}
+
+\subsection{Challenges on performance enhancement}
+
+
+\subsubsection{Reduction of clock cycle time (T) / increase clock frequency}
+    \begin{itemize}
+        \item Power consumption increases with increase in clock frequency.
+        \item Memory operations take longer than a clock period \(\rightarrow\) memory-wall problem (memory is relatively slower than CPU, CPU waits for data/instructions).
+    \end{itemize}
+
+\subsubsection{Reduction of instruction count (IC)}
+    \begin{itemize}
+        \item More complex instructions.
+        \item Multi-issue processor: VLIW\footnote{Very long instruction word}/superscalar, SIMD\footnote{Single instruction, multiple data}, vector processor.
+    \end{itemize}
+
+\subsubsection{Reduction of cycle per instruction (CPI)}
+    \begin{itemize}
+        \item Instruction pipelining: Pipeline datapath
+        \item Multi-issue processor: VLIW/superscalar processor
+    \end{itemize}
+
+\subsection{Performance Speedup}
+
+\subsubsection{Case 1: speedup of \(\text{computer}_A\) over \(\text{computer}_B\) can be computed as}
+    \begin{align}
+        \text{speedup} &= \frac{\text{perf}_A}{\text{perf}_B}\\[1em]
+        \text{speedup} &= \frac{\text{time}_B}{\text{time}_A}
+    \end{align}
+
+\subsubsection{Case 2: speedup achieved due to enhancement can be computed as}
+    \begin{align}
+        \text{speedup} &= \frac{\text{T}_{\text{unenhanced}}}{\text{T}_{\text{enhanced}}}\\[1em]
+        &= \frac{\text{T}_{\text{original}}}{\text{T}_{\text{enhanced}}}
+    \end{align}
+
+\noindent\textbf{Examples:} If fraction \(E\) of the program is enhanced by a factor of \(S\) in an enhanced machine, then determine the speedup of enhanced machine over the machine before enhancement (original machine). What is the maximum speedup for a given \(E\) if \(S\) can be any value greater than or equal to 1?
+
+Fraction \(U = (1 - E) \) of the program is not enhanced. If \(T\) is execution time of program in unenhanced (original) machine:
+
+\begin{align}
+    \text{Time required for the execution of unenhanced fraction} &= \text{T} \times (1 - \text{E})\\
+    \text{Time required for the execution of enhanced fraction} &= \frac{(\text{T} \times \text{E})}{\text{S}}\\
+    \notag\text{Total execution time in the enhanced machine} &= \\
+    \notag\text{T }' &= \bigg[\text{T} \times (1 - \text{E})\bigg] + \bigg[\frac{(\text{T} \times \text{E})}{\text{S}}\bigg]\\
+    &= \text{T} \times \bigg[(1 - \text{E}) + \frac{\text{E}}{\text{S}}\bigg]\\
+    \notag&= \text{T} \times \bigg[1 - \frac{\text{E}\times(\text{S}-1)}{\text{S}}\bigg]
+\end{align}
+\begin{center}
+    *** (check: if S = 1 then T \('\) = T)
+\end{center}
+\begin{align}
+    \notag\text{speedup} &= \frac{\text{T}}{\text{T }'}\\
+    &= \frac{1}{(1 - \text{E}) + \frac{\text{E}}{\text{S}}}
+\end{align}
+
+\subsection{Amdahl's law}
+\begin{itemize}
+    \item The performance improvement to be gained from using some faster mode of execution is limited by the fraction of the time the faster mode can be used.
+    \item If fraction \((1 - \text{E})\) of application cannot be enhanced for parallel implementation, then speedup is limited by a factor of \(\frac{1}{(1 - \text{E})}\), even if the rest of the application is infinitely sped up, and involve infinitesimal time for the computation.
+    \item Amdahl's law defines the speedup that can be gained by
+    using a particular feature. What is the speedup? (see Equation (9))
+    \item Amdahl's law gives us a quick way to find the speedup from some
+    enhancement, which depends on two factors:
+    \begin{itemize}
+        \item The fraction of the computation time in the original computer that can be converted to take advantage of the enhancement.
+        \item The improvement gained by the enhanced execution mode, that is, how much faster the task would run if the enhanced mode were used for the entire program.
+    \end{itemize}
+    \begin{align}
+        \text{speedup}_{\text{max}} &= \lim_{\text{S} \to \infty} \frac{1}{(1 - \text{E})}
+    \end{align}
+\end{itemize}
+
+\section{Power and Energy}
+\subsubsection{They are NOT the same metric}
+\begin{itemize}
+    \item Energy is measured in Joules (J)
+    \item Power is J/s
+\end{itemize}
+\subsubsection{Energy per task is better metric for efficiency}
+\begin{itemize}
+    \item Relate to battery life in personal mobility device (PMDs)
+    \item Reduce energy bills in WSC
+    \item If processor \(A\) consumes \(2\times\) the power as processor \(B\) but complete the same task in one-fourth the time, there is a \(2\times\) gain in energy efficiency
+\end{itemize}
+\subsection{Power: We do care}
+\subsubsection{Power limitations}
+\begin{itemize}
+    \item Must get power \underline{into} the IC and distribute it
+    \item And \underline{out} in the form of heat, e.g., a 2.25cm\(^2\) die could consume 100W
+\end{itemize}
+
+\subsubsection{Thermal Design Power (TDP)}
+\begin{itemize}
+    \item Characterizes sustained power consumption
+    \item Used as target for power supply and cooling system
+    \item Lower than peak power (1.5\(\times\) is typical)
+    \item Must be higher than average
+\end{itemize}
+
+\subsection{Energy Consumption in CMOS}
+\subsubsection{Dynamic vs. Static}
+\begin{itemize}
+    \item Dynamic: switching of transistors and clock
+    \item Static: current leakage through imperfect transistors
+\end{itemize}
+\subsubsection{Dynamic energy}
+\begin{itemize}
+    \item Consider transistor switching from 0\(\rightarrow\)1 or 1\(\rightarrow\)0
+    \item A transistor gate looks like a capacitor
+    \item Energy in a capacitor is \( \frac{1}{2} \times \text{C}  \times \text{V}^2 \)
+\end{itemize}
+
+\subsubsection{Dynamic power}
+\begin{align}
+    \text{P}_{\text{dynamic}} &= \frac{1}{2} \times \text{C}  \times \text{V}^2 \times \alpha \times f
+\end{align}
+\begin{center}
+    *** Where \(\alpha\) is activity factor to account switch/clock cycle
+\end{center}
+\subsubsection{Static power}
+\begin{align}
+    \text{P}_{\text{static}} &= \text{V}  \times \text{I}_\text{leakage}
+\end{align}
+\begin{center}
+    *** Where \(\text{I}_{\text{leakage}}\) depends on the \# of transistors \& their leakage
+\end{center}
+\subsection{Power Observations}
+\begin{itemize}
+    \item Dynamic power is linearly related to the clock rate and capacitance but quadratically related to voltage.
+    \item Static power is linearly related to leakage current and voltage.
+    \item Dennard's scaling implied that \(C\) and \(V\) of each transistor would scale down as density and \(f\) go up.
+    \item Lower \(f\) reduces power but not energy per task! Why?
+    \item Significant power savings can be achieved by reducing \(V\). How do we do that?
+    \begin{itemize}
+        \item Before Dennard's scaling, moving to a new tech node would get us a lower voltage.
+        \item Now, slowing \(f\) down allows \(V\) to be lower. Why?
+        \item This technique is called Dynamic Voltage Frequency Scaling (DVFS)
+    \end{itemize}
+    \item Clock gating
+    \begin{itemize}
+        \item Turn off the clock of the portions of unused logic
+        \item The clock network consumes a significant amount of power
+        \item Eliminates dynamic power for unused logic
+        \item Static power is still an issue
+    \end{itemize}
+    \item Power gating
+    \begin{itemize}
+        \item Turn off power of portions of unused logic
+        \item Eliminates both static and dynamic power
+        \item Dark Silicon!
+    \end{itemize}
+    \item Hardware accelerate
+    \begin{itemize}
+        \item Moving computationally intense portions of software into more efficient dedicated hardware
+    \end{itemize}
+    \item Change state
+    \begin{itemize}
+        \item Put unused cache and memory into a drowsy state where it retains contents but consumes less power by reduced voltages
+    \end{itemize}
+\end{itemize}
+
+\begin{itemize}
+    \item MTTF: Mean time to failure
+    \begin{itemize}
+        \item MTTF is the length of time a device or other product is expected to last in operation
+        \item MTTF is one the many ways to evaluate the reliability of pieces of hardware or other technologies
+        \item If modules have independent, exponentially distributed lifetimes (age of module does not affect probability of failure), the overall failure rate is the sum of failure rates of the modules
+    \end{itemize}
+\end{itemize}
+
+\noindent \textbf{Examples:}
+
+\noindent-- MTTF is (perhaps) 100,000 hours for a fan\\
+-- MTTF is (perhaps) 1,000,000 hours for a hard disk:
+
+    \begin{align}
+        \text{Failure rate} &= \frac{1}{\text{MTTF}}\\
+        \notag&= \frac{1}{1,000,000}\\
+        \text{MTTF} &=  \frac{1}{\text{Failure rate}}\\
+        \notag&= 1,000,000\ [\text{hours}]
+    \end{align}
+
+\noindent-- If there are \(N\) hard disks, each with MTTF of \(M\) hours:
+    \begin{align}
+        \text{Failure rate} &= N \times \frac{1}{M}
+    \end{align}
+\noindent-- Further, a system consisting with \(N_1\) hard disks (\(M_1\) hours MTTF per disk), \(N_2\) disk controller (\(M_2\) hours MTTF per controller), and \(N_3\) power supply (\(M_3\) hours MTTF per supply)
+    \begin{align}
+        \text{Failure rate} &= N_1 \times \frac{1}{M_1} + N_2 \times \frac{1}{M_2} + N_3 \times \frac{1}{M_3}
+    \end{align}
+\noindent-- Assuming a system consisting of \(N\) disks (\(M\) hour MTTF per disk), and the system is considered to fail if \(X\) disks fail.
+    \begin{align}
+        \text{Failure rate} &= \frac{N \times \frac{1}{M}}{X}
+    \end{align}
+
+\section{Memory Hierarchy}
+\begin{itemize}
+    \item A key design decision is where blocks (or lines) can be placed in a cache
+    \item Set Associative: the set is chosen by the address of the data:
+    \begin{center}
+        (block address) MOD (Number of sets in cache)
+    \end{center}
+    
+    \item Caching data that is only read is easy; caching writes is more difficult
+\end{itemize}
+\subsection {Cache miss rate: a measure of the benefits of different cache organizations}
+    \begin{itemize}
+        \item compulsory -- initial misses due to a cold cache
+        \item capacity -- misses due to lack of associativity (i.e., too rigid of a placement)
+        \item conflict -- misses due to the small cache size
+        \item coherency -- misses due to the cache coherence protocol used for sharing memory amongst processors
+    \end{itemize}
+\subsection {Average memory access time: better measure of cache organization}
+    \begin{align*}
+        \text{Average memory access time} = \text{Hit time} + \text{Miss rate} \times \text{Miss penalty}
+    \end{align*}
+As block size increases, so does the miss penalty, thus miss rate does not tell the whole story
+    
+
+\subsection {Mitigation of misses}
+    \begin{itemize}
+        \item Compulsory misses can be decreased with larger block sizes
+        \item Conflict misses can be decreased due to associativity
+        \item Capacity misses can be decreased with larger caches
+    \end{itemize}
+\subsection {Reducing the miss penalty}
+    \begin{itemize}
+        \item Miss rate is only part of the AMAT equation
+        \item As the performance gap increased, miss penalties between the L1 cache and memory became prohibitive
+        \item Multi-level caches solved that problem
+    \end{itemize}
+
+\subsection{Multi-level caches}
+    \begin{itemize}
+        \item Sandwich a larger L2 cache between the L1 and memory
+        \item Allows L1 to be small to optimize hit time
+        \item L2 is large enough to have a relatively low miss rate but not too large to keep access time down
+        \item L2 access time is approximately L1 miss penalty
+    \end{itemize}
+
+\subsection{Miss rate for L2}
+\subsubsection {Local miss rate}
+    \begin{itemize}
+        \item The number of misses divided by the number of access to that particular cache
+        \item Is often quite low for L2 cache because L1 handels most of the accesses and L2 is only accessed when L1 misses
+    \end{itemize}
+\subsubsection {Global miss rate}
+    \begin{itemize}
+        \item The number of misses divided by the total number of memory accesses generated by the processor
+        \item For L1, global miss rate equals the local miss rate
+        \item For L2, global miss rate equals the local miss rate of L1 times the local miss rate of L2
+    \end{itemize}
+
+\subsection{Techniques that reduce Miss Rates}
+\begin{enumerate}
+    \item Larger Block Size to Reduce Miss Rate
+    \begin{itemize}
+        \item Larger blocks take advantages of
+        \begin{itemize}
+            \item The bandwidth provided by the next level in the hierarchy
+            \item Spatial locality
+        \end{itemize}
+        \item Larger blocks reduce compulsory misses
+        \item Block sized that are too large will start to suffer from conflict misses. Why?
+        \begin{itemize}
+            \item Block size matters less for larger caches
+            \item 64 bytes seems to be the happy place
+        \end{itemize}
+    \end{itemize}
+    \item Larger Caches to Reduce Miss Rate
+        \begin{itemize}
+            \item The obvious drawback is potentially longer hit time and higher cost and power. This technique has been especially popular in off-chip caches.
+        \end{itemize}
+    \item Higher Associativity to Reduce Miss Rate
+    \item Multilevel Caches to Reduce Miss Rate
+        \begin{itemize}
+            \item Should I make cache faster to keep pace with speed of processors? Or make the cache larger to overcome the widening gap between the processor and main memory?
+        \end{itemize}
+    \item Giving priority to read misses over writes to reduce Miss penalty
+    \item Avoiding address translation during indexing of cache to reduce Hit Time.
+    \begin{itemize}
+        \item Virtual Address is not built for all. Why?
+        \begin{itemize}
+            \item Protection: page-level Protection
+            \item Cache is to be flushed
+            \item Duplicate addresses, called synonyms or aliases
+            \item I/O typically uses physical addresses
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\subsection {Write buffers to improve memory performance}
+For pipelining between L1 and L2 caches or between L2 and the memory
+\begin{itemize}
+    \item Can exist anywhere in memory hierarchy
+    \item Improves the performance by reducing the cache misses
+\end{itemize}
+
+\newpage
+
+\section{Mock Exam}
+
+\subsection {A designed 5-stage pipelined processor and synthesized it for a 45nm process technology node with a target clock rate of 1GHz. During power analysis, the processor is at the target clock rate with a supply voltage of 1.0V. The processor draws 70mW of dynamic power and 10mW of static power.}
+    \begin{itemize}
+        \item The energy to complete the operations
+        \item Scale down the clock and calculate the energy for the operations
+    \end{itemize}
+
+    \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=Assuming a cryptographic operation takes 0.5 seconds to complete on your processor what is the energy per cryptographic operation at the target clock rate?]
+        \begin{align*}
+            \text{Power}_{\text{total}} &= \text{Power}_{\text{dynamic}} + \text{Power}_{\text{static}}\\
+            &= 70\text{mW} + 10\text{mW}\\
+            &= 80\text{mW}\\[1em]
+            \text{Energy per operation} &= \text{Power}_\text{total} \times \text{Time to complete operation}\\
+            &= 80\text{mW} \times \text{XX}[s]\\
+            &= \text{XX}[J/op]
+        \end{align*}
+    \end{tcolorbox}
+
+    \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=For certain applications your processor performs cryptographic operations 4x faster than necessary. If you were to slow the clock down to 200MHz without adjusting the voltage what would be the overall power draw? What would be the energy per cryptographic operation?]
+        \begin{align*}
+            \text{Power}_{\text{dynamic}}' &= \text{Power}_{\text{dynamic}} \times \frac{\text{new clk rate}}{\text{original clk rate}}\\
+            &= 70\text{mW} \times \frac{\text{XXX MHz}}{1\text{GHz}}\\
+            &= \text{XX mW}\\[1em]
+            \text{Power}'_{\text{total}} &= \text{Power}'_{\text{dynamic}} + \text{Power}_{\text{static}}\\
+            &= \text{XX mW} + 10\text{mW}\\
+            &= \text{XX mW}\\[1em]
+            \text{Energy per operation}' &= \text{Power}'_\text{total} \times \text{Time to complete operation} \times \text{Speedup}\\
+            &= 80\text{mW} \times \text{XX}[s] \times 4\text{x faster}\\
+            &= \text{XX}[J/op]
+        \end{align*}
+    \end{tcolorbox}
+
+    \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=Assuming you could safely drop the voltage to 0.6V when operating at a 200MHz clock recalculate the power draw and energy per cryptographic operation. Assume the leakage current remains the same.]
+        \begin{align*}
+            \text{Power}_{\text{dynamic}}' &= \text{Power}_{\text{dynamic}} \times \frac{\text{new clk rate}}{\text{original clk rate}} \times \biggl(\frac{\text{new voltage}}{\text{original voltage}}\biggr)^2\\
+            &= 70\text{mW} \times \frac{\text{XXX MHz}}{1\text{GHz}} \times \biggl(\frac{\text{XX V}}{1.0\text{V}}\biggr)^2\\
+            &= \text{XX mW}\\[1em]
+            \text{Power}_{\text{static}}' &= \text{Power}_{\text{static}} \times \frac{\text{new voltage}}{\text{original voltage}}\\
+            &= 10\text{mW} \times \frac{\text{XX V}}{1.0\text{V}}\\
+            &= \text{XX mW}\\[1em]
+            \text{Power}'_{\text{total}} &= \text{Power}'_{\text{dynamic}} + \text{Power}'_{\text{static}}\\
+            &= \text{XX mW} + \text{XX mW}\\
+            &= \text{XX mW}\\[1em]
+            \text{Energy per operation}' &= \text{Power}'_\text{total} \times \text{Time to complete operation} \times \text{Speedup}\\
+            &= \text{XX [mW]} \times \text{XX}[s] \times 4\text{x faster}\\
+            &= \text{XX}[J/op]
+        \end{align*}
+    \end{tcolorbox}
+
+    \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=The above questions looked at how the power and energy can be changed by varying the clock rate and voltage of a processor. Modern processors change these parameters dynamically using DVFS. What are some other techniques for reducing energy? Briefly describe these techniques.]
+        \begin{itemize}
+            \item Clock gating turns the clock off when logic is not being used, reducing dynamic energy.
+            \item Power gating turns the power off to unused logic saving both dynamic and static energy.
+            \item Hardware acceleration maps computationally intense routines into more efficient hardware.
+        \end{itemize}
+    \end{tcolorbox}
+
+    \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=The technology node that a particular processor is fabricated with can also affect the energy efficiency. Imagine that you resynthesized your processor at a 130nm process technology node with a 1.5V supply voltage. In order to maintain the same transistor count you set your target clock rate to 200MHz. Assuming the leakage current remains the same and that the capacitance of the design approximately scales linearly with the feature size calculate the dynamic and static power for your processor at the 130nm node. What is the energy per cryptographic operation at the 130nm node and how does this compare to that of the 45nm node?]
+        \begin{align*}
+            \text{Power}_{\text{dynamic}}' &= \text{Power}_{\text{dynamic}} \times \frac{\text{new clk rate}}{\text{original clk rate}} \times \biggl(\frac{\text{new volt}}{\text{original volt}}\biggr)^2 \times \frac{\text{new fab}}{\text{original fab}}\\
+            &= 70\text{mW} \times \frac{\text{XXX MHz}}{1\text{GHz}} \times \biggl(\frac{\text{XX V}}{1.0\text{V}}\biggr)^2 \times \frac{\text{XX nm}}{45\text{ nm}}\\
+            &= \text{XX mW}\\[1em]
+            \text{Power}_{\text{static}}' &= \text{Power}_{\text{static}} \times \frac{\text{new voltage}}{\text{original voltage}}\\
+            &= 10\text{mW} \times \frac{\text{XX V}}{1.0\text{V}}\\
+            &= \text{XX mW}\\[1em]
+            \text{Power}'_{\text{total}} &= \text{Power}'_{\text{dynamic}} + \text{Power}'_{\text{static}}\\
+            &= \text{XX mW} + \text{XX mW}\\
+            &= \text{XX mW}\\[1em]
+            \text{Energy per operation}' &= \text{Power}'_\text{total} \times \text{Time to complete operation} \times \text{Speedup}\\
+            &= \text{XX [mW]} \times \text{XX}[s] \times 4\text{x faster}\\
+            &= \text{XX}[J/op]\\[1em]
+            \text{Comparison} &= \frac{\text{Energy per operation}'}{\text{Energy per operation}}
+        \end{align*}
+    \end{tcolorbox}
+
+
+\subsection {MTTF -- Assume a cluster has 500 computers, each of them with a MTTF of 25 days, and the failures follow an exponential distribution and are independent.}
+    \begin{itemize}
+        \item Calculate the MTTF in different situations (refer to HW1)
+    \end{itemize}
+    \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=]
+        \( \text{MTTF} = \frac{25\text{ days}}{\cancel{500 \text{ computers}}} \times \frac{1}{5} \times \cancel{500} = 5 \text{ days}\\[1em]
+        \)
+        Under this failure model, MTTF is not dependent on the number of computers and therefore adding more computers would not have an effect on the MTTF of the cluster.
+    \end{tcolorbox}
+
+\subsection {Cache misses}
+    \begin{itemize}
+        \item Define and describe the types of cache misses we have discussed in class (three Cs). List other types of cache misses as you know.
+        \item Global and local cache miss calculation.
+        \item The techniques to improve cache performance. (refer to HW2 and Lecture 2)
+    \end{itemize}
+\subsection {Write buffers used in the memory hierarchy.}
+    \begin{itemize}
+        \item How are write buffers used?
+        \item Where are the write buffers used in the memory hierarchy?
+    \end{itemize}
+
+\end{document}

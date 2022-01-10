@@ -1,0 +1,7019 @@
+1
+00:00:08,060 --> 00:00:11,235
+Maybe they are coming
+back together with
+
+2
+00:00:11,235 --> 00:00:19,990
+their family for
+Thanksgiving Day.
+
+3
+00:00:20,270 --> 00:00:23,079
+Weekend star.
+
+4
+00:00:48,940 --> 00:00:51,119
+Mm-hm.
+
+5
+00:01:04,360 --> 00:01:08,059
+Okay, So we can start
+our class things.
+
+6
+00:01:08,059 --> 00:01:09,590
+I will record in.
+
+7
+00:01:09,590 --> 00:01:12,079
+So good afternoon
+everyone.
+
+8
+00:01:12,079 --> 00:01:13,549
+This is our
+course, our face.
+
+9
+00:01:13,549 --> 00:01:15,679
+A five through
+eight are the ones,
+
+10
+00:01:15,679 --> 00:01:17,390
+the computer
+architecture and
+
+11
+00:01:17,390 --> 00:01:19,654
+the University
+of New Mexico.
+
+12
+00:01:19,654 --> 00:01:22,265
+So yeah.
+
+13
+00:01:22,265 --> 00:01:24,319
+Yes, way to reduce
+
+14
+00:01:24,319 --> 00:01:25,640
+during the first
+two classes,
+
+15
+00:01:25,640 --> 00:01:27,169
+you can still
+remember that we
+
+16
+00:01:27,169 --> 00:01:30,629
+have got the computer
+architecture right.
+
+17
+00:01:30,760 --> 00:01:33,035
+Including, thank you.
+
+18
+00:01:33,035 --> 00:01:34,999
+Including the design from
+
+19
+00:01:34,999 --> 00:01:36,949
+the hardware to
+software as well.
+
+20
+00:01:36,949 --> 00:01:42,229
+That optimizations
+so that the span of
+
+21
+00:01:42,229 --> 00:01:43,699
+the computer
+architecture has
+
+22
+00:01:43,699 --> 00:01:46,700
+the main some
+penitentiaries
+
+23
+00:01:46,700 --> 00:01:49,069
+that yeah, that's good.
+
+24
+00:01:49,069 --> 00:01:50,285
+Thank you.
+
+25
+00:01:50,285 --> 00:01:53,930
+So compare our teacher
+
+26
+00:01:53,930 --> 00:01:56,164
+is concern that with
+
+27
+00:01:56,164 --> 00:01:58,070
+the balancing of
+the performance,
+
+28
+00:01:58,070 --> 00:02:02,929
+efficiency and also
+the parsed Gaza roll
+
+29
+00:02:02,929 --> 00:02:06,500
+up and a right of the
+computer or the system.
+
+30
+00:02:06,500 --> 00:02:08,670
+So for one of the
+most important,
+
+31
+00:02:08,670 --> 00:02:11,569
+say it that the instruction
+set architecture
+
+32
+00:02:11,569 --> 00:02:13,099
+can be used to illustrate
+
+33
+00:02:13,099 --> 00:02:14,959
+the balance between
+
+34
+00:02:14,959 --> 00:02:18,139
+these competing factors
+
+35
+00:02:18,139 --> 00:02:19,939
+among the performance,
+
+36
+00:02:19,939 --> 00:02:22,564
+efficiency, cost, and
+also reliability.
+
+37
+00:02:22,564 --> 00:02:25,700
+So, and we'll
+talk more about
+
+38
+00:02:25,700 --> 00:02:30,019
+the instruction set
+architecture and
+
+39
+00:02:30,019 --> 00:02:32,930
+a more complex a
+structure that none of
+
+40
+00:02:32,930 --> 00:02:35,194
+the enabled programmers to
+
+41
+00:02:35,194 --> 00:02:38,330
+know to run more space
+efficient programs.
+
+42
+00:02:38,330 --> 00:02:40,789
+Or there are
+single instruction
+
+43
+00:02:40,789 --> 00:02:43,624
+that can cause some
+higher level abstraction,
+
+44
+00:02:43,624 --> 00:02:45,725
+such like the, the,
+
+45
+00:02:45,725 --> 00:02:46,850
+the architecture about
+
+46
+00:02:46,850 --> 00:02:50,795
+the X86 move instruction
+a computer system.
+
+47
+00:02:50,795 --> 00:02:53,344
+However, there
+are some, yeah,
+
+48
+00:02:53,344 --> 00:02:56,809
+yeah, benefits and
+disadvantages of this.
+
+49
+00:02:56,809 --> 00:02:58,400
+So based on the design of
+
+50
+00:02:58,400 --> 00:03:01,160
+the computer
+architecture at J way,
+
+51
+00:03:01,160 --> 00:03:02,179
+No, including
+
+52
+00:03:02,179 --> 00:03:04,249
+the instruction
+set architecture,
+
+53
+00:03:04,249 --> 00:03:06,605
+the memory hierarchy.
+
+54
+00:03:06,605 --> 00:03:08,750
+So as we know, there are
+
+55
+00:03:08,750 --> 00:03:12,230
+some techniques
+from yet they are
+
+56
+00:03:12,230 --> 00:03:15,799
+designed to overcome
+the limitations
+
+57
+00:03:15,799 --> 00:03:17,090
+are on performance
+in the past
+
+58
+00:03:17,090 --> 00:03:19,340
+might write that out.
+
+59
+00:03:19,340 --> 00:03:21,110
+Also. They can use it to
+
+60
+00:03:21,110 --> 00:03:22,699
+boost up the system
+performance.
+
+61
+00:03:22,699 --> 00:03:24,394
+For instance, ethnicity.
+
+62
+00:03:24,394 --> 00:03:27,080
+Here we know the
+mottos likes
+
+63
+00:03:27,080 --> 00:03:29,825
+the instruction
+level parallelism
+
+64
+00:03:29,825 --> 00:03:31,835
+that they had ever
+paradise them.
+
+65
+00:03:31,835 --> 00:03:34,205
+And also the trend,
+our paradigms them.
+
+66
+00:03:34,205 --> 00:03:35,750
+Yeah, Daddy, better to
+
+67
+00:03:35,750 --> 00:03:37,460
+overcome the
+limitation from
+
+68
+00:03:37,460 --> 00:03:40,190
+the instruction level
+parallelism ad they
+
+69
+00:03:40,190 --> 00:03:43,294
+can further improve
+the performance.
+
+70
+00:03:43,294 --> 00:03:46,819
+So, yeah, Actually,
+sir, this picture,
+
+71
+00:03:46,819 --> 00:03:49,639
+gang as was shown
+before, the front,
+
+72
+00:03:49,639 --> 00:03:50,900
+the physical hardware to
+
+73
+00:03:50,900 --> 00:03:52,850
+the software applications.
+
+74
+00:03:52,850 --> 00:03:55,069
+We have ones
+through the layers
+
+75
+00:03:55,069 --> 00:03:57,739
+across a computer
+architecture design.
+
+76
+00:03:57,739 --> 00:03:59,930
+And we already know
+that the die and
+
+77
+00:03:59,930 --> 00:04:02,389
+the optimization
+for the.com,
+
+78
+00:04:02,389 --> 00:04:04,249
+they design a
+computing system.
+
+79
+00:04:04,249 --> 00:04:05,960
+Or we can say that for
+
+80
+00:04:05,960 --> 00:04:08,435
+the general computing
+systems, right?
+
+81
+00:04:08,435 --> 00:04:12,709
+So today we are going
+to a new lecture
+
+82
+00:04:12,709 --> 00:04:14,899
+that we're going to none
+
+83
+00:04:14,899 --> 00:04:18,844
+the train up
+some customized,
+
+84
+00:04:18,844 --> 00:04:21,860
+all emerging
+computing decide
+
+85
+00:04:21,860 --> 00:04:23,870
+as what the optimization
+
+86
+00:04:23,870 --> 00:04:24,934
+for that our teachers,
+
+87
+00:04:24,934 --> 00:04:26,870
+in addition to the
+general architecture
+
+88
+00:04:26,870 --> 00:04:28,999
+of the way talked
+to before.
+
+89
+00:04:28,999 --> 00:04:31,430
+So yeah, that is one
+
+90
+00:04:31,430 --> 00:04:32,779
+of the training about
+
+91
+00:04:32,779 --> 00:04:34,279
+the future of computing.
+
+92
+00:04:34,279 --> 00:04:36,664
+That is the heterogeneous
+architecture
+
+93
+00:04:36,664 --> 00:04:38,089
+as we talked before.
+
+94
+00:04:38,089 --> 00:04:39,379
+So this cannot von
+
+95
+00:04:39,379 --> 00:04:41,029
+teachers and
+also, you know,
+
+96
+00:04:41,029 --> 00:04:44,209
+da, da, da, da cans
+
+97
+00:04:44,209 --> 00:04:45,844
+off the computing
+components
+
+98
+00:04:45,844 --> 00:04:47,839
+on the heterogeneous
+architecture.
+
+99
+00:04:47,839 --> 00:04:50,059
+A degree like the CPUs,
+
+100
+00:04:50,059 --> 00:04:53,465
+GPUs or DSP,
+including ours us,
+
+101
+00:04:53,465 --> 00:04:56,975
+FPGAs and also
+applications
+
+102
+00:04:56,975 --> 00:04:59,900
+computing compounds as we
+
+103
+00:04:59,900 --> 00:05:01,595
+call it data ethics.
+
+104
+00:05:01,595 --> 00:05:03,019
+Son.
+
+105
+00:05:03,019 --> 00:05:06,439
+Hey, one short video
+to show the fusion
+
+106
+00:05:06,439 --> 00:05:07,670
+of the computer is better
+
+107
+00:05:07,670 --> 00:05:09,199
+for the heterogeneous
+architecture,
+
+108
+00:05:09,199 --> 00:05:10,895
+including death panels
+
+109
+00:05:10,895 --> 00:05:13,159
+computing components here.
+
+110
+00:05:13,159 --> 00:05:16,309
+So our showed the video
+
+111
+00:05:16,309 --> 00:05:20,749
+here to
+
+112
+00:05:20,749 --> 00:05:23,669
+show now heterogeneous
+computing system.
+
+113
+00:06:10,360 --> 00:06:12,509
+Good.
+
+114
+00:06:17,010 --> 00:06:19,164
+Are there anyway, we can
+
+115
+00:06:19,164 --> 00:06:20,770
+continue that since
+you're going to
+
+116
+00:06:20,770 --> 00:06:25,210
+watch a video after
+class if you like. Okay.
+
+117
+00:06:25,210 --> 00:06:26,669
+So obey.
+
+118
+00:06:26,669 --> 00:06:29,739
+So this will be a short
+video to show you
+
+119
+00:06:29,739 --> 00:06:33,355
+that the about the future
+of computing that,
+
+120
+00:06:33,355 --> 00:06:35,860
+especially for the
+heterogeneous oxygen
+
+121
+00:06:35,860 --> 00:06:38,784
+with the CPU GPU, DSP,
+
+122
+00:06:38,784 --> 00:06:40,899
+FPGA as well, the A6,
+
+123
+00:06:40,899 --> 00:06:42,114
+as we've shown before,
+
+124
+00:06:42,114 --> 00:06:44,575
+that as a basic
+computing components
+
+125
+00:06:44,575 --> 00:06:47,170
+in the end.
+
+126
+00:06:47,170 --> 00:06:48,729
+Yeah, That is not
+
+127
+00:06:48,729 --> 00:06:50,004
+the general design
+
+128
+00:06:50,004 --> 00:06:51,144
+of the computer
+architecture.
+
+129
+00:06:51,144 --> 00:06:52,224
+That is the specific
+
+130
+00:06:52,224 --> 00:06:54,039
+computing architecture
+does that
+
+131
+00:06:54,039 --> 00:06:57,760
+with the kind of
+this components.
+
+132
+00:06:57,760 --> 00:07:00,955
+Sum, yeah, as an
+overview, here,
+
+133
+00:07:00,955 --> 00:07:03,009
+there are two main
+directions of
+
+134
+00:07:03,009 --> 00:07:07,104
+the development of the
+computing lab teacher.
+
+135
+00:07:07,104 --> 00:07:09,835
+So focused on what the
+first way is to define
+
+136
+00:07:09,835 --> 00:07:11,964
+the application-specific
+
+137
+00:07:11,964 --> 00:07:14,035
+computing architectures.
+
+138
+00:07:14,035 --> 00:07:16,690
+For example, there
+are adequately
+
+139
+00:07:16,690 --> 00:07:19,285
+specific instruction
+set processor.
+
+140
+00:07:19,285 --> 00:07:21,670
+We caught a stick and also
+
+141
+00:07:21,670 --> 00:07:25,869
+the FPGA field
+programmable gate array.
+
+142
+00:07:25,869 --> 00:07:27,610
+That is one popular
+
+143
+00:07:27,610 --> 00:07:29,319
+that you might have
+for me, no waste.
+
+144
+00:07:29,319 --> 00:07:31,839
+And also another one about
+
+145
+00:07:31,839 --> 00:07:34,539
+the application-specific
+integrated circuits.
+
+146
+00:07:34,539 --> 00:07:36,834
+That is a wall, we call
+it the stick here.
+
+147
+00:07:36,834 --> 00:07:38,470
+So come panelists,
+
+148
+00:07:38,470 --> 00:07:41,270
+that general-purpose
+processor,
+
+149
+00:07:41,850 --> 00:07:44,980
+traditional DSP GPU CPU
+
+150
+00:07:44,980 --> 00:07:47,079
+and base these diners.
+
+151
+00:07:47,079 --> 00:07:48,924
+All, this gives
+the eyes are
+
+152
+00:07:48,924 --> 00:07:52,030
+dedicated for that
+specific applications.
+
+153
+00:07:52,030 --> 00:07:56,139
+For like two
+full flow flow.
+
+154
+00:07:56,139 --> 00:07:58,420
+Usually they are designing
+
+155
+00:07:58,420 --> 00:08:01,329
+for satisfying the image,
+
+156
+00:08:01,329 --> 00:08:04,719
+all the performance or
+the power requirement,
+
+157
+00:08:04,719 --> 00:08:07,345
+or even other
+requirements on the,
+
+158
+00:08:07,345 --> 00:08:08,829
+uh, from the
+application side.
+
+159
+00:08:08,829 --> 00:08:11,514
+So they fought the
+application specific.
+
+160
+00:08:11,514 --> 00:08:13,870
+So another way
+for computing
+
+161
+00:08:13,870 --> 00:08:15,190
+architecture design is to
+
+162
+00:08:15,190 --> 00:08:16,614
+explore the hatred years,
+
+163
+00:08:16,614 --> 00:08:19,269
+medical powerful legs,
+
+164
+00:08:19,269 --> 00:08:22,030
+the domain-specific
+computing architecture,
+
+165
+00:08:22,030 --> 00:08:22,585
+right?
+
+166
+00:08:22,585 --> 00:08:25,939
+That is the one
+another ways to
+
+167
+00:08:25,939 --> 00:08:28,774
+the computer architecture
+design in order to
+
+168
+00:08:28,774 --> 00:08:30,320
+explore the heterogeneous
+
+169
+00:08:30,320 --> 00:08:31,745
+model could not vote.
+
+170
+00:08:31,745 --> 00:08:34,100
+So in the following,
+we will introduce
+
+171
+00:08:34,100 --> 00:08:36,904
+this handoff computing
+aggregator design
+
+172
+00:08:36,904 --> 00:08:39,739
+with more details here.
+
+173
+00:08:39,739 --> 00:08:42,769
+So yeah,
+
+174
+00:08:42,769 --> 00:08:44,900
+in the very beginning of
+
+175
+00:08:44,900 --> 00:08:46,699
+the architecture
+design will let you
+
+176
+00:08:46,699 --> 00:08:48,620
+know that these ions,
+
+177
+00:08:48,620 --> 00:08:50,779
+the general purpose
+processor first,
+
+178
+00:08:50,779 --> 00:08:52,939
+that is GPP as
+we're shown here.
+
+179
+00:08:52,939 --> 00:08:55,670
+So the general
+purpose processors
+
+180
+00:08:55,670 --> 00:08:57,559
+they add is Dion of four,
+
+181
+00:08:57,559 --> 00:08:59,104
+has a name shown here.
+
+182
+00:08:59,104 --> 00:09:01,820
+For the general-purpose
+computers,
+
+183
+00:09:01,820 --> 00:09:03,740
+such as the
+personal computers,
+
+184
+00:09:03,740 --> 00:09:06,395
+all some of the
+workstations.
+
+185
+00:09:06,395 --> 00:09:08,434
+So the computation speed
+
+186
+00:09:08,434 --> 00:09:11,389
+of a general
+purpose processor,
+
+187
+00:09:11,389 --> 00:09:14,704
+thus paid as the
+main concern.
+
+188
+00:09:14,704 --> 00:09:17,780
+And the cost of the
+general-purpose processor
+
+189
+00:09:17,780 --> 00:09:21,499
+SU been much higher
+than that of the legs.
+
+190
+00:09:21,499 --> 00:09:24,349
+That's a DSPS or the
+microcontrollers.
+
+191
+00:09:24,349 --> 00:09:26,329
+So all the techniques that
+
+192
+00:09:26,329 --> 00:09:28,415
+can increase
+the CPU speed,
+
+193
+00:09:28,415 --> 00:09:29,900
+how they apply to
+
+194
+00:09:29,900 --> 00:09:31,580
+the general
+purpose processors
+
+195
+00:09:31,580 --> 00:09:32,990
+in research design.
+
+196
+00:09:32,990 --> 00:09:35,270
+So on the other hand,
+
+197
+00:09:35,270 --> 00:09:38,809
+the general growers
+processors aren't always
+
+198
+00:09:38,809 --> 00:09:40,429
+the Haganah
+processors that
+
+199
+00:09:40,429 --> 00:09:43,204
+Connolly first
+come to the man.
+
+200
+00:09:43,204 --> 00:09:46,309
+Anyone can write the
+computer program, right?
+
+201
+00:09:46,309 --> 00:09:48,590
+What a general
+purpose processor.
+
+202
+00:09:48,590 --> 00:09:51,724
+So the general
+reverse processors,
+
+203
+00:09:51,724 --> 00:09:53,840
+the processors
+dot, you know,
+
+204
+00:09:53,840 --> 00:09:56,149
+the power desktop
+computers.
+
+205
+00:09:56,149 --> 00:09:57,410
+And they are at
+
+206
+00:09:57,410 --> 00:10:00,214
+the center of the
+computer revolution.
+
+207
+00:10:00,214 --> 00:10:04,610
+You almost that
+began in the 1970s.
+
+208
+00:10:04,610 --> 00:10:06,619
+So they have a
+lung Historia
+
+209
+00:10:06,619 --> 00:10:08,674
+more than 40 years.
+
+210
+00:10:08,674 --> 00:10:09,935
+Though.
+
+211
+00:10:09,935 --> 00:10:13,070
+The landscape of the
+microprocessor cheese
+
+212
+00:10:13,070 --> 00:10:15,679
+that is dotted with
+large long barrel
+
+213
+00:10:15,679 --> 00:10:17,930
+of the devices from note
+
+214
+00:10:17,930 --> 00:10:21,170
+the variety of the
+manufacturers.
+
+215
+00:10:21,170 --> 00:10:23,329
+So this different
+processors,
+
+216
+00:10:23,329 --> 00:10:26,614
+while are unique in
+their own right.
+
+217
+00:10:26,614 --> 00:10:28,549
+Yeah, they can share
+
+218
+00:10:28,549 --> 00:10:30,889
+some similarly
+similarities.
+
+219
+00:10:30,889 --> 00:10:36,439
+Or we call it the
+January instruction set,
+
+220
+00:10:36,439 --> 00:10:38,254
+or instructions
+
+221
+00:10:38,254 --> 00:10:41,885
+sequencer and memory
+management unit,
+
+222
+00:10:41,885 --> 00:10:44,540
+MMU, or they
+share resources
+
+223
+00:10:44,540 --> 00:10:47,690
+between this general
+purpose processors.
+
+224
+00:10:47,690 --> 00:10:50,600
+So there are basically
+
+225
+00:10:50,600 --> 00:10:52,310
+two general types of
+
+226
+00:10:52,310 --> 00:10:55,189
+the instructions that
+in this processor.
+
+227
+00:10:55,189 --> 00:10:57,589
+The first one, at
+that the machines are
+
+228
+00:10:57,589 --> 00:11:00,440
+waste found a broad
+instruction sets,
+
+229
+00:11:00,440 --> 00:11:02,059
+also known as
+
+230
+00:11:02,059 --> 00:11:04,534
+the complex instruction
+set computers,
+
+231
+00:11:04,534 --> 00:11:07,114
+as we've shown before,
+that is fakes.
+
+232
+00:11:07,114 --> 00:11:09,980
+And then Nazareth
+that the machines was
+
+233
+00:11:09,980 --> 00:11:13,024
+the narrow instruction
+says, Yeah, we are.
+
+234
+00:11:13,024 --> 00:11:15,889
+With that risk right now,
+
+235
+00:11:15,889 --> 00:11:18,920
+reduced instruction
+set computers.
+
+236
+00:11:18,920 --> 00:11:22,550
+So generally lacks
+us this instructions
+
+237
+00:11:22,550 --> 00:11:24,290
+if the assembly program
+
+238
+00:11:24,290 --> 00:11:26,105
+or higher for
+instructions.
+
+239
+00:11:26,105 --> 00:11:28,670
+And they can be
+used to dress
+
+240
+00:11:28,670 --> 00:11:31,370
+the efficient implementation
+of the window,
+
+241
+00:11:31,370 --> 00:11:33,950
+the certain
+software functions.
+
+242
+00:11:33,950 --> 00:11:37,340
+So on the other hand,
+as we showed before,
+
+243
+00:11:37,340 --> 00:11:40,309
+the race instructions
+that yeah,
+
+244
+00:11:40,309 --> 00:11:41,599
+they are narrow, right?
+
+245
+00:11:41,599 --> 00:11:44,300
+And they add these
+dye to produce
+
+246
+00:11:44,300 --> 00:11:47,284
+the efficient quote
+from the compliers.
+
+247
+00:11:47,284 --> 00:11:48,830
+So the difference between
+
+248
+00:11:48,830 --> 00:11:50,450
+the states get raised.
+
+249
+00:11:50,450 --> 00:11:52,310
+Yeah, arbitrary.
+
+250
+00:11:52,310 --> 00:11:55,625
+And both styles
+of this too.
+
+251
+00:11:55,625 --> 00:11:59,165
+Designs right? Of
+the processor.
+
+252
+00:11:59,165 --> 00:12:00,739
+They are converting into
+
+253
+00:12:00,739 --> 00:12:02,810
+a single hive off
+the instruction set
+
+254
+00:12:02,810 --> 00:12:04,924
+actually still relies on
+
+255
+00:12:04,924 --> 00:12:07,639
+the weather at the mercy
+of essays for all n,
+
+256
+00:12:07,639 --> 00:12:11,690
+If the race, they
+both share a gener.
+
+257
+00:12:11,690 --> 00:12:13,009
+General the nature of
+
+258
+00:12:13,009 --> 00:12:14,494
+their instructions here.
+
+259
+00:12:14,494 --> 00:12:17,629
+So this includes
+the instruction
+
+260
+00:12:17,629 --> 00:12:20,989
+that can perform
+multiplications, addition,
+
+261
+00:12:20,989 --> 00:12:23,990
+or the storage about
+
+262
+00:12:23,990 --> 00:12:25,850
+this instruction
+set or not,
+
+263
+00:12:25,850 --> 00:12:27,185
+tolerate your particular
+
+264
+00:12:27,185 --> 00:12:28,760
+type of applications.
+
+265
+00:12:28,760 --> 00:12:30,800
+So in the context of that,
+
+266
+00:12:30,800 --> 00:12:33,004
+yeah, da, da, da,
+
+267
+00:12:33,004 --> 00:12:34,700
+of the design of
+
+268
+00:12:34,700 --> 00:12:36,795
+this architecture is
+actually the FPGA,
+
+269
+00:12:36,795 --> 00:12:38,840
+which the way I was
+the interest or
+
+270
+00:12:38,840 --> 00:12:40,339
+the singular processing to
+
+271
+00:12:40,339 --> 00:12:41,975
+use this processors here.
+
+272
+00:12:41,975 --> 00:12:45,110
+So there is as
+an aspect of
+
+273
+00:12:45,110 --> 00:12:48,545
+the general purpose
+processor that is,
+
+274
+00:12:48,545 --> 00:12:50,869
+the use of the MMU,
+
+275
+00:12:50,869 --> 00:12:54,230
+that is a memory
+management unit.
+
+276
+00:12:54,230 --> 00:12:57,485
+Immerse you in a
+general-purpose processor.
+
+277
+00:12:57,485 --> 00:12:59,300
+Yeah, they are
+designed for
+
+278
+00:12:59,300 --> 00:13:02,299
+the January applications,
+as we said.
+
+279
+00:13:02,299 --> 00:13:04,190
+So they are, you're
+going to carpet
+
+280
+00:13:04,190 --> 00:13:06,784
+with an operating system.
+
+281
+00:13:06,784 --> 00:13:09,485
+So this operating
+system creates
+
+282
+00:13:09,485 --> 00:13:13,175
+a level of the abstraction
+over the hardware.
+
+283
+00:13:13,175 --> 00:13:16,115
+They know the, the bad
+
+284
+00:13:16,115 --> 00:13:19,819
+applications with
+little or no knowledge
+
+285
+00:13:19,819 --> 00:13:21,590
+of the underlying
+hardware.
+
+286
+00:13:21,590 --> 00:13:23,870
+So this is they'll go
+
+287
+00:13:23,870 --> 00:13:27,859
+because the higher level
+developer, though,
+
+288
+00:13:27,859 --> 00:13:30,110
+the lower-level
+hardware, so they can do
+
+289
+00:13:30,110 --> 00:13:33,499
+some design that without
+
+290
+00:13:33,499 --> 00:13:35,494
+knowing author says
+about the hardware.
+
+291
+00:13:35,494 --> 00:13:38,150
+So though thou will
+be flexible for
+
+292
+00:13:38,150 --> 00:13:41,375
+the high level design.
+
+293
+00:13:41,375 --> 00:13:43,129
+So the program to be
+
+294
+00:13:43,129 --> 00:13:45,754
+wrong and necessary data,
+
+295
+00:13:45,754 --> 00:13:47,119
+they shouldn't be made
+
+296
+00:13:47,119 --> 00:13:49,610
+available at the
+main memory.
+
+297
+00:13:49,610 --> 00:13:52,759
+So there is the general
+data past that.
+
+298
+00:13:52,759 --> 00:13:56,809
+This half will consist
+ALU and the EU,
+
+299
+00:13:56,809 --> 00:13:58,774
+but are large
+register file.
+
+300
+00:13:58,774 --> 00:14:01,039
+So there are
+multiple levels
+
+301
+00:14:01,039 --> 00:14:02,719
+of cache in order
+
+302
+00:14:02,719 --> 00:14:04,444
+to reduce the
+memory latency
+
+303
+00:14:04,444 --> 00:14:07,009
+in the general-purpose
+processor.
+
+304
+00:14:07,009 --> 00:14:12,379
+So again, the management
+of the memory dies,
+
+305
+00:14:12,379 --> 00:14:15,740
+the tenors I, error
+prone process,
+
+306
+00:14:15,740 --> 00:14:18,665
+an EHR system around a
+lot more applications.
+
+307
+00:14:18,665 --> 00:14:21,200
+Actually, the
+memory management
+
+308
+00:14:21,200 --> 00:14:23,975
+include the paging memory.
+
+309
+00:14:23,975 --> 00:14:27,079
+Distributed programming
+at the data storage
+
+310
+00:14:27,079 --> 00:14:29,780
+is true are the different
+blocks of memory.
+
+311
+00:14:29,780 --> 00:14:32,704
+So MM, you the
+
+312
+00:14:32,704 --> 00:14:35,870
+manual memory
+management unit or
+
+313
+00:14:35,870 --> 00:14:38,270
+knows that developed to
+
+314
+00:14:38,270 --> 00:14:42,770
+say continuous center
+of the mammary.
+
+315
+00:14:42,770 --> 00:14:45,890
+Make it easier for
+the narrow axis.
+
+316
+00:14:45,890 --> 00:14:47,479
+Even though the, you know,
+
+317
+00:14:47,479 --> 00:14:49,130
+the underlying
+memory structure
+
+318
+00:14:49,130 --> 00:14:53,510
+maybe framing
+sternum and zeta or
+
+319
+00:14:53,510 --> 00:14:55,519
+they're too
+difficult to control
+
+320
+00:14:55,519 --> 00:15:00,845
+some other fashion max,
+multitasking system.
+
+321
+00:15:00,845 --> 00:15:02,270
+Yeah, in that situation,
+
+322
+00:15:02,270 --> 00:15:03,589
+there have been learning
+
+323
+00:15:03,589 --> 00:15:06,079
+content container stay for
+
+324
+00:15:06,079 --> 00:15:08,659
+an extended period after
+
+325
+00:15:08,659 --> 00:15:09,825
+temp right now I'm not
+
+326
+00:15:09,825 --> 00:15:11,750
+worthy or its contents.
+
+327
+00:15:11,750 --> 00:15:15,710
+So even the general
+nature of the application
+
+328
+00:15:15,710 --> 00:15:17,659
+that it can be wrong on
+
+329
+00:15:17,659 --> 00:15:19,985
+the general-purpose
+processor here,
+
+330
+00:15:19,985 --> 00:15:22,849
+actually, a memory
+management unit is
+
+331
+00:15:22,849 --> 00:15:26,194
+control in any credible
+
+332
+00:15:26,194 --> 00:15:28,805
+in the control because
+it allows the ISTE.
+
+333
+00:15:28,805 --> 00:15:31,130
+Blending up the different
+applications with
+
+334
+00:15:31,130 --> 00:15:34,415
+no special care needed
+on the evap are
+
+335
+00:15:34,415 --> 00:15:36,444
+part not means
+that the vehicle
+
+336
+00:15:36,444 --> 00:15:38,509
+will be much
+easier to handle
+
+337
+00:15:38,509 --> 00:15:40,385
+their part of
+the work without
+
+338
+00:15:40,385 --> 00:15:42,679
+knowing others during
+the Archaic turkeys,
+
+339
+00:15:42,679 --> 00:15:46,730
+I so the general
+purpose processors
+
+340
+00:15:46,730 --> 00:15:50,974
+have the maximum
+flexibility.
+
+341
+00:15:50,974 --> 00:15:52,190
+Yeah, As we
+mentioned, some
+
+342
+00:15:52,190 --> 00:15:53,464
+of them about that.
+
+343
+00:15:53,464 --> 00:15:55,790
+Diners, all the
+developers, right?
+
+344
+00:15:55,790 --> 00:15:58,459
+They are programmable,
+supports
+
+345
+00:15:58,459 --> 00:16:00,920
+several high level
+languages and they
+
+346
+00:16:00,920 --> 00:16:04,039
+can be used for any
+general applications.
+
+347
+00:16:04,039 --> 00:16:07,580
+So compared with other
+specific processors,
+
+348
+00:16:07,580 --> 00:16:08,390
+actually,
+
+349
+00:16:08,390 --> 00:16:11,029
+the general-purpose
+processor shown here,
+
+350
+00:16:11,029 --> 00:16:13,865
+they have the short
+time to market.
+
+351
+00:16:13,865 --> 00:16:16,819
+That means it will
+cost are not always
+
+352
+00:16:16,819 --> 00:16:21,304
+the shortest latency to
+be re to the market.
+
+353
+00:16:21,304 --> 00:16:23,149
+So they also have
+
+354
+00:16:23,149 --> 00:16:24,890
+the low nonrecurring
+
+355
+00:16:24,890 --> 00:16:28,400
+engineering
+about the cost.
+
+356
+00:16:28,400 --> 00:16:30,409
+However, yet your brain,
+
+357
+00:16:30,409 --> 00:16:34,009
+they cost high
+power consumption.
+
+358
+00:16:34,009 --> 00:16:35,689
+Of course they are not.
+
+359
+00:16:35,689 --> 00:16:37,204
+Frequently designed for
+
+360
+00:16:37,204 --> 00:16:38,839
+applications with that,
+
+361
+00:16:38,839 --> 00:16:40,879
+yeah, always the
+best performance
+
+362
+00:16:40,879 --> 00:16:42,829
+or the power cost to here.
+
+363
+00:16:42,829 --> 00:16:45,499
+So yeah,
+
+364
+00:16:45,499 --> 00:16:47,089
+under contour of
+
+365
+00:16:47,089 --> 00:16:49,234
+the general progress
+processors,
+
+366
+00:16:49,234 --> 00:16:51,109
+yeah, there are
+application
+
+367
+00:16:51,109 --> 00:16:53,644
+specific architectures.
+
+368
+00:16:53,644 --> 00:16:55,519
+So one can of
+
+369
+00:16:55,519 --> 00:16:56,765
+the EBP specific
+
+370
+00:16:56,765 --> 00:16:59,090
+architecture
+design as though,
+
+371
+00:16:59,090 --> 00:17:01,220
+as we've shown
+that application
+
+372
+00:17:01,220 --> 00:17:03,934
+specific instructions
+that the processor,
+
+373
+00:17:03,934 --> 00:17:07,039
+that a stick some
+adaptations to
+
+374
+00:17:07,039 --> 00:17:09,800
+specific instruction
+set processor end
+
+375
+00:17:09,800 --> 00:17:11,794
+is the macro
+processor that
+
+376
+00:17:11,794 --> 00:17:14,270
+care to benefit us
+
+377
+00:17:14,270 --> 00:17:15,829
+the best-fit
+application for
+
+378
+00:17:15,829 --> 00:17:18,120
+a domain of the
+applications
+
+379
+00:17:18,120 --> 00:17:21,039
+or a domain of
+the operations.
+
+380
+00:17:21,039 --> 00:17:23,409
+Focused on more
+for the sum
+
+381
+00:17:23,409 --> 00:17:24,610
+of the processors.
+
+382
+00:17:24,610 --> 00:17:28,225
+Specific design for
+the signal processing,
+
+383
+00:17:28,225 --> 00:17:30,505
+for the image processing,
+
+384
+00:17:30,505 --> 00:17:32,800
+or even for the
+veil processing.
+
+385
+00:17:32,800 --> 00:17:35,649
+I'll either for the
+digital communication.
+
+386
+00:17:35,649 --> 00:17:37,630
+So they are specific for
+
+387
+00:17:37,630 --> 00:17:40,164
+the applications
+or the domain
+
+388
+00:17:40,164 --> 00:17:42,219
+of the upper operations.
+
+389
+00:17:42,219 --> 00:17:44,559
+So the
+
+390
+00:17:44,559 --> 00:17:47,245
+advocacy specific
+instruction set processor
+
+391
+00:17:47,245 --> 00:17:48,775
+that is a component.
+
+392
+00:17:48,775 --> 00:17:50,875
+Are you going to use
+the English system on
+
+393
+00:17:50,875 --> 00:17:54,625
+chip design and the
+instruction set
+
+394
+00:17:54,625 --> 00:17:57,190
+of a state that is,
+
+395
+00:17:57,190 --> 00:18:00,820
+tell it to benefit a
+specific application.
+
+396
+00:18:00,820 --> 00:18:03,969
+All right, so this
+specialization wrote
+
+397
+00:18:03,969 --> 00:18:07,524
+the core or the processor
+design actually
+
+398
+00:18:07,524 --> 00:18:09,520
+can provide a trade-off
+
+399
+00:18:09,520 --> 00:18:12,039
+between the flexibility of
+
+400
+00:18:12,039 --> 00:18:14,949
+a general-purpose
+computing system
+
+401
+00:18:14,949 --> 00:18:17,875
+and the performance
+of a mistake,
+
+402
+00:18:17,875 --> 00:18:19,795
+as we will show it later.
+
+403
+00:18:19,795 --> 00:18:24,160
+So for the
+instruction set out,
+
+404
+00:18:24,160 --> 00:18:26,545
+the AC, it is
+
+405
+00:18:26,545 --> 00:18:30,025
+customized for the type
+of the computation.
+
+406
+00:18:30,025 --> 00:18:31,690
+This computations I in
+
+407
+00:18:31,690 --> 00:18:33,715
+both NAS specific
+application.
+
+408
+00:18:33,715 --> 00:18:36,759
+Yeah, so big, that
+amazed thumb.
+
+409
+00:18:36,759 --> 00:18:37,870
+A steps have
+
+410
+00:18:37,870 --> 00:18:41,739
+a configurable a
+structure instead.
+
+411
+00:18:41,739 --> 00:18:44,705
+So you overlay this course
+
+412
+00:18:44,705 --> 00:18:46,984
+are divided
+into two parts.
+
+413
+00:18:46,984 --> 00:18:51,380
+And two parts
+including the US
+
+414
+00:18:51,380 --> 00:18:53,030
+that in your logic
+which can give
+
+415
+00:18:53,030 --> 00:18:55,939
+Phi minimum instruction
+set our picture.
+
+416
+00:18:55,939 --> 00:18:59,765
+And the configurable
+logic for this part.
+
+417
+00:18:59,765 --> 00:19:01,820
+They can be used to design
+
+418
+00:19:01,820 --> 00:19:04,459
+a new instructions so that
+
+419
+00:19:04,459 --> 00:19:07,159
+our two part about the
+study design or the
+
+420
+00:19:07,159 --> 00:19:10,475
+Configure are configurable
+logic design.
+
+421
+00:19:10,475 --> 00:19:12,859
+So they'll come
+finger or logic can
+
+422
+00:19:12,859 --> 00:19:15,829
+be programmed either
+in the field,
+
+423
+00:19:15,829 --> 00:19:20,045
+seminar fashion
+to the FPGA
+
+424
+00:19:20,045 --> 00:19:23,285
+or theories or
+chips synthesis.
+
+425
+00:19:23,285 --> 00:19:26,929
+So in additional with
+
+426
+00:19:26,929 --> 00:19:30,334
+the part about the
+standard logical design.
+
+427
+00:19:30,334 --> 00:19:32,719
+So advocacy is best
+
+428
+00:19:32,719 --> 00:19:34,610
+if an instruction
+set processor,
+
+429
+00:19:34,610 --> 00:19:37,459
+they have flexibility for
+
+430
+00:19:37,459 --> 00:19:39,110
+the requirements for
+
+431
+00:19:39,110 --> 00:19:41,884
+legacy application
+with high performance.
+
+432
+00:19:41,884 --> 00:19:45,350
+The no power
+consumption as we're at
+
+433
+00:19:45,350 --> 00:19:48,830
+the smaller silicon
+at his dying cost.
+
+434
+00:19:48,830 --> 00:19:54,290
+So they can be used
+as outer layer of
+
+435
+00:19:54,290 --> 00:19:56,989
+the hardware
+accelerators for
+
+436
+00:19:56,989 --> 00:19:59,345
+the baseband
+signal processing
+
+437
+00:19:59,345 --> 00:20:00,919
+or for the application
+
+438
+00:20:00,919 --> 00:20:02,720
+is like the polio coding.
+
+439
+00:20:02,720 --> 00:20:05,615
+So the traditional
+hardware accelerators
+
+440
+00:20:05,615 --> 00:20:07,969
+for this
+application action,
+
+441
+00:20:07,969 --> 00:20:10,520
+they suffer from
+the dot, dot,
+
+442
+00:20:10,520 --> 00:20:13,879
+dot less or the lab
+of the flexibility.
+
+443
+00:20:13,879 --> 00:20:15,799
+So it is very difficult to
+
+444
+00:20:15,799 --> 00:20:18,079
+reuse the hardware
+data passed with
+
+445
+00:20:18,079 --> 00:20:22,489
+a handwritten Alexa
+finite state machines,
+
+446
+00:20:22,489 --> 00:20:23,029
+right?
+
+447
+00:20:23,029 --> 00:20:26,150
+So again,
+
+448
+00:20:26,150 --> 00:20:29,974
+the compiler some of
+the steps, actually,
+
+449
+00:20:29,974 --> 00:20:33,050
+they can help the
+designer to update
+
+450
+00:20:33,050 --> 00:20:37,250
+the program or they can
+reuse that data pass.
+
+451
+00:20:37,250 --> 00:20:39,950
+So typically,
+now a step Giza
+
+452
+00:20:39,950 --> 00:20:42,860
+is more or less
+dependent on the flow
+
+453
+00:20:42,860 --> 00:20:45,679
+because the
+designing of such
+
+454
+00:20:45,679 --> 00:20:47,345
+cannot process
+or from scratch
+
+455
+00:20:47,345 --> 00:20:49,400
+can be very complicated.
+
+456
+00:20:49,400 --> 00:20:51,724
+They have some basis to,
+
+457
+00:20:51,724 --> 00:20:53,675
+to, to, to river.
+
+458
+00:20:53,675 --> 00:20:56,210
+So there are
+some, you know,
+
+459
+00:20:56,210 --> 00:20:58,910
+the commercial tools
+to design the A6,
+
+460
+00:20:58,910 --> 00:21:00,380
+for example, or
+
+461
+00:21:00,380 --> 00:21:03,364
+the processor designer
+from synopsis.
+
+462
+00:21:03,364 --> 00:21:07,340
+And there is an open
+source too as well that
+
+463
+00:21:07,340 --> 00:21:08,840
+cause the TDA paste
+
+464
+00:21:08,840 --> 00:21:11,240
+that code is that
+empowerment.
+
+465
+00:21:11,240 --> 00:21:12,709
+You can use that to decide
+
+466
+00:21:12,709 --> 00:21:15,695
+the instruction said.
+
+467
+00:21:15,695 --> 00:21:17,659
+The application specific
+
+468
+00:21:17,659 --> 00:21:19,370
+instruction set processor.
+
+469
+00:21:19,370 --> 00:21:21,080
+So this add some touristy.
+
+470
+00:21:21,080 --> 00:21:25,295
+Okay, Yesterday's I
+saw another hand.
+
+471
+00:21:25,295 --> 00:21:27,860
+Yeah, In addition
+to that, Issac,
+
+472
+00:21:27,860 --> 00:21:29,450
+there's another kind of
+
+473
+00:21:29,450 --> 00:21:31,849
+application specific
+outpace your design.
+
+474
+00:21:31,849 --> 00:21:33,470
+Now we're caught
+the digital
+
+475
+00:21:33,470 --> 00:21:34,685
+signal processor.
+
+476
+00:21:34,685 --> 00:21:36,139
+I'm sure you off
+or we know with
+
+477
+00:21:36,139 --> 00:21:38,164
+our body days, DSP, right?
+
+478
+00:21:38,164 --> 00:21:42,080
+So digital
+signal processor
+
+479
+00:21:42,080 --> 00:21:44,075
+is a step design
+
+480
+00:21:44,075 --> 00:21:47,284
+for that repetitive
+multiply,
+
+481
+00:21:47,284 --> 00:21:50,959
+accumulate operation and
+also be the reversal
+
+482
+00:21:50,959 --> 00:21:52,969
+of dressing the
+best fit for
+
+483
+00:21:52,969 --> 00:21:55,369
+them for base panel
+of operations.
+
+484
+00:21:55,369 --> 00:21:57,829
+So this dosing
+and processing
+
+485
+00:21:57,829 --> 00:22:00,979
+as a specialized
+microprocessor chip.
+
+486
+00:22:00,979 --> 00:22:03,545
+Yeah, they are with
+
+487
+00:22:03,545 --> 00:22:06,320
+their architecture
+optimized for
+
+488
+00:22:06,320 --> 00:22:08,914
+dot operator needs of the,
+
+489
+00:22:08,914 --> 00:22:09,950
+specifically for
+
+490
+00:22:09,950 --> 00:22:11,914
+the digital signal
+processing.
+
+491
+00:22:11,914 --> 00:22:13,820
+So DSPs.
+
+492
+00:22:13,820 --> 00:22:15,230
+February paid on
+
+493
+00:22:15,230 --> 00:22:18,275
+the most integrated
+circuit chips.
+
+494
+00:22:18,275 --> 00:22:20,704
+And they are widely used
+
+495
+00:22:20,704 --> 00:22:23,359
+in the audio
+signal processing.
+
+496
+00:22:23,359 --> 00:22:25,280
+The tenant communication,
+
+497
+00:22:25,280 --> 00:22:27,184
+digital image processing,
+
+498
+00:22:27,184 --> 00:22:29,209
+radar, Astana,
+
+499
+00:22:29,209 --> 00:22:30,620
+and also the
+
+500
+00:22:30,620 --> 00:22:33,034
+Alexa speech
+recognition systems,
+
+501
+00:22:33,034 --> 00:22:36,260
+an income or consumer
+electronic devices such
+
+502
+00:22:36,260 --> 00:22:39,380
+as mobile phones,
+the disk drives,
+
+503
+00:22:39,380 --> 00:22:40,910
+and also lag for
+
+504
+00:22:40,910 --> 00:22:42,530
+the high definition
+
+505
+00:22:42,530 --> 00:22:45,065
+television
+products nowadays,
+
+506
+00:22:45,065 --> 00:22:47,899
+we know as HD TV products.
+
+507
+00:22:47,899 --> 00:22:55,385
+So not go all the causes
+for the DSP Design.
+
+508
+00:22:55,385 --> 00:22:58,444
+They are you but i
+2, mayor of theatre,
+
+509
+00:22:58,444 --> 00:23:00,814
+or compressed
+or containers
+
+510
+00:23:00,814 --> 00:23:03,425
+or grill would
+analog signals.
+
+511
+00:23:03,425 --> 00:23:05,239
+So most general-purpose
+
+512
+00:23:05,239 --> 00:23:07,249
+microprocessors ads
+were shown before.
+
+513
+00:23:07,249 --> 00:23:09,815
+They can also execute
+
+514
+00:23:09,815 --> 00:23:11,149
+that digital signal
+
+515
+00:23:11,149 --> 00:23:13,594
+processing algorithms
+successfully.
+
+516
+00:23:13,594 --> 00:23:17,810
+But the general
+purpose processors may
+
+517
+00:23:17,810 --> 00:23:19,715
+not be able to keep up
+
+518
+00:23:19,715 --> 00:23:21,830
+with the such processing,
+
+519
+00:23:21,830 --> 00:23:23,539
+continuous it
+in real time.
+
+520
+00:23:23,539 --> 00:23:25,250
+So as a shy it for
+
+521
+00:23:25,250 --> 00:23:27,500
+the general purpose
+process and when
+
+522
+00:23:27,500 --> 00:23:28,160
+they are facing
+
+523
+00:23:28,160 --> 00:23:30,050
+the digital signal
+processing.
+
+524
+00:23:30,050 --> 00:23:34,789
+So although the
+dedicated DSPS
+
+525
+00:23:34,789 --> 00:23:37,610
+you but I have better
+power efficiency,
+
+526
+00:23:37,610 --> 00:23:40,594
+therefore, they
+are more suitable
+
+527
+00:23:40,594 --> 00:23:42,829
+in the portable devices
+
+528
+00:23:42,829 --> 00:23:44,419
+such as mobile phones.
+
+529
+00:23:44,419 --> 00:23:45,259
+Because you are though
+
+530
+00:23:45,259 --> 00:23:46,339
+about power consumption,
+
+531
+00:23:46,339 --> 00:23:48,590
+concentrates
+on that, that,
+
+532
+00:23:48,590 --> 00:23:51,379
+that, that we
+need to consider.
+
+533
+00:23:51,379 --> 00:23:53,044
+Them are about
+devices, right?
+
+534
+00:23:53,044 --> 00:23:55,099
+So DSPs often use
+
+535
+00:23:55,099 --> 00:23:56,690
+a spatial memory
+architectures
+
+536
+00:23:56,690 --> 00:23:59,060
+data base map
+out t-shirts.
+
+537
+00:23:59,060 --> 00:24:00,949
+Are you able to fetch
+
+538
+00:24:00,949 --> 00:24:03,470
+multiple data
+fitting model
+
+539
+00:24:03,470 --> 00:24:05,314
+instruction at
+the same time?
+
+540
+00:24:05,314 --> 00:24:07,969
+So 4x1?
+
+541
+00:24:07,969 --> 00:24:10,085
+Yes, piece of yeah,
+
+542
+00:24:10,085 --> 00:24:11,255
+also implemented
+
+543
+00:24:11,255 --> 00:24:13,490
+the data compression
+technology
+
+544
+00:24:13,490 --> 00:24:17,614
+with the credit
+cosine transform,
+
+545
+00:24:17,614 --> 00:24:20,089
+nowadays the DCT
+transformation, right?
+
+546
+00:24:20,089 --> 00:24:22,549
+In particular, it
+being widely used
+
+547
+00:24:22,549 --> 00:24:25,370
+a compression
+technology, DSPs.
+
+548
+00:24:25,370 --> 00:24:28,970
+So digital signal
+processors can also handle
+
+549
+00:24:28,970 --> 00:24:32,675
+the build time
+processing to compute,
+
+550
+00:24:32,675 --> 00:24:33,860
+compute, it's better for
+
+551
+00:24:33,860 --> 00:24:37,550
+the computation
+intensive tasks.
+
+552
+00:24:37,550 --> 00:24:40,174
+They can minimize
+the cost of
+
+553
+00:24:40,174 --> 00:24:43,384
+two and also minimize
+the power consumption.
+
+554
+00:24:43,384 --> 00:24:46,219
+Minimize optimize
+
+555
+00:24:46,219 --> 00:24:48,379
+the spatialized
+that data has,
+
+556
+00:24:48,379 --> 00:24:50,510
+the instructions that you.
+
+557
+00:24:50,510 --> 00:24:54,079
+So DSPs can't, or
+those that fought
+
+558
+00:24:54,079 --> 00:24:58,820
+the repetitive
+numeric calculations.
+
+559
+00:24:58,820 --> 00:25:01,910
+Also for the high
+memory bandwidth,
+
+560
+00:25:01,910 --> 00:25:03,769
+streaming data processing
+
+561
+00:25:03,769 --> 00:25:06,049
+with less
+development time.
+
+562
+00:25:06,049 --> 00:25:08,779
+So far this can
+of applications,
+
+563
+00:25:08,779 --> 00:25:12,260
+all the computations in
+
+564
+00:25:12,260 --> 00:25:13,280
+this APA patients were
+
+565
+00:25:13,280 --> 00:25:15,559
+introduce actuate DSB can
+
+566
+00:25:15,559 --> 00:25:18,379
+perform much better than
+other architectures.
+
+567
+00:25:18,379 --> 00:25:20,134
+A special word for author,
+
+568
+00:25:20,134 --> 00:25:23,164
+including the
+general robots,
+
+569
+00:25:23,164 --> 00:25:24,379
+microprocessors,
+
+570
+00:25:24,379 --> 00:25:26,465
+or other
+application-specific
+
+571
+00:25:26,465 --> 00:25:28,115
+processor design.
+
+572
+00:25:28,115 --> 00:25:31,654
+So, yeah, Also
+when we talk
+
+573
+00:25:31,654 --> 00:25:34,865
+about the professors,
+you know,
+
+574
+00:25:34,865 --> 00:25:37,280
+we need to talk
+about a game about
+
+575
+00:25:37,280 --> 00:25:39,815
+the Graphic
+Processing Unit
+
+576
+00:25:39,815 --> 00:25:42,350
+that the GPUs were
+introduced to before.
+
+577
+00:25:42,350 --> 00:25:45,540
+You're actually in
+lecture five, right?
+
+578
+00:25:46,300 --> 00:25:51,230
+Yeah, let's reveal
+the discussion
+
+579
+00:25:51,230 --> 00:25:53,285
+about the GPU here again,
+
+580
+00:25:53,285 --> 00:25:56,060
+gadgets to graphic
+processing units,
+
+581
+00:25:56,060 --> 00:25:57,245
+specialized.
+
+582
+00:25:57,245 --> 00:25:57,829
+Yeah.
+
+583
+00:25:57,829 --> 00:26:00,320
+So as we're introduced
+to before, yeah,
+
+584
+00:26:00,320 --> 00:26:02,840
+that electronic
+circuit designed to
+
+585
+00:26:02,840 --> 00:26:06,310
+rapidly manipulate
+and also
+
+586
+00:26:06,310 --> 00:26:07,765
+after the ban richer,
+
+587
+00:26:07,765 --> 00:26:09,370
+accelerate the creation
+
+588
+00:26:09,370 --> 00:26:10,764
+of the immediates right?
+
+589
+00:26:10,764 --> 00:26:13,795
+In a frame buffer in your
+
+590
+00:26:13,795 --> 00:26:15,249
+intended for the output to
+
+591
+00:26:15,249 --> 00:26:17,394
+display on the
+device, right?
+
+592
+00:26:17,394 --> 00:26:21,129
+So the GPUs are
+used in the legs.
+
+593
+00:26:21,129 --> 00:26:23,069
+The imbalances
+sense awesome.
+
+594
+00:26:23,069 --> 00:26:24,084
+Mobile phones,
+
+595
+00:26:24,084 --> 00:26:26,049
+personal computers,
+workstations,
+
+596
+00:26:26,049 --> 00:26:29,485
+as well as some
+pin consumers.
+
+597
+00:26:29,485 --> 00:26:31,644
+So more than GPOs,
+
+598
+00:26:31,644 --> 00:26:33,775
+They efficient
+
+599
+00:26:33,775 --> 00:26:36,850
+at manipulating
+computer graphics.
+
+600
+00:26:36,850 --> 00:26:38,710
+And also they
+are efficient to
+
+601
+00:26:38,710 --> 00:26:41,110
+deal with the
+inmates processing.
+
+602
+00:26:41,110 --> 00:26:46,485
+So they have the high
+powered on rupture.
+
+603
+00:26:46,485 --> 00:26:48,574
+Actually, they can make
+
+604
+00:26:48,574 --> 00:26:51,800
+this GPUs more
+efficient than
+
+605
+00:26:51,800 --> 00:26:53,540
+the general-purpose
+
+606
+00:26:53,540 --> 00:26:56,899
+central processing
+unit or CPU.
+
+607
+00:26:56,899 --> 00:27:00,169
+That's why they
+have efficiency.
+
+608
+00:27:00,169 --> 00:27:02,509
+At then the general
+stay appeals
+
+609
+00:27:02,509 --> 00:27:03,919
+for the legs.
+
+610
+00:27:03,919 --> 00:27:06,379
+The operations are about
+the algorithm that
+
+611
+00:27:06,379 --> 00:27:10,280
+processes the large
+blocks of the data.
+
+612
+00:27:10,280 --> 00:27:12,979
+Especially data can be DO
+
+613
+00:27:12,979 --> 00:27:15,769
+that executed in parallel.
+
+614
+00:27:15,769 --> 00:27:17,570
+So in your
+personal computer,
+
+615
+00:27:17,570 --> 00:27:19,925
+actual GPU can be present.
+
+616
+00:27:19,925 --> 00:27:23,674
+Baidu car, or they
+can be imbedded on
+
+617
+00:27:23,674 --> 00:27:26,509
+a motherboard for Basil
+
+618
+00:27:26,509 --> 00:27:28,460
+with SAP us, We're
+show people.
+
+619
+00:27:28,460 --> 00:27:30,950
+A certain CPUs, they
+
+620
+00:27:30,950 --> 00:27:33,769
+are imbedded on the
+CPU die, right?
+
+621
+00:27:33,769 --> 00:27:36,199
+So GPOs can provide
+
+622
+00:27:36,199 --> 00:27:37,699
+the parallel computing by
+
+623
+00:27:37,699 --> 00:27:40,565
+massively data parallel
+stream processing.
+
+624
+00:27:40,565 --> 00:27:44,179
+And they can also use
+southern das thread.
+
+625
+00:27:44,179 --> 00:27:45,469
+Implementation
+
+626
+00:27:45,469 --> 00:27:48,619
+is like the hundreds
+off the course.
+
+627
+00:27:48,619 --> 00:27:50,090
+So due to the cost
+
+628
+00:27:50,090 --> 00:27:52,189
+efficient and E is
+the implementation of
+
+629
+00:27:52,189 --> 00:27:55,010
+the GPU and the
+low latency and
+
+630
+00:27:55,010 --> 00:27:56,119
+also in those shapes
+
+631
+00:27:56,119 --> 00:27:58,339
+using the hardware
+platform, right?
+
+632
+00:27:58,339 --> 00:28:01,640
+You is becoming
+increasingly common to
+
+633
+00:28:01,640 --> 00:28:02,959
+use the general-purpose
+
+634
+00:28:02,959 --> 00:28:04,835
+graphics processing units.
+
+635
+00:28:04,835 --> 00:28:06,949
+Yeah, uh, together with
+
+636
+00:28:06,949 --> 00:28:10,730
+a CPU that we call
+the GPGPU, right?
+
+637
+00:28:10,730 --> 00:28:12,740
+They used to as
+
+638
+00:28:12,740 --> 00:28:16,230
+the modified form of
+the sperm processor,
+
+639
+00:28:16,230 --> 00:28:17,840
+or are we caught the matzo
+
+640
+00:28:17,840 --> 00:28:19,430
+processor as one of
+
+641
+00:28:19,430 --> 00:28:23,300
+the variations for the
+SIMD architecture.
+
+642
+00:28:23,300 --> 00:28:26,240
+And they can run computer
+Kernig's, right.
+
+643
+00:28:26,240 --> 00:28:29,425
+So this, the
+term, you know,
+
+644
+00:28:29,425 --> 00:28:31,129
+the massive
+computational power
+
+645
+00:28:31,129 --> 00:28:31,774
+of the mode of
+
+646
+00:28:31,774 --> 00:28:34,490
+graphics accelerators
+share that
+
+647
+00:28:34,490 --> 00:28:36,199
+the pipeline does
+a general-purpose
+
+648
+00:28:36,199 --> 00:28:37,489
+computing power.
+
+649
+00:28:37,489 --> 00:28:40,399
+Yeah, as opposed to
+being the heart of
+
+650
+00:28:40,399 --> 00:28:41,510
+what azole to do
+
+651
+00:28:41,510 --> 00:28:43,534
+the graphical
+operations, right?
+
+652
+00:28:43,534 --> 00:28:46,775
+So a certain
+applications, yeah,
+
+653
+00:28:46,775 --> 00:28:48,874
+this application
+repair that
+
+654
+00:28:48,874 --> 00:28:51,799
+there should be master
+vector operations.
+
+655
+00:28:51,799 --> 00:28:54,079
+So this can, yeah,
+
+656
+00:28:54,079 --> 00:28:56,550
+the several orders of
+
+657
+00:28:56,590 --> 00:28:59,855
+magnitude higher
+performance now,
+
+658
+00:28:59,855 --> 00:29:01,309
+conventional CPU.
+
+659
+00:29:01,309 --> 00:29:05,735
+So the two largest
+discredited GPO designers,
+
+660
+00:29:05,735 --> 00:29:07,370
+you know, you are familiar
+
+661
+00:29:07,370 --> 00:29:09,709
+with AMD and NVIDIA.
+
+662
+00:29:09,709 --> 00:29:13,475
+So they nest to GPO
+designers actually,
+
+663
+00:29:13,475 --> 00:29:15,529
+they are beginning
+to pursue
+
+664
+00:29:15,529 --> 00:29:17,629
+that approach with
+
+665
+00:29:17,629 --> 00:29:19,564
+the array of the
+occupations.
+
+666
+00:29:19,564 --> 00:29:21,410
+So both a Veda and
+
+667
+00:29:21,410 --> 00:29:24,379
+AMD have the
+research team or
+
+668
+00:29:24,379 --> 00:29:26,389
+the pronoun two teams with
+
+669
+00:29:26,389 --> 00:29:29,389
+the staffer university
+to create a GPO base,
+
+670
+00:29:29,389 --> 00:29:31,789
+a client, especially for
+
+671
+00:29:31,789 --> 00:29:33,740
+the affording home
+
+672
+00:29:33,740 --> 00:29:35,779
+distributed
+computing project.
+
+673
+00:29:35,779 --> 00:29:39,095
+Like for the protein
+folding calculation,
+
+674
+00:29:39,095 --> 00:29:40,879
+like this or odd
+
+675
+00:29:40,879 --> 00:29:43,819
+that data intensive
+operations.
+
+676
+00:29:43,819 --> 00:29:45,290
+So they are focused on to
+
+677
+00:29:45,290 --> 00:29:47,000
+design that GPIOs follow
+
+678
+00:29:47,000 --> 00:29:48,665
+such kind of application
+
+679
+00:29:48,665 --> 00:29:52,065
+or stress can
+off projects.
+
+680
+00:29:52,065 --> 00:29:56,094
+So what's below
+for the legs?
+
+681
+00:29:56,094 --> 00:30:00,714
+For the, yeah, FPGAs
+actually, yeah,
+
+682
+00:30:00,714 --> 00:30:02,770
+there's other
+field programmable
+
+683
+00:30:02,770 --> 00:30:04,960
+gate array for
+the seminar.
+
+684
+00:30:04,960 --> 00:30:06,129
+Use, your nerve.
+
+685
+00:30:06,129 --> 00:30:09,039
+These are actually the
+researcher for that.
+
+686
+00:30:09,039 --> 00:30:11,410
+Yeah, Hey, was
+at Hong Kong at
+
+687
+00:30:11,410 --> 00:30:13,855
+that time and talk
+more about the design
+
+688
+00:30:13,855 --> 00:30:15,880
+of the FPGA
+that there does
+
+689
+00:30:15,880 --> 00:30:18,760
+die optimization for
+the FPGA system.
+
+690
+00:30:18,760 --> 00:30:21,679
+So actually for FPGA
+
+691
+00:30:21,679 --> 00:30:24,565
+that a degree
+it is so cute.
+
+692
+00:30:24,565 --> 00:30:26,665
+It is decided to be
+
+693
+00:30:26,665 --> 00:30:28,779
+configured by our consumer
+
+694
+00:30:28,779 --> 00:30:30,610
+or can be configured
+
+695
+00:30:30,610 --> 00:30:33,399
+biodesign or after
+manufacturing.
+
+696
+00:30:33,399 --> 00:30:34,815
+They're full.
+
+697
+00:30:34,815 --> 00:30:38,015
+The term field
+programmable.
+
+698
+00:30:38,015 --> 00:30:39,440
+Yeah. Well, I
+mean, you can
+
+699
+00:30:39,440 --> 00:30:42,754
+configured after
+the manufacturing.
+
+700
+00:30:42,754 --> 00:30:45,559
+So the FPGA configuration,
+
+701
+00:30:45,559 --> 00:30:48,409
+it's generally
+best specified
+
+702
+00:30:48,409 --> 00:30:51,574
+using hardware
+description language,
+
+703
+00:30:51,574 --> 00:30:53,915
+basic flow as the HDL.
+
+704
+00:30:53,915 --> 00:30:56,419
+So in a seminar
+to die used
+
+705
+00:30:56,419 --> 00:31:00,064
+for application-specific
+integrated circuit,
+
+706
+00:31:00,064 --> 00:31:02,915
+that is the seminar
+with the ACLU decide.
+
+707
+00:31:02,915 --> 00:31:06,499
+So the Thurber at the
+elbow Ramsey predators,
+
+708
+00:31:06,499 --> 00:31:08,029
+they use it to specify
+
+709
+00:31:08,029 --> 00:31:10,129
+the configuration
+of a PGA.
+
+710
+00:31:10,129 --> 00:31:12,439
+But there's this increase
+
+711
+00:31:12,439 --> 00:31:14,314
+in a real, you know,
+
+712
+00:31:14,314 --> 00:31:16,250
+due to the advent of
+
+713
+00:31:16,250 --> 00:31:19,310
+the electronic design
+automation to us today.
+
+714
+00:31:19,310 --> 00:31:24,020
+So I said the core
+architecture for the GPS,
+
+715
+00:31:24,020 --> 00:31:26,869
+the coarctation
+contains an area of
+
+716
+00:31:26,869 --> 00:31:30,365
+the programmable
+logic blocks and
+
+717
+00:31:30,365 --> 00:31:31,460
+a heirarchy of
+
+718
+00:31:31,460 --> 00:31:34,729
+the reconfigurable
+interconnects.
+
+719
+00:31:34,729 --> 00:31:36,725
+Not dancing to connote,
+
+720
+00:31:36,725 --> 00:31:40,805
+can know the blocks
+to be well together.
+
+721
+00:31:40,805 --> 00:31:43,714
+And luckily, many logical
+gates that can be
+
+722
+00:31:43,714 --> 00:31:47,270
+into world in different
+configurations.
+
+723
+00:31:47,270 --> 00:31:50,329
+So the logical blocks
+can be configured to
+
+724
+00:31:50,329 --> 00:31:54,755
+perform complex
+combination functions.
+
+725
+00:31:54,755 --> 00:31:58,009
+They are mallocing
+logic gates,
+
+726
+00:31:58,009 --> 00:32:01,144
+legs, and an XOR.
+
+727
+00:32:01,144 --> 00:32:03,440
+So a most FPGA eddy size
+
+728
+00:32:03,440 --> 00:32:05,629
+actually the
+logical blocks.
+
+729
+00:32:05,629 --> 00:32:08,795
+They also include
+the memory elements.
+
+730
+00:32:08,795 --> 00:32:12,590
+And these elements maybe
+simple flip-flops or
+
+731
+00:32:12,590 --> 00:32:17,000
+more content
+blocks of memory.
+
+732
+00:32:17,000 --> 00:32:19,789
+So many, many FPGA,
+
+733
+00:32:19,789 --> 00:32:21,410
+these eyes can be
+
+734
+00:32:21,410 --> 00:32:23,149
+re-programmed
+
+735
+00:32:23,149 --> 00:32:26,119
+to implement different
+logic functions.
+
+736
+00:32:26,119 --> 00:32:28,910
+Or no, the flexible,
+real, comfortable,
+
+737
+00:32:28,910 --> 00:32:30,470
+wearable computing as
+
+738
+00:32:30,470 --> 00:32:32,945
+performed either
+computer software.
+
+739
+00:32:32,945 --> 00:32:34,640
+So in traditional mode,
+
+740
+00:32:34,640 --> 00:32:36,140
+this flexibility for
+
+741
+00:32:36,140 --> 00:32:39,004
+the FPGA design actually.
+
+742
+00:32:39,004 --> 00:32:43,955
+Fpga architectures
+also have the memories
+
+743
+00:32:43,955 --> 00:32:49,009
+and also specialized
+input and output blocks.
+
+744
+00:32:49,009 --> 00:32:51,394
+So more than FPGA as you
+
+745
+00:32:51,394 --> 00:32:54,289
+have read the DSP blocks,
+
+746
+00:32:54,289 --> 00:32:56,105
+also the hardware,
+
+747
+00:32:56,105 --> 00:33:00,109
+IP cores and stuff,
+the workhorse.
+
+748
+00:33:00,109 --> 00:33:02,135
+All of this can enable
+
+749
+00:33:02,135 --> 00:33:05,150
+more and more
+functionalities for
+
+750
+00:33:05,150 --> 00:33:07,490
+the application
+that can be
+
+751
+00:33:07,490 --> 00:33:11,674
+run on the FPGA
+architecture.
+
+752
+00:33:11,674 --> 00:33:14,900
+So the FPGA also have
+
+753
+00:33:14,900 --> 00:33:17,299
+a remarkable
+embedded system
+
+754
+00:33:17,299 --> 00:33:18,830
+development due to that,
+
+755
+00:33:18,830 --> 00:33:21,169
+although the comparability
+
+756
+00:33:21,169 --> 00:33:22,849
+that they can start
+
+757
+00:33:22,849 --> 00:33:24,919
+the system software
+development
+
+758
+00:33:24,919 --> 00:33:29,029
+simultaneously with
+the 100 we're right.
+
+759
+00:33:29,029 --> 00:33:30,470
+And eight again, enabled
+
+760
+00:33:30,470 --> 00:33:33,350
+the system performance
+simulation
+
+761
+00:33:33,350 --> 00:33:36,619
+and are very early phase
+of the development.
+
+762
+00:33:36,619 --> 00:33:38,330
+And also the FPGA.
+
+763
+00:33:38,330 --> 00:33:39,425
+These are, although the
+
+764
+00:33:39,425 --> 00:33:42,290
+various system a petition,
+
+765
+00:33:42,290 --> 00:33:45,364
+self-aware and
+hardware way right?
+
+766
+00:33:45,364 --> 00:33:46,909
+And their tours add
+
+767
+00:33:46,909 --> 00:33:49,399
+iterations before
+the final phrasings.
+
+768
+00:33:49,399 --> 00:33:51,315
+A system architecture now
+
+769
+00:33:51,315 --> 00:33:52,930
+have more and more flex,
+
+770
+00:33:52,930 --> 00:33:54,490
+but in the design of the,
+
+771
+00:33:54,490 --> 00:33:56,109
+about the hardware,
+software,
+
+772
+00:33:56,109 --> 00:33:57,939
+a different status.
+
+773
+00:33:57,939 --> 00:34:00,130
+Wisdom according to
+
+774
+00:34:00,130 --> 00:34:02,139
+the demands far
+the applications.
+
+775
+00:34:02,139 --> 00:34:05,590
+So that is about the
+reconfigurability
+
+776
+00:34:05,590 --> 00:34:07,149
+or two bands or with
+
+777
+00:34:07,149 --> 00:34:09,670
+a capability of the yeah,
+
+778
+00:34:09,670 --> 00:34:13,100
+we can say that the
+flexibility for that ESI.
+
+779
+00:34:13,130 --> 00:34:17,114
+So after we know
+
+780
+00:34:17,114 --> 00:34:20,685
+the FPGAs and also the
+DSP to here, right?
+
+781
+00:34:20,685 --> 00:34:23,219
+So one way need
+to compare with
+
+782
+00:34:23,219 --> 00:34:26,430
+the aphasia is a
+DSP processors.
+
+783
+00:34:26,430 --> 00:34:30,374
+We can find that
+both of the FPGAs,
+
+784
+00:34:30,374 --> 00:34:33,269
+DSPs can offer
+flexibility for rage,
+
+785
+00:34:33,269 --> 00:34:36,279
+huge add
+programmability, right?
+
+786
+00:34:36,279 --> 00:34:41,985
+So specifically, digital
+signal processing.
+
+787
+00:34:41,985 --> 00:34:43,740
+And it underpins modem,
+
+788
+00:34:43,740 --> 00:34:48,149
+wireless or as where
+the wildlife, Camila,
+
+789
+00:34:48,149 --> 00:34:49,890
+patient's medical
+
+790
+00:34:49,890 --> 00:34:51,900
+or down obviously
+equipment,
+
+791
+00:34:51,900 --> 00:34:55,649
+mandatory systems, audio
+and video equipment.
+
+792
+00:34:55,649 --> 00:34:57,824
+And also that the
+
+793
+00:34:57,824 --> 00:34:59,309
+communists as
+our products are
+
+794
+00:34:59,309 --> 00:35:00,569
+becoming increasingly
+
+795
+00:35:00,569 --> 00:35:03,885
+common in the
+consumer's lives.
+
+796
+00:35:03,885 --> 00:35:07,739
+So due to the advances
+
+797
+00:35:07,739 --> 00:35:11,604
+in the semiconductor
+technology,
+
+798
+00:35:11,604 --> 00:35:15,750
+10 even more complex
+DSP algorithm,
+
+799
+00:35:15,750 --> 00:35:17,819
+the proton course, and
+
+800
+00:35:17,819 --> 00:35:20,279
+also the applications
+are no feasible.
+
+801
+00:35:20,279 --> 00:35:22,560
+Yeah, this will
+in turn increase
+
+802
+00:35:22,560 --> 00:35:24,990
+the complexity
+of the system
+
+803
+00:35:24,990 --> 00:35:26,969
+and their products design.
+
+804
+00:35:26,969 --> 00:35:30,524
+So as the complex,
+actually,
+
+805
+00:35:30,524 --> 00:35:35,050
+the complexity increases
+about the DSPD side.
+
+806
+00:35:35,150 --> 00:35:37,860
+The system
+reliability is no
+
+807
+00:35:37,860 --> 00:35:39,840
+longer solenoid divided
+by the hardware
+
+808
+00:35:39,840 --> 00:35:40,979
+powerful and we're up at
+
+809
+00:35:40,979 --> 00:35:43,470
+a typical day in
+
+810
+00:35:43,470 --> 00:35:45,689
+a quantified a
+meantime between
+
+811
+00:35:45,689 --> 00:35:47,549
+the funeral like some
+
+812
+00:35:47,549 --> 00:35:49,155
+me time to failure
+we introduced
+
+813
+00:35:49,155 --> 00:35:51,479
+before the conclusion or
+
+814
+00:35:51,479 --> 00:35:52,379
+the mom and for
+
+815
+00:35:52,379 --> 00:35:53,969
+the architecture
+design, right?
+
+816
+00:35:53,969 --> 00:35:55,289
+The system or not,
+
+817
+00:35:55,289 --> 00:35:57,895
+but it is increasingly
+
+818
+00:35:57,895 --> 00:35:59,654
+determined by the
+hardware EPA,
+
+819
+00:35:59,654 --> 00:36:01,814
+software architectures
+together.
+
+820
+00:36:01,814 --> 00:36:04,095
+So the ASO, they
+
+821
+00:36:04,095 --> 00:36:06,120
+are related to the
+development and
+
+822
+00:36:06,120 --> 00:36:09,599
+a verification processes
+and also the level
+
+823
+00:36:09,599 --> 00:36:13,289
+of the thigh.
+Maintainability.
+
+824
+00:36:13,289 --> 00:36:15,464
+So all of these
+are considered
+
+825
+00:36:15,464 --> 00:36:18,179
+together to
+measure the dot,
+
+826
+00:36:18,179 --> 00:36:22,740
+the dot, the dot
+
+827
+00:36:22,740 --> 00:36:24,405
+reliability or
+the performance
+
+828
+00:36:24,405 --> 00:36:26,775
+about the
+character design.
+
+829
+00:36:26,775 --> 00:36:28,410
+So there is one
+
+830
+00:36:28,410 --> 00:36:30,749
+fundamental
+architecture issue
+
+831
+00:36:30,749 --> 00:36:32,699
+that is about the pipe
+
+832
+00:36:32,699 --> 00:36:34,380
+of the hardware platform.
+
+833
+00:36:34,380 --> 00:36:38,009
+So DSB functions are
+commonly implemented on
+
+834
+00:36:38,009 --> 00:36:42,510
+two types of the
+programmable pamphlets,
+
+835
+00:36:42,510 --> 00:36:44,775
+including the
+additional system,
+
+836
+00:36:44,775 --> 00:36:47,160
+digital signal processor,
+
+837
+00:36:47,160 --> 00:36:50,459
+and the Programmable
+Gate Array that
+
+838
+00:36:50,459 --> 00:36:54,549
+Arthur ESPN at
+PGI, FPGAs, right?
+
+839
+00:36:55,250 --> 00:36:59,534
+Dsps are specialized form
+
+840
+00:36:59,534 --> 00:37:01,469
+of the micro professor.
+
+841
+00:37:01,469 --> 00:37:04,110
+Well, and FPGAs, a form of
+
+842
+00:37:04,110 --> 00:37:07,919
+the highly
+configurable hardware.
+
+843
+00:37:07,919 --> 00:37:10,440
+Actually, the part
+that the use of
+
+844
+00:37:10,440 --> 00:37:14,325
+the DSPS was
+nearly ubiquitous.
+
+845
+00:37:14,325 --> 00:37:15,569
+Waterways the need of
+
+846
+00:37:15,569 --> 00:37:17,220
+the many applications
+that are
+
+847
+00:37:17,220 --> 00:37:18,779
+disturbing in
+
+848
+00:37:18,779 --> 00:37:22,575
+the processing
+comorbidity of the DSPs.
+
+849
+00:37:22,575 --> 00:37:24,600
+Actually, the use of
+
+850
+00:37:24,600 --> 00:37:27,524
+a teacher is
+growing rapidly,
+
+851
+00:37:27,524 --> 00:37:29,835
+especially in the
+recent right.
+
+852
+00:37:29,835 --> 00:37:31,889
+So parented the, you know,
+
+853
+00:37:31,889 --> 00:37:33,794
+the primary
+
+854
+00:37:33,794 --> 00:37:35,880
+reason that most
+engineers choose,
+
+855
+00:37:35,880 --> 00:37:39,209
+you choose to
+use the FPGA,
+
+856
+00:37:39,209 --> 00:37:42,359
+all the DSP that
+is driven by
+
+857
+00:37:42,359 --> 00:37:45,689
+the applications and
+MITS requirement.
+
+858
+00:37:45,689 --> 00:37:47,550
+Therefore, the comparison
+
+859
+00:37:47,550 --> 00:37:49,499
+between the DSPs and
+
+860
+00:37:49,499 --> 00:37:54,585
+FPGAs actually focus on
+the IPS cooperation.
+
+861
+00:37:54,585 --> 00:37:57,705
+So this will
+certainly important.
+
+862
+00:37:57,705 --> 00:37:58,919
+This is not
+
+863
+00:37:58,919 --> 00:38:01,080
+the only other
+bondage of the FPGA.
+
+864
+00:38:01,080 --> 00:38:05,385
+So it equally important
+and often overlooked.
+
+865
+00:38:05,385 --> 00:38:07,109
+Actually, that is
+
+866
+00:38:07,109 --> 00:38:09,300
+the FPGAs inherent
+advantage
+
+867
+00:38:09,300 --> 00:38:11,549
+in that they have
+the other one is in
+
+868
+00:38:11,549 --> 00:38:14,159
+the product
+
+869
+00:38:14,159 --> 00:38:18,225
+that reliability and
+maintainability tube.
+
+870
+00:38:18,225 --> 00:38:21,210
+Thus than or
+DSP processors
+
+871
+00:38:21,210 --> 00:38:24,060
+has an advantage in
+the time to market.
+
+872
+00:38:24,060 --> 00:38:27,600
+That means it is a
+foster to be produced.
+
+873
+00:38:27,600 --> 00:38:29,940
+Well, they can
+only support
+
+874
+00:38:29,940 --> 00:38:32,220
+those sequential
+operations for
+
+875
+00:38:32,220 --> 00:38:34,829
+the applications
+where the gender or
+
+876
+00:38:34,829 --> 00:38:36,274
+the FPGA kind of enable
+
+877
+00:38:36,274 --> 00:38:38,280
+the food in
+parallel design.
+
+878
+00:38:38,280 --> 00:38:41,715
+And that FPGAs care of
+
+879
+00:38:41,715 --> 00:38:43,964
+the greater improvement
+
+880
+00:38:43,964 --> 00:38:47,499
+on the implementation
+performance.
+
+881
+00:38:48,020 --> 00:38:51,479
+But the other one
+for the FPGA,
+
+882
+00:38:51,479 --> 00:38:54,840
+that the cost is relatively
+high and eight is
+
+883
+00:38:54,840 --> 00:38:58,440
+the most power consuming
+than the DSP's.
+
+884
+00:38:58,440 --> 00:39:01,019
+So near the orange neuron,
+
+885
+00:39:01,019 --> 00:39:04,230
+project managers
+can readily
+
+886
+00:39:04,230 --> 00:39:06,449
+killed the data of
+their next product,
+
+887
+00:39:06,449 --> 00:39:08,969
+self-aware of it,
+including FPGA,
+
+888
+00:39:08,969 --> 00:39:10,679
+DSP of answers, or they
+
+889
+00:39:10,679 --> 00:39:12,795
+can really use
+this dot product.
+
+890
+00:39:12,795 --> 00:39:16,394
+So and most
+technology com case,
+
+891
+00:39:16,394 --> 00:39:19,560
+there is you open a
+law in town east of
+
+892
+00:39:19,560 --> 00:39:22,859
+the software bots
+or problem report
+
+893
+00:39:22,859 --> 00:39:26,429
+along with the thumb
+forward nice data will
+
+894
+00:39:26,429 --> 00:39:28,994
+contain the associated
+and patches
+
+895
+00:39:28,994 --> 00:39:30,899
+or fixes, right?
+
+896
+00:39:30,899 --> 00:39:34,004
+So it has come to
+be expected that
+
+897
+00:39:34,004 --> 00:39:37,725
+or structure we're
+including the DSP code.
+
+898
+00:39:37,725 --> 00:39:40,229
+Now we are a content
+some levels off
+
+899
+00:39:40,229 --> 00:39:43,230
+the box that the
+best one can do.
+
+900
+00:39:43,230 --> 00:39:44,640
+That is to minimize
+
+901
+00:39:44,640 --> 00:39:47,249
+this box right before
+they're ready.
+
+902
+00:39:47,249 --> 00:39:49,770
+So by comparision,
+actually
+
+903
+00:39:49,770 --> 00:39:52,860
+during this stage, FPGA,
+
+904
+00:39:52,860 --> 00:39:55,529
+these dyes, they tended to
+
+905
+00:39:55,529 --> 00:39:58,649
+be updated and much
+less frequently.
+
+906
+00:39:58,649 --> 00:40:00,299
+And it is January,
+
+907
+00:40:00,299 --> 00:40:03,209
+unusual event for
+a manufacturer to
+
+908
+00:40:03,209 --> 00:40:06,449
+issue a feel an upgrade of
+
+909
+00:40:06,449 --> 00:40:09,389
+the FPGA configuration
+file because it
+
+910
+00:40:09,389 --> 00:40:12,709
+takes time and age,
+much a complex.
+
+911
+00:40:12,709 --> 00:40:15,545
+That's why the DSPS
+
+912
+00:40:15,545 --> 00:40:20,119
+has a shorter time to
+market that the FPGAs,
+
+913
+00:40:20,119 --> 00:40:24,274
+this process or take
+longer for the FPGA.
+
+914
+00:40:24,274 --> 00:40:27,394
+So in order to
+Coke cans of
+
+915
+00:40:27,394 --> 00:40:29,209
+dog applications
+
+916
+00:40:29,209 --> 00:40:31,865
+with a distinct
+performance demands.
+
+917
+00:40:31,865 --> 00:40:35,240
+Yeah, it is that merging
+trained to decide
+
+918
+00:40:35,240 --> 00:40:39,080
+the heterogeneous
+prototyping platforms.
+
+919
+00:40:39,080 --> 00:40:43,069
+Next, platforms can be
+integrated with DSP.
+
+920
+00:40:43,069 --> 00:40:45,500
+Yeah, Actually
+both DSPs and
+
+921
+00:40:45,500 --> 00:40:48,049
+FPGA components in order
+
+922
+00:40:48,049 --> 00:40:51,215
+to benefit from
+their advantages
+
+923
+00:40:51,215 --> 00:40:53,420
+for the specific
+applications.
+
+924
+00:40:53,420 --> 00:40:54,689
+Right?
+
+925
+00:40:56,410 --> 00:40:58,910
+After talking
+about this can
+
+926
+00:40:58,910 --> 00:41:00,169
+of our teachers have,
+
+927
+00:41:00,169 --> 00:41:03,020
+for the, on the
+other hand,
+
+928
+00:41:03,020 --> 00:41:05,269
+SQL mentioned several
+times about that
+
+929
+00:41:05,269 --> 00:41:06,950
+application-specific
+
+930
+00:41:06,950 --> 00:41:08,989
+integrated circuits here.
+
+931
+00:41:08,989 --> 00:41:10,685
+Yeah, ethics.
+
+932
+00:41:10,685 --> 00:41:13,249
+They are also
+raised as one
+
+933
+00:41:13,249 --> 00:41:15,739
+of the emerging
+computing path thoughts
+
+934
+00:41:15,739 --> 00:41:19,280
+to actually the ethics
+
+935
+00:41:19,280 --> 00:41:21,799
+can provide the
+customize the tail,
+
+936
+00:41:21,799 --> 00:41:24,080
+the hardware
+solutions for that.
+
+937
+00:41:24,080 --> 00:41:24,740
+Yeah,
+
+938
+00:41:24,740 --> 00:41:26,854
+especially for those
+specific application
+
+939
+00:41:26,854 --> 00:41:29,000
+or the platforms.
+
+940
+00:41:29,000 --> 00:41:33,020
+So application-specific
+integrated circuit
+
+941
+00:41:33,020 --> 00:41:35,944
+that is in greedy
+search your chip.
+
+942
+00:41:35,944 --> 00:41:41,730
+This tube is customized
+for a particular use,
+
+943
+00:41:41,730 --> 00:41:43,409
+AC rather than the
+
+944
+00:41:43,409 --> 00:41:45,960
+intended for the
+general purposes.
+
+945
+00:41:45,960 --> 00:41:50,669
+For example, achieved,
+decide to run
+
+946
+00:41:50,669 --> 00:41:53,190
+a digital voice
+recorder or
+
+947
+00:41:53,190 --> 00:41:56,685
+for high efficient
+repeatable manner.
+
+948
+00:41:56,685 --> 00:41:58,319
+That is that Isaac,
+
+949
+00:41:58,319 --> 00:42:00,269
+an application specific
+
+950
+00:42:00,269 --> 00:42:02,669
+manner products nozzle,
+
+951
+00:42:02,669 --> 00:42:05,205
+what we call a SSB chips.
+
+952
+00:42:05,205 --> 00:42:08,534
+They intermediate
+between the A6
+
+953
+00:42:08,534 --> 00:42:10,649
+and the industry
+standard bridges.
+
+954
+00:42:10,649 --> 00:42:13,829
+So could legs
+products about
+
+955
+00:42:13,829 --> 00:42:17,384
+the seven for their
+road stereos.
+
+956
+00:42:17,384 --> 00:42:19,229
+And the A6 chips are
+
+957
+00:42:19,229 --> 00:42:21,825
+typically fabricated
+using the,
+
+958
+00:42:21,825 --> 00:42:25,739
+the metal oxide
+semiconductor
+
+959
+00:42:25,739 --> 00:42:28,530
+that is the most
+technology.
+
+960
+00:42:28,530 --> 00:42:31,049
+So as the most
+
+961
+00:42:31,049 --> 00:42:32,970
+integrated into
+the so-called chip
+
+962
+00:42:32,970 --> 00:42:34,859
+to start the A6,
+
+963
+00:42:34,859 --> 00:42:37,934
+accurate, they are
+not reconfigurable.
+
+964
+00:42:37,934 --> 00:42:40,095
+Based is different from
+
+965
+00:42:40,095 --> 00:42:42,585
+dot dot data,
+the FPGA, right?
+
+966
+00:42:42,585 --> 00:42:46,005
+Because FPGA is a
+reconfigurable,
+
+967
+00:42:46,005 --> 00:42:51,300
+but a stick is not
+reconfigurable and
+
+968
+00:42:51,300 --> 00:42:52,739
+they cannot be
+
+969
+00:42:52,739 --> 00:42:56,520
+upgraded after
+manufacturing A6,
+
+970
+00:42:56,520 --> 00:42:58,170
+Their have monger design
+
+971
+00:42:58,170 --> 00:42:59,789
+and development
+time before
+
+972
+00:42:59,789 --> 00:43:01,604
+computed to be
+in the market
+
+973
+00:43:01,604 --> 00:43:04,110
+even than the FPGA.
+
+974
+00:43:04,110 --> 00:43:09,194
+So as before, FPGAs, yeah,
+
+975
+00:43:09,194 --> 00:43:11,579
+They are the modern
+day technology for
+
+976
+00:43:11,579 --> 00:43:15,450
+building rapport
+or prototype font,
+
+977
+00:43:15,450 --> 00:43:17,999
+the standard ports
+right about there,
+
+978
+00:43:17,999 --> 00:43:20,099
+programmable
+logic blocks and
+
+979
+00:43:20,099 --> 00:43:23,204
+a programmable
+income connector.
+
+980
+00:43:23,204 --> 00:43:25,500
+Below them, FPGA to be
+
+981
+00:43:25,500 --> 00:43:27,749
+used in many different
+applications.
+
+982
+00:43:27,749 --> 00:43:30,030
+Good, they had us
+batting apart and
+
+983
+00:43:30,030 --> 00:43:32,639
+also the flexible part
+for the designers to
+
+984
+00:43:32,639 --> 00:43:37,515
+be to be designed
+with flexibility,
+
+985
+00:43:37,515 --> 00:43:40,395
+or it is reconfigurable
+right foot
+
+986
+00:43:40,395 --> 00:43:42,915
+in many different
+applications.
+
+987
+00:43:42,915 --> 00:43:45,689
+For the smaller
+the size or
+
+988
+00:43:45,689 --> 00:43:48,839
+the lower production
+runners at
+
+989
+00:43:48,839 --> 00:43:50,489
+a FPGA is maybe more
+
+990
+00:43:50,489 --> 00:43:53,739
+cost effective than them.
+
+991
+00:43:54,050 --> 00:43:57,854
+Is a design, even
+the production.
+
+992
+00:43:57,854 --> 00:44:02,159
+So the nonrecurring
+engineering cost for
+
+993
+00:44:02,159 --> 00:44:04,529
+the state can run into
+
+994
+00:44:04,529 --> 00:44:06,180
+the millions of dollars
+
+995
+00:44:06,180 --> 00:44:08,489
+to it is a very high cost.
+
+996
+00:44:08,489 --> 00:44:11,999
+So therefore, the
+device manufacturers
+
+997
+00:44:11,999 --> 00:44:14,279
+typically prefer
+the FPGA either
+
+998
+00:44:14,279 --> 00:44:16,799
+for the prototype and
+
+999
+00:44:16,799 --> 00:44:18,360
+also for the devices with
+
+1000
+00:44:18,360 --> 00:44:21,495
+low production
+balloon at ethics
+
+1001
+00:44:21,495 --> 00:44:25,450
+for very large
+production Vernon.
+
+1002
+00:44:25,450 --> 00:44:27,259
+Well, you know the
+
+1003
+00:44:27,259 --> 00:44:29,644
+long recruiting
+engineering can
+
+1004
+00:44:29,644 --> 00:44:34,759
+be on the rise
+across many devices.
+
+1005
+00:44:34,759 --> 00:44:39,095
+So specify what the A6,
+
+1006
+00:44:39,095 --> 00:44:41,869
+they are either
+designed by
+
+1007
+00:44:41,869 --> 00:44:44,449
+the gate areas or
+
+1008
+00:44:44,449 --> 00:44:47,795
+designer by the standard
+cells as shown here.
+
+1009
+00:44:47,795 --> 00:44:52,819
+So basically, the
+gate areas you can
+
+1010
+00:44:52,819 --> 00:44:55,610
+provide the
+means by which a
+
+1011
+00:44:55,610 --> 00:44:56,689
+large portion of
+
+1012
+00:44:56,689 --> 00:44:58,730
+the general-purpose
+new logic,
+
+1013
+00:44:58,730 --> 00:45:00,560
+they can be used
+as a Muslim
+
+1014
+00:45:00,560 --> 00:45:02,899
+not elect to
+access systems.
+
+1015
+00:45:02,899 --> 00:45:05,330
+And they can be combined
+
+1016
+00:45:05,330 --> 00:45:07,969
+into a single package,
+your solution.
+
+1017
+00:45:07,969 --> 00:45:10,624
+So both those
+that are still in
+
+1018
+00:45:10,624 --> 00:45:13,774
+the gate area
+approaches on the A6,
+
+1019
+00:45:13,774 --> 00:45:16,279
+they can reduce or
+
+1020
+00:45:16,279 --> 00:45:19,445
+designers laid
+out walk by,
+
+1021
+00:45:19,445 --> 00:45:21,200
+unloading it onto
+the computer
+
+1022
+00:45:21,200 --> 00:45:23,074
+again to far east as
+
+1023
+00:45:23,074 --> 00:45:24,140
+a good area in
+
+1024
+00:45:24,140 --> 00:45:28,129
+the basic design
+approach to design ad.
+
+1025
+00:45:28,129 --> 00:45:29,809
+They can edit, can
+
+1026
+00:45:29,809 --> 00:45:31,580
+manufacturer of
+the application
+
+1027
+00:45:31,580 --> 00:45:35,240
+specific integrated
+circuit by
+
+1028
+00:45:35,240 --> 00:45:40,190
+using a prefabricated
+chip with components.
+
+1029
+00:45:40,190 --> 00:45:42,664
+These components are later
+
+1030
+00:45:42,664 --> 00:45:44,450
+interconnected
+into the launch.
+
+1031
+00:45:44,450 --> 00:45:46,250
+But devices, for example,
+
+1032
+00:45:46,250 --> 00:45:50,469
+this devices can be a
+NAND gates, flip flops.
+
+1033
+00:45:50,469 --> 00:45:52,754
+Yeah, as better
+according to
+
+1034
+00:45:52,754 --> 00:45:55,514
+a pastor order by
+
+1035
+00:45:55,514 --> 00:45:59,564
+any metal interconnect
+layers in the factory.
+
+1036
+00:45:59,564 --> 00:46:02,624
+So that means we may,
+can be designed,
+
+1037
+00:46:02,624 --> 00:46:05,340
+is dedicated to form
+
+1038
+00:46:05,340 --> 00:46:07,484
+the demands of
+the applications
+
+1039
+00:46:07,484 --> 00:46:09,149
+or the customer.
+
+1040
+00:46:09,149 --> 00:46:11,610
+So it is Seminar.
+
+1041
+00:46:11,610 --> 00:46:14,804
+Yeah, it has the
+similar technologies
+
+1042
+00:46:14,804 --> 00:46:18,330
+to have also
+being employed.
+
+1043
+00:46:18,330 --> 00:46:21,149
+Design or two
+manufacturers,
+
+1044
+00:46:21,149 --> 00:46:22,904
+the analog and analog,
+
+1045
+00:46:22,904 --> 00:46:25,094
+digital and
+structure Arish.
+
+1046
+00:46:25,094 --> 00:46:27,719
+But in general, these
+are not caught,
+
+1047
+00:46:27,719 --> 00:46:29,670
+they'll get
+areas in the A6.
+
+1048
+00:46:29,670 --> 00:46:32,249
+So a no
+semiconductor design
+
+1049
+00:46:32,249 --> 00:46:33,569
+and showed us
+that are still
+
+1050
+00:46:33,569 --> 00:46:35,760
+methodology that
+mattered of
+
+1051
+00:46:35,760 --> 00:46:37,904
+these tiny
+application-specific
+
+1052
+00:46:37,904 --> 00:46:40,514
+integrated circuits.
+
+1053
+00:46:40,514 --> 00:46:42,389
+It special wisdom most on
+
+1054
+00:46:42,389 --> 00:46:44,354
+a page to a lot
+of pictures.
+
+1055
+00:46:44,354 --> 00:46:48,149
+So standard methodology as
+
+1056
+00:46:48,149 --> 00:46:52,050
+an example of
+design, obstruction.
+
+1057
+00:46:52,050 --> 00:46:54,180
+Obstruction.
+
+1058
+00:46:54,180 --> 00:46:56,190
+A low level and are
+
+1059
+00:46:56,190 --> 00:46:58,275
+very large scale
+integration.
+
+1060
+00:46:58,275 --> 00:47:01,004
+Now we call it
+the VLR is right.
+
+1061
+00:47:01,004 --> 00:47:03,854
+Hi, there. I
+suddenly hour is
+
+1062
+00:47:03,854 --> 00:47:05,925
+encapsulated into
+
+1063
+00:47:05,925 --> 00:47:08,340
+abstract logic
+representations,
+
+1064
+00:47:08,340 --> 00:47:11,370
+satyagraha
+navigate and does
+
+1065
+00:47:11,370 --> 00:47:13,245
+cell-based a
+methodology, right?
+
+1066
+00:47:13,245 --> 00:47:15,029
+So the general class to
+
+1067
+00:47:15,029 --> 00:47:16,980
+waste status,
+they'll belongs.
+
+1068
+00:47:16,980 --> 00:47:19,439
+So this will make
+it possible for
+
+1069
+00:47:19,439 --> 00:47:23,609
+one designer to focus
+on the high level,
+
+1070
+00:47:23,609 --> 00:47:25,935
+a focus on more of a
+logical function, right?
+
+1071
+00:47:25,935 --> 00:47:29,880
+For the high level
+aspect of the design?
+
+1072
+00:47:29,880 --> 00:47:32,519
+Well, another
+designer during
+
+1073
+00:47:32,519 --> 00:47:33,960
+the process can focus
+
+1074
+00:47:33,960 --> 00:47:36,360
+on the implementation
+aspects
+
+1075
+00:47:36,360 --> 00:47:38,325
+for wisdom or the
+feasible design.
+
+1076
+00:47:38,325 --> 00:47:39,749
+So along with
+
+1077
+00:47:39,749 --> 00:47:41,909
+the semiconductor
+manufacturing,
+
+1078
+00:47:41,909 --> 00:47:44,969
+advances are actuated that
+
+1079
+00:47:44,969 --> 00:47:48,509
+does than or does their
+methodology and has
+
+1080
+00:47:48,509 --> 00:47:51,900
+helped other designers
+scale ethics
+
+1081
+00:47:51,900 --> 00:47:55,470
+from the
+comparative simple,
+
+1082
+00:47:55,470 --> 00:47:57,480
+single function ICE.
+
+1083
+00:47:57,480 --> 00:48:00,210
+Integrated security side.
+
+1084
+00:48:00,210 --> 00:48:03,510
+Yeah, comparator with
+data complex modeling,
+
+1085
+00:48:03,510 --> 00:48:06,450
+meaning gates, system
+on chip design devices.
+
+1086
+00:48:06,450 --> 00:48:10,109
+So these are
+the gate arrays
+
+1087
+00:48:10,109 --> 00:48:12,119
+and best banner
+sales in the isaac
+
+1088
+00:48:12,119 --> 00:48:15,194
+decide to provide
+different functionality
+
+1089
+00:48:15,194 --> 00:48:17,909
+or have the different
+aspect for these IE,
+
+1090
+00:48:17,909 --> 00:48:20,515
+the A6 for the
+applications.
+
+1091
+00:48:20,515 --> 00:48:22,834
+After we know the S6,
+
+1092
+00:48:22,834 --> 00:48:24,814
+also the FPGAs, right?
+
+1093
+00:48:24,814 --> 00:48:26,570
+So when we generate
+
+1094
+00:48:26,570 --> 00:48:29,899
+that FPGAs and the
+A6 here, yeah,
+
+1095
+00:48:29,899 --> 00:48:32,344
+we can say that both of
+
+1096
+00:48:32,344 --> 00:48:35,660
+the FPGAs and the basics,
+
+1097
+00:48:35,660 --> 00:48:38,450
+they can hide a
+parallel task is
+
+1098
+00:48:38,450 --> 00:48:41,495
+to provide the greater
+performance, right?
+
+1099
+00:48:41,495 --> 00:48:44,839
+So massively thought that
+
+1100
+00:48:44,839 --> 00:48:48,125
+FPGA style maize field
+programmable gate,
+
+1101
+00:48:48,125 --> 00:48:51,469
+again, can be
+filled program
+
+1102
+00:48:51,469 --> 00:48:55,280
+to work as per the
+intended design.
+
+1103
+00:48:55,280 --> 00:48:58,250
+That means it can work as
+
+1104
+00:48:58,250 --> 00:49:02,950
+the microprocessor
+or graphics card.
+
+1105
+00:49:02,950 --> 00:49:05,399
+As both at once.
+
+1106
+00:49:05,399 --> 00:49:10,034
+So that these diner
+rolling an FPGA,
+
+1107
+00:49:10,034 --> 00:49:12,780
+they are generally
+created using
+
+1108
+00:49:12,780 --> 00:49:14,879
+the hardware description
+language such as
+
+1109
+00:49:14,879 --> 00:49:17,940
+a VHDL or Verilog.
+
+1110
+00:49:17,940 --> 00:49:20,669
+So FPGAs is made
+up of a number
+
+1111
+00:49:20,669 --> 00:49:23,160
+of the numbers of
+
+1112
+00:49:23,160 --> 00:49:26,970
+the configurable
+logic blocks
+
+1113
+00:49:26,970 --> 00:49:28,814
+we call those TLBs, right?
+
+1114
+00:49:28,814 --> 00:49:32,130
+And these blobs
+are connected
+
+1115
+00:49:32,130 --> 00:49:33,480
+waste or you know,
+
+1116
+00:49:33,480 --> 00:49:36,239
+the programmable
+interconnects.
+
+1117
+00:49:36,239 --> 00:49:40,500
+Therefore, FPGAs and
+our reconfigurable with
+
+1118
+00:49:40,500 --> 00:49:41,520
+this components and
+
+1119
+00:49:41,520 --> 00:49:45,735
+the interconnects
+with shorter time.
+
+1120
+00:49:45,735 --> 00:49:48,209
+And the considerable
+logical blocks
+
+1121
+00:49:48,209 --> 00:49:49,620
+are primarily made by
+
+1122
+00:49:49,620 --> 00:49:51,809
+the lookup tables in
+
+1123
+00:49:51,809 --> 00:49:54,704
+a multiplex here
+as our flip-flops,
+
+1124
+00:49:54,704 --> 00:49:58,830
+they can implement a
+complex logic functions.
+
+1125
+00:49:58,830 --> 00:50:02,970
+So apart from the
+dark container
+
+1126
+00:50:02,970 --> 00:50:06,359
+or logical blocks, the
+ruling interconnect,
+
+1127
+00:50:06,359 --> 00:50:09,074
+many FPGAs also
+contain that
+
+1128
+00:50:09,074 --> 00:50:11,835
+dedicated hard
+authentic and blocks
+
+1129
+00:50:11,835 --> 00:50:14,729
+for the various functions,
+
+1130
+00:50:14,729 --> 00:50:18,630
+such as a block grant
+or the DSP blocks,
+
+1131
+00:50:18,630 --> 00:50:23,414
+and eternal external
+memory controller
+
+1132
+00:50:23,414 --> 00:50:26,010
+and such care of
+components here.
+
+1133
+00:50:26,010 --> 00:50:29,865
+So this component,
+dedicated hardware blocks.
+
+1134
+00:50:29,865 --> 00:50:31,455
+They are critical in
+
+1135
+00:50:31,455 --> 00:50:33,764
+the campaign with the A6.
+
+1136
+00:50:33,764 --> 00:50:35,939
+So for the A6 here,
+
+1137
+00:50:35,939 --> 00:50:37,950
+compare with the FPGAs,
+
+1138
+00:50:37,950 --> 00:50:40,604
+actually a six, we
+know that they need
+
+1139
+00:50:40,604 --> 00:50:42,959
+application-specific
+integrated circuit,
+
+1140
+00:50:42,959 --> 00:50:43,559
+right?
+
+1141
+00:50:43,559 --> 00:50:46,709
+So it is a device that is
+
+1142
+00:50:46,709 --> 00:50:50,189
+created just for a
+specific purpose
+
+1143
+00:50:50,189 --> 00:50:52,320
+of the function on arity.
+
+1144
+00:50:52,320 --> 00:50:55,649
+So they contain
+only one function
+
+1145
+00:50:55,649 --> 00:50:57,240
+or an editor in there.
+
+1146
+00:50:57,240 --> 00:51:00,105
+And through the left
+tunnel for cheap,
+
+1147
+00:51:00,105 --> 00:51:02,534
+they are not a
+reconfigurable.
+
+1148
+00:51:02,534 --> 00:51:05,505
+So I can perform only
+guard function with
+
+1149
+00:51:05,505 --> 00:51:09,780
+the higher clock
+frequency, higher speed.
+
+1150
+00:51:09,780 --> 00:51:13,094
+But their development is
+
+1151
+00:51:13,094 --> 00:51:16,934
+much more expensive
+and not flexible.
+
+1152
+00:51:16,934 --> 00:51:19,320
+Compare with
+FPGA especially.
+
+1153
+00:51:19,320 --> 00:51:22,590
+So for example, the
+CPUs in your phone.
+
+1154
+00:51:22,590 --> 00:51:26,354
+Nowadays that AC, enemies
+
+1155
+00:51:26,354 --> 00:51:28,650
+to the function as SAP or
+
+1156
+00:51:28,650 --> 00:51:30,494
+voice who live, right?
+
+1157
+00:51:30,494 --> 00:51:33,675
+It's logical function
+can now be changed.
+
+1158
+00:51:33,675 --> 00:51:36,629
+All cannot be reconfigured
+
+1159
+00:51:36,629 --> 00:51:38,220
+to anything else
+
+1160
+00:51:38,220 --> 00:51:39,914
+because it's
+digital secured,
+
+1161
+00:51:39,914 --> 00:51:41,610
+is made up of
+
+1162
+00:51:41,610 --> 00:51:43,094
+the permanent connected
+
+1163
+00:51:43,094 --> 00:51:45,000
+gate at the permanent,
+
+1164
+00:51:45,000 --> 00:51:48,629
+permanent flip-flops
+on Basilica itself.
+
+1165
+00:51:48,629 --> 00:51:52,350
+So the difference, or
+the main difference in
+
+1166
+00:51:52,350 --> 00:51:56,010
+this case of
+ethics, that the,
+
+1167
+00:51:56,010 --> 00:51:58,590
+you know, the result
+and the circuit in
+
+1168
+00:51:58,590 --> 00:52:00,809
+the basics that is
+
+1169
+00:52:00,809 --> 00:52:03,825
+permanently gone
+into the silicon.
+
+1170
+00:52:03,825 --> 00:52:06,420
+Yeah, worse than the FPGA,
+
+1171
+00:52:06,420 --> 00:52:09,660
+the support is made of
+either attributed by
+
+1172
+00:52:09,660 --> 00:52:11,879
+connecting the numbers of
+
+1173
+00:52:11,879 --> 00:52:14,770
+this conflict
+were or blocks.
+
+1174
+00:52:14,810 --> 00:52:17,850
+Programmable
+interconnects, right?
+
+1175
+00:52:17,850 --> 00:52:21,419
+So these are the
+main differences
+
+1176
+00:52:21,419 --> 00:52:24,900
+between the FPGA is at
+the ACP decides here.
+
+1177
+00:52:24,900 --> 00:52:28,169
+So yeah, here.
+
+1178
+00:52:28,169 --> 00:52:31,979
+Afterward, nos abuse,
+GPU, FPGA, and ethics.
+
+1179
+00:52:31,979 --> 00:52:33,899
+With us, the most
+commonly used
+
+1180
+00:52:33,899 --> 00:52:36,629
+components for
+the computing in
+
+1181
+00:52:36,629 --> 00:52:39,479
+the emerging computing
+our teachers
+
+1182
+00:52:39,479 --> 00:52:41,894
+or the customized
+architectures here.
+
+1183
+00:52:41,894 --> 00:52:43,470
+Now we have an overview
+
+1184
+00:52:43,470 --> 00:52:45,180
+about the large
+enumeration of
+
+1185
+00:52:45,180 --> 00:52:49,560
+the CPU or GPU,
+FPGA, and A6,
+
+1186
+00:52:49,560 --> 00:52:53,249
+you have intuitive
+overview about
+
+1187
+00:52:53,249 --> 00:52:57,930
+the TSI for this
+architecture's here.
+
+1188
+00:52:57,930 --> 00:53:02,459
+In addition, according
+to the details of
+
+1189
+00:53:02,459 --> 00:53:03,659
+the few Jersey and also
+
+1190
+00:53:03,659 --> 00:53:07,020
+the performance is
+measured between the CPUs,
+
+1191
+00:53:07,020 --> 00:53:10,529
+GPUs, FPGAs, and
+also the ethics.
+
+1192
+00:53:10,529 --> 00:53:13,785
+Yeah, we can overstate
+the advantages.
+
+1193
+00:53:13,785 --> 00:53:16,170
+And also that these
+are the manager of
+
+1194
+00:53:16,170 --> 00:53:18,989
+this types of
+computing compounds.
+
+1195
+00:53:18,989 --> 00:53:21,524
+A CBO, GPU, FPGA,
+
+1196
+00:53:21,524 --> 00:53:24,690
+A6 after we have
+the comparison
+
+1197
+00:53:24,690 --> 00:53:28,514
+between their design
+optimization, right?
+
+1198
+00:53:28,514 --> 00:53:32,189
+So for instance, you
+know about CPUs have
+
+1199
+00:53:32,189 --> 00:53:35,850
+the highest compute
+adaptability
+
+1200
+00:53:35,850 --> 00:53:37,169
+because they are
+designed for
+
+1201
+00:53:37,169 --> 00:53:40,020
+the general purpose
+processing.
+
+1202
+00:53:40,020 --> 00:53:41,925
+Well, they have the
+
+1203
+00:53:41,925 --> 00:53:43,979
+data noise, the
+throughput,
+
+1204
+00:53:43,979 --> 00:53:45,840
+and the lowest
+of paradise up
+
+1205
+00:53:45,840 --> 00:53:47,910
+because they are not
+adequately specific,
+
+1206
+00:53:47,910 --> 00:53:48,540
+right?
+
+1207
+00:53:48,540 --> 00:53:52,784
+So along this
+way or this row,
+
+1208
+00:53:52,784 --> 00:53:57,269
+from this ABO
+design to the GPO,
+
+1209
+00:53:57,269 --> 00:54:01,544
+to the FPGA, and now
+to the A6, right?
+
+1210
+00:54:01,544 --> 00:54:03,990
+You know that
+you can observe
+
+1211
+00:54:03,990 --> 00:54:06,750
+that there is a
+higher parallelize
+
+1212
+00:54:06,750 --> 00:54:09,869
+them and also higher
+
+1213
+00:54:09,869 --> 00:54:13,079
+in throughput that
+can be achieved.
+
+1214
+00:54:13,079 --> 00:54:16,410
+Cpu, gpu, FPGA to Isaac.
+
+1215
+00:54:16,410 --> 00:54:20,100
+Yeah, actually, with a
+high power efficiency.
+
+1216
+00:54:20,100 --> 00:54:23,670
+So they have
+different features
+
+1217
+00:54:23,670 --> 00:54:25,289
+and different
+performance here in,
+
+1218
+00:54:25,289 --> 00:54:29,265
+in, including the
+computer adaptability,
+
+1219
+00:54:29,265 --> 00:54:30,570
+that computer power,
+
+1220
+00:54:30,570 --> 00:54:32,369
+the latency and
+the throughput,
+
+1221
+00:54:32,369 --> 00:54:35,129
+and how they can
+deal with or
+
+1222
+00:54:35,129 --> 00:54:38,445
+optimize the
+parallelism in a HA,
+
+1223
+00:54:38,445 --> 00:54:40,710
+is the power efficiency in
+
+1224
+00:54:40,710 --> 00:54:41,909
+this for camera of
+
+1225
+00:54:41,909 --> 00:54:44,009
+computing our
+teachers here.
+
+1226
+00:54:44,009 --> 00:54:46,499
+So, yeah,
+
+1227
+00:54:46,499 --> 00:54:49,725
+with the technology
+development
+
+1228
+00:54:49,725 --> 00:54:52,304
+as shown in the
+comparison here,
+
+1229
+00:54:52,304 --> 00:54:53,759
+actually the increasing
+
+1230
+00:54:53,759 --> 00:54:55,620
+emerging
+applications also,
+
+1231
+00:54:55,620 --> 00:54:59,475
+why did you so
+today among or a
+
+1232
+00:54:59,475 --> 00:55:02,625
+AI accelerating platforms,
+
+1233
+00:55:02,625 --> 00:55:05,594
+application-specific
+integrated circuits.
+
+1234
+00:55:05,594 --> 00:55:08,129
+A6 right at, composed of
+
+1235
+00:55:08,129 --> 00:55:09,495
+the processing elements
+
+1236
+00:55:09,495 --> 00:55:12,269
+connected in
+different topologies.
+
+1237
+00:55:12,269 --> 00:55:16,080
+Are these different
+topologies can
+
+1238
+00:55:16,080 --> 00:55:17,489
+definitely provide
+
+1239
+00:55:17,489 --> 00:55:20,895
+the comparable
+energy efficiency,
+
+1240
+00:55:20,895 --> 00:55:25,125
+the optimizer latency or
+
+1241
+00:55:25,125 --> 00:55:28,875
+other form factors
+including the cost,
+
+1242
+00:55:28,875 --> 00:55:31,319
+design flexibility,
+that is
+
+1243
+00:55:31,319 --> 00:55:34,290
+our complex,
+the complexity.
+
+1244
+00:55:34,290 --> 00:55:38,474
+So in addition, not with
+a comparison there.
+
+1245
+00:55:38,474 --> 00:55:42,285
+Yeah, as reported
+by the top table.
+
+1246
+00:55:42,285 --> 00:55:44,279
+A6.
+
+1247
+00:55:44,279 --> 00:55:46,260
+This kind of architecture
+
+1248
+00:55:46,260 --> 00:55:48,584
+design about the
+A6 are becoming
+
+1249
+00:55:48,584 --> 00:55:50,669
+more and more popular for
+
+1250
+00:55:50,669 --> 00:55:54,120
+the implementation of
+the AI applications.
+
+1251
+00:55:54,120 --> 00:55:57,645
+Yeah, definitely
+then the FPGA,
+
+1252
+00:55:57,645 --> 00:56:00,495
+the GPU, and also
+the CPUs today.
+
+1253
+00:56:00,495 --> 00:56:02,759
+So we go also
+observe formed
+
+1254
+00:56:02,759 --> 00:56:06,030
+a few words that
+the ethics,
+
+1255
+00:56:06,030 --> 00:56:08,279
+Actually it is
+going to dominate
+
+1256
+00:56:08,279 --> 00:56:11,445
+the market as predicted
+in this figure,
+
+1257
+00:56:11,445 --> 00:56:13,290
+especially with
+the increasing
+
+1258
+00:56:13,290 --> 00:56:14,339
+applications for
+
+1259
+00:56:14,339 --> 00:56:17,714
+the AI or machine
+learning tasks.
+
+1260
+00:56:17,714 --> 00:56:20,489
+So this is B
+caught that A6 has
+
+1261
+00:56:20,489 --> 00:56:22,019
+some major advantages in
+
+1262
+00:56:22,019 --> 00:56:24,314
+the Including the dark,
+
+1263
+00:56:24,314 --> 00:56:26,220
+energy efficiency and also
+
+1264
+00:56:26,220 --> 00:56:29,399
+the latency and airy
+
+1265
+00:56:29,399 --> 00:56:31,455
+for their
+architecture design.
+
+1266
+00:56:31,455 --> 00:56:34,380
+So these are the
+benefits for the,
+
+1267
+00:56:34,380 --> 00:56:35,940
+all the advantages for the
+
+1268
+00:56:35,940 --> 00:56:38,804
+Arab than the
+traditional FPGAs,
+
+1269
+00:56:38,804 --> 00:56:41,849
+GPUs and also the CPUs.
+
+1270
+00:56:41,849 --> 00:56:49,589
+So yeah, we'll note the
+separate components,
+
+1271
+00:56:49,589 --> 00:56:51,600
+including the FPGA, GPU or
+
+1272
+00:56:51,600 --> 00:56:54,450
+CPU and also the
+ethics lecture.
+
+1273
+00:56:54,450 --> 00:56:57,510
+We are going to know how
+we can integrate it.
+
+1274
+00:56:57,510 --> 00:56:59,414
+Some of them or
+part of them,
+
+1275
+00:56:59,414 --> 00:57:03,090
+or all of them
+together to design
+
+1276
+00:57:03,090 --> 00:57:05,159
+a heterogeneous
+computing teacher or
+
+1277
+00:57:05,159 --> 00:57:09,240
+heterogeneous medical
+pamphlets to benefit.
+
+1278
+00:57:09,240 --> 00:57:14,340
+There are advantages
+reservoir
+
+1279
+00:57:14,340 --> 00:57:17,144
+for different
+components here.
+
+1280
+00:57:17,144 --> 00:57:21,000
+So in addition to
+the pure design of,
+
+1281
+00:57:21,000 --> 00:57:24,569
+of the bony those
+CPUs or GPUs,
+
+1282
+00:57:24,569 --> 00:57:29,759
+or if G or the A6
+accurate than nozzle way.
+
+1283
+00:57:29,759 --> 00:57:31,919
+It is the proper
+way or why did they
+
+1284
+00:57:31,919 --> 00:57:34,680
+used a way for computing
+architecture design?
+
+1285
+00:57:34,680 --> 00:57:36,599
+Yeah, that is to explore
+
+1286
+00:57:36,599 --> 00:57:39,135
+the heterogeneous
+Monaco platforms.
+
+1287
+00:57:39,135 --> 00:57:41,489
+So for
+
+1288
+00:57:41,489 --> 00:57:44,234
+the heterogeneous
+multiple platforms here,
+
+1289
+00:57:44,234 --> 00:57:46,020
+first actually, we need to
+
+1290
+00:57:46,020 --> 00:57:50,954
+know what is the
+heterogeneous computing.
+
+1291
+00:57:50,954 --> 00:57:54,375
+Yeah, the heterogeneous
+computing means all.
+
+1292
+00:57:54,375 --> 00:57:58,590
+It refers to the
+system that can use
+
+1293
+00:57:58,590 --> 00:58:01,200
+more than one can
+of the processor
+
+1294
+00:58:01,200 --> 00:58:04,755
+or one can off
+the courses.
+
+1295
+00:58:04,755 --> 00:58:06,660
+So this distance,
+
+1296
+00:58:06,660 --> 00:58:09,735
+gang performance or
+energy efficiency,
+
+1297
+00:58:09,735 --> 00:58:11,025
+not just a, by
+
+1298
+00:58:11,025 --> 00:58:13,515
+any distinct type
+of the processors.
+
+1299
+00:58:13,515 --> 00:58:16,919
+Next, opposing views,
+the pure suit GPUs.
+
+1300
+00:58:16,919 --> 00:58:20,040
+Fpgas, all only
+the basics.
+
+1301
+00:58:20,040 --> 00:58:22,214
+But instead of that,
+
+1302
+00:58:22,214 --> 00:58:25,184
+they are using their
+design architecture by
+
+1303
+00:58:25,184 --> 00:58:26,984
+adding that these
+
+1304
+00:58:26,984 --> 00:58:29,069
+thymine or
+co-processors senior,
+
+1305
+00:58:29,069 --> 00:58:30,690
+but it brought ring
+
+1306
+00:58:30,690 --> 00:58:33,179
+specialized
+processing capability
+
+1307
+00:58:33,179 --> 00:58:35,564
+to handle that
+particular tasks.
+
+1308
+00:58:35,564 --> 00:58:38,340
+So yeah, you will.
+
+1309
+00:58:38,340 --> 00:58:41,039
+The heterogeneity that is,
+
+1310
+00:58:41,039 --> 00:58:42,960
+in the context
+of the computing
+
+1311
+00:58:42,960 --> 00:58:44,205
+refer to different
+
+1312
+00:58:44,205 --> 00:58:46,305
+instruction set
+architectures.
+
+1313
+00:58:46,305 --> 00:58:47,910
+Where you know that
+
+1314
+00:58:47,910 --> 00:58:50,219
+the main processor has
+one instruction set
+
+1315
+00:58:50,219 --> 00:58:52,874
+architecture and
+other processors
+
+1316
+00:58:52,874 --> 00:58:56,025
+in the system can
+have another.
+
+1317
+00:58:56,025 --> 00:58:56,519
+Man.
+
+1318
+00:58:56,519 --> 00:58:58,800
+He's a very different
+architecture.
+
+1319
+00:58:58,800 --> 00:59:01,394
+So well, there are
+other types of
+
+1320
+00:59:01,394 --> 00:59:02,520
+heterogeneity or with
+
+1321
+00:59:02,520 --> 00:59:04,769
+the same instruction
+set architecture.
+
+1322
+00:59:04,769 --> 00:59:07,229
+For example, as we
+
+1323
+00:59:07,229 --> 00:59:10,240
+mentioned before and
+also showing here.
+
+1324
+00:59:13,660 --> 00:59:16,459
+This film were showed
+that you can see
+
+1325
+00:59:16,459 --> 00:59:20,179
+that the big layer
+architecture,
+
+1326
+00:59:20,179 --> 00:59:22,025
+that is an
+exception where,
+
+1327
+00:59:22,025 --> 00:59:23,780
+you know the
+instruction set
+
+1328
+00:59:23,780 --> 00:59:26,660
+architectures of the
+course are the same.
+
+1329
+00:59:26,660 --> 00:59:30,020
+But in this heterogeneous
+architecture,
+
+1330
+00:59:30,020 --> 00:59:32,329
+yeah, it is a heterogeneous
+architecture.
+
+1331
+00:59:32,329 --> 00:59:34,100
+The heterogeneity
+
+1332
+00:59:34,100 --> 00:59:36,110
+in this architecture
+refers to
+
+1333
+00:59:36,110 --> 00:59:39,829
+the speed of the different
+microarchitectures
+
+1334
+00:59:39,829 --> 00:59:42,740
+of the semi-structured
+data picture.
+
+1335
+00:59:42,740 --> 00:59:46,249
+Therefore, this can
+make it more like
+
+1336
+00:59:46,249 --> 00:59:51,365
+a symmetric
+multiprocessing SMP.
+
+1337
+00:59:51,365 --> 00:59:55,925
+So that danger here
+means not to the.
+
+1338
+00:59:55,925 --> 00:59:59,255
+Different instruction
+set architectures.
+
+1339
+00:59:59,255 --> 01:00:00,919
+And it refers to
+
+1340
+01:00:00,919 --> 01:00:04,280
+the different beta for
+
+1341
+01:00:04,280 --> 01:00:08,390
+the different
+microarchitectures,
+
+1342
+01:00:08,390 --> 01:00:11,375
+ways, the same instruction
+set architecture.
+
+1343
+01:00:11,375 --> 01:00:13,534
+So as long does
+
+1344
+01:00:13,534 --> 01:00:15,830
+manner heterogeneous
+architecture.
+
+1345
+01:00:15,830 --> 01:00:18,529
+Actually the big
+layer architecture is
+
+1346
+01:00:18,529 --> 01:00:20,420
+so heterogeneous
+computing architecture
+
+1347
+01:00:20,420 --> 01:00:21,919
+develop emitted by the,
+
+1348
+01:00:21,919 --> 01:00:24,589
+by the ARM Holdings
+right eye,
+
+1349
+01:00:24,589 --> 01:00:27,199
+a combo covering the
+
+1350
+01:00:27,199 --> 01:00:29,329
+relatively back
+receiving and
+
+1351
+01:00:29,329 --> 01:00:31,460
+a slower processor cores.
+
+1352
+01:00:31,460 --> 01:00:34,459
+Yeah, with the relatively
+
+1353
+01:00:34,459 --> 01:00:36,799
+more powerful in a
+more hungry course,
+
+1354
+01:00:36,799 --> 01:00:38,784
+we call it the
+big course here.
+
+1355
+01:00:38,784 --> 01:00:41,564
+And otherwise the
+nato course, right?
+
+1356
+01:00:41,564 --> 01:00:44,084
+So typically only one side
+
+1357
+01:00:44,084 --> 01:00:45,900
+or the other will be
+
+1358
+01:00:45,900 --> 01:00:47,864
+active air want tsunamis,
+
+1359
+01:00:47,864 --> 01:00:49,199
+only the big core to
+
+1360
+01:00:49,199 --> 01:00:51,300
+every part on for
+the applications.
+
+1361
+01:00:51,300 --> 01:00:53,940
+Or there will be off at
+
+1362
+01:00:53,940 --> 01:00:55,530
+the nato course
+wherever your part
+
+1363
+01:00:55,530 --> 01:00:57,510
+on for those specific
+applications,
+
+1364
+01:00:57,510 --> 01:00:58,739
+if may not have
+
+1365
+01:00:58,739 --> 01:01:00,749
+the time to demands
+
+1366
+01:01:00,749 --> 01:01:02,280
+on the performance, right?
+
+1367
+01:01:02,280 --> 01:01:06,390
+So yeah, but all
+this big course
+
+1368
+01:01:06,390 --> 01:01:07,964
+in later course have
+
+1369
+01:01:07,964 --> 01:01:10,724
+access to the same
+mammary regions.
+
+1370
+01:01:10,724 --> 01:01:12,570
+So the workload,
+the Canvas
+
+1371
+01:01:12,570 --> 01:01:14,219
+web that between
+the course,
+
+1372
+01:01:14,219 --> 01:01:16,185
+a little course of a fly.
+
+1373
+01:01:16,185 --> 01:01:19,245
+That means the controller
+or the management.
+
+1374
+01:01:19,245 --> 01:01:22,500
+Manager can change
+the workloads
+
+1375
+01:01:22,500 --> 01:01:25,590
+or swap them
+between the course,
+
+1376
+01:01:25,590 --> 01:01:28,169
+nato course, to do
+
+1377
+01:01:28,169 --> 01:01:31,065
+the resource
+allocation or two,
+
+1378
+01:01:31,065 --> 01:01:32,279
+actually, I
+will quote that
+
+1379
+01:01:32,279 --> 01:01:34,140
+to do the scheduling.
+
+1380
+01:01:34,140 --> 01:01:39,180
+The the intention is
+
+1381
+01:01:39,180 --> 01:01:42,854
+to create a
+multi-core processor.
+
+1382
+01:01:42,854 --> 01:01:44,984
+Just a better, yeah,
+
+1383
+01:01:44,984 --> 01:01:47,324
+actually dynamically to do
+
+1384
+01:01:47,324 --> 01:01:50,040
+the computation and to
+
+1385
+01:01:50,040 --> 01:01:52,154
+satisfy the
+computing needs.
+
+1386
+01:01:52,154 --> 01:01:54,150
+And they can use
+miss poorer than
+
+1387
+01:01:54,150 --> 01:01:56,730
+the COGS low because
+
+1388
+01:01:56,730 --> 01:01:59,040
+the big quarter
+and course,
+
+1389
+01:01:59,040 --> 01:02:04,049
+nato course have
+different performance
+
+1390
+01:02:04,049 --> 01:02:05,609
+yet also the power
+consumption,
+
+1391
+01:02:05,609 --> 01:02:07,229
+the ADS consumption here.
+
+1392
+01:02:07,229 --> 01:02:11,339
+So they will be much
+more energy efficient.
+
+1393
+01:02:11,339 --> 01:02:14,654
+So that is to say that,
+
+1394
+01:02:14,654 --> 01:02:16,770
+Yeah, Does the
+peritoneum or
+
+1395
+01:02:16,770 --> 01:02:18,720
+the management of the
+big later course,
+
+1396
+01:02:18,720 --> 01:02:20,685
+a miscarriage or
+genius architecture
+
+1397
+01:02:20,685 --> 01:02:22,290
+actually is 2,
+
+1398
+01:02:22,290 --> 01:02:25,229
+10 net the processor
+according to
+
+1399
+01:02:25,229 --> 01:02:27,269
+a job in order
+
+1400
+01:02:27,269 --> 01:02:29,625
+to minimize the
+power consumption.
+
+1401
+01:02:29,625 --> 01:02:33,780
+So the arms in marketing
+mature RNA primase
+
+1402
+01:02:33,780 --> 01:02:36,060
+up to like 70 for
+
+1403
+01:02:36,060 --> 01:02:39,239
+a person living in
+the power usage for
+
+1404
+01:02:39,239 --> 01:02:43,200
+some activities
+in average.
+
+1405
+01:02:43,200 --> 01:02:46,109
+So that is a
+huge improvement
+
+1406
+01:02:46,109 --> 01:02:48,690
+in the power efficiency.
+
+1407
+01:02:48,690 --> 01:02:50,910
+So most commonly,
+you know,
+
+1408
+01:02:50,910 --> 01:02:53,070
+there aren't big pictures.
+
+1409
+01:02:53,070 --> 01:02:54,749
+Actually. They
+are used for
+
+1410
+01:02:54,749 --> 01:02:58,574
+eight multiprocessor
+system on chip.
+
+1411
+01:02:58,574 --> 01:03:00,240
+Not I will know it as
+
+1412
+01:03:00,240 --> 01:03:03,629
+the MPI SOC write
+for this course are
+
+1413
+01:03:03,629 --> 01:03:07,199
+located on chip and
+
+1414
+01:03:07,199 --> 01:03:08,865
+they have the same memory.
+
+1415
+01:03:08,865 --> 01:03:11,189
+They can swap the
+workloads between
+
+1416
+01:03:11,189 --> 01:03:13,875
+EHRs are for the better
+or controller, right?
+
+1417
+01:03:13,875 --> 01:03:17,534
+So this one can
+
+1418
+01:03:17,534 --> 01:03:20,400
+octahedral genius
+architecture shown here.
+
+1419
+01:03:20,400 --> 01:03:21,659
+Yeah.
+
+1420
+01:03:21,659 --> 01:03:25,500
+And Mazur heterogeneous
+medical platforms.
+
+1421
+01:03:25,500 --> 01:03:27,269
+Now we need to refer to as
+
+1422
+01:03:27,269 --> 01:03:29,819
+the IBM cell
+broadband engine,
+
+1423
+01:03:29,819 --> 01:03:31,455
+that is B architecture.
+
+1424
+01:03:31,455 --> 01:03:33,060
+This is another title of
+
+1425
+01:03:33,060 --> 01:03:34,950
+the hydrogens are
+teacher to sign.
+
+1426
+01:03:34,950 --> 01:03:37,695
+And one of the
+famous one that
+
+1427
+01:03:37,695 --> 01:03:39,269
+has the performance and
+
+1428
+01:03:39,269 --> 01:03:40,920
+also for energy
+efficiency.
+
+1429
+01:03:40,920 --> 01:03:43,305
+So the cell
+broadband anions
+
+1430
+01:03:43,305 --> 01:03:46,319
+CBE here from IBM,
+
+1431
+01:03:46,319 --> 01:03:49,455
+that is the power
+octahedral based on
+
+1432
+01:03:49,455 --> 01:03:51,419
+microprocessor development
+
+1433
+01:03:51,419 --> 01:03:53,084
+for the high workload
+
+1434
+01:03:53,084 --> 01:03:56,129
+for the multimedia
+based computing.
+
+1435
+01:03:56,129 --> 01:03:57,929
+And the cell processor was
+
+1436
+01:03:57,929 --> 01:04:00,464
+designed by STI etch,
+
+1437
+01:04:00,464 --> 01:04:02,174
+that is a Plattner amongst
+
+1438
+01:04:02,174 --> 01:04:05,160
+thorny Toshiba
+and also IBM.
+
+1439
+01:04:05,160 --> 01:04:07,844
+Although IBM remains
+the piggyback off
+
+1440
+01:04:07,844 --> 01:04:09,270
+this project that
+you designed,
+
+1441
+01:04:09,270 --> 01:04:12,240
+that multiprocessor,
+Pavlov.
+
+1442
+01:04:12,240 --> 01:04:14,189
+So this is filled with
+
+1443
+01:04:14,189 --> 01:04:16,440
+a massive floating
+point operations
+
+1444
+01:04:16,440 --> 01:04:18,419
+in men and the
+original process
+
+1445
+01:04:18,419 --> 01:04:21,029
+and develop the
+ways the lack
+
+1446
+01:04:21,029 --> 01:04:22,439
+the power outage your
+
+1447
+01:04:22,439 --> 01:04:24,899
+core surrounded by eight.
+
+1448
+01:04:24,899 --> 01:04:26,460
+Assume here.
+
+1449
+01:04:26,460 --> 01:04:31,334
+The eight is synergistic
+processors here.
+
+1450
+01:04:31,334 --> 01:04:33,239
+Although the
+cell processor
+
+1451
+01:04:33,239 --> 01:04:35,684
+has proven computing
+potential,
+
+1452
+01:04:35,684 --> 01:04:37,949
+yeah, it is widely
+regarded as
+
+1453
+01:04:37,949 --> 01:04:40,365
+the challenge of
+programming environment.
+
+1454
+01:04:40,365 --> 01:04:42,494
+So the snail broadband
+
+1455
+01:04:42,494 --> 01:04:44,279
+aging teacher a year was
+
+1456
+01:04:44,279 --> 01:04:47,025
+designed for the
+distributed processing
+
+1457
+01:04:47,025 --> 01:04:49,004
+is in us.
+
+1458
+01:04:49,004 --> 01:04:50,790
+So that way you're fast
+
+1459
+01:04:50,790 --> 01:04:53,385
+said a family all
+of the processes
+
+1460
+01:04:53,385 --> 01:04:54,630
+with a range of
+
+1461
+01:04:54,630 --> 01:04:56,609
+the available course and
+
+1462
+01:04:56,609 --> 01:04:58,829
+also the memory
+configuration.
+
+1463
+01:04:58,829 --> 01:05:01,259
+So this
+architecture or no,
+
+1464
+01:05:01,259 --> 01:05:03,480
+the sale family or dress,
+
+1465
+01:05:03,480 --> 01:05:05,819
+different domains
+where they
+
+1466
+01:05:05,819 --> 01:05:08,490
+can use the same basic
+hardware design.
+
+1467
+01:05:08,490 --> 01:05:11,849
+So basically the
+snail is system
+
+1468
+01:05:11,849 --> 01:05:15,680
+has to components here.
+
+1469
+01:05:15,680 --> 01:05:17,869
+The first one
+that they hatha,
+
+1470
+01:05:17,869 --> 01:05:20,840
+have a one or
+more PowerPC,
+
+1471
+01:05:20,840 --> 01:05:22,490
+a process of elements.
+
+1472
+01:05:22,490 --> 01:05:25,370
+This can handle the
+system management.
+
+1473
+01:05:25,370 --> 01:05:28,145
+And a one or more system.
+
+1474
+01:05:28,145 --> 01:05:30,499
+Strategist David
+process are
+
+1475
+01:05:30,499 --> 01:05:32,945
+adamant that it can
+perform that data,
+
+1476
+01:05:32,945 --> 01:05:35,389
+have a parallel
+computing here.
+
+1477
+01:05:35,389 --> 01:05:36,980
+So another coordinate
+
+1478
+01:05:36,980 --> 01:05:41,405
+data sale V0
+system also has
+
+1479
+01:05:41,405 --> 01:05:45,575
+one inherent
+into rot contour
+
+1480
+01:05:45,575 --> 01:05:47,149
+and a one element
+
+1481
+01:05:47,149 --> 01:05:49,655
+interconnect
+reparse BIP here.
+
+1482
+01:05:49,655 --> 01:05:51,079
+Yeah, these are used for
+
+1483
+01:05:51,079 --> 01:05:52,580
+connecting the units.
+
+1484
+01:05:52,580 --> 01:05:54,319
+We're using the processor.
+
+1485
+01:05:54,319 --> 01:05:59,329
+So they seized the
+design or the flow of
+
+1486
+01:05:59,329 --> 01:06:02,149
+the IBM step broadband
+
+1487
+01:06:02,149 --> 01:06:06,455
+a new architecture
+with the course here.
+
+1488
+01:06:06,455 --> 01:06:10,430
+And yet there's other
+components here too,
+
+1489
+01:06:10,430 --> 01:06:12,109
+just to connecting at
+
+1490
+01:06:12,109 --> 01:06:15,214
+the process of
+elements here.
+
+1491
+01:06:15,214 --> 01:06:20,449
+So so i then these are
+
+1492
+01:06:20,449 --> 01:06:23,569
+the basic components
+computing
+
+1493
+01:06:23,569 --> 01:06:26,029
+compounds to add also
+that your famers,
+
+1494
+01:06:26,029 --> 01:06:29,599
+heterogeneous molecule
+pamphlets from
+
+1495
+01:06:29,599 --> 01:06:33,350
+the arm and also
+from A-B IBM, right?
+
+1496
+01:06:33,350 --> 01:06:39,084
+So yeah, this to
+stagger or PET,
+
+1497
+01:06:39,084 --> 01:06:40,859
+da, da, da, da, da,
+
+1498
+01:06:40,859 --> 01:06:42,435
+da represent,
+
+1499
+01:06:42,435 --> 01:06:43,680
+representation for
+
+1500
+01:06:43,680 --> 01:06:45,690
+the heterogeneous
+architecture design.
+
+1501
+01:06:45,690 --> 01:06:48,389
+And in the next
+class we will show
+
+1502
+01:06:48,389 --> 01:06:51,539
+more general heterogeneous
+computing systems.
+
+1503
+01:06:51,539 --> 01:06:55,289
+Not specific for
+the course or
+
+1504
+01:06:55,289 --> 01:06:57,735
+the update later
+architectures
+
+1505
+01:06:57,735 --> 01:07:00,179
+for or from idea.
+
+1506
+01:07:00,179 --> 01:07:01,470
+But there are other
+
+1507
+01:07:01,470 --> 01:07:03,630
+general heterogeneous
+computing system
+
+1508
+01:07:03,630 --> 01:07:05,459
+with a general components,
+
+1509
+01:07:05,459 --> 01:07:08,639
+the memory design
+and the connection.
+
+1510
+01:07:08,639 --> 01:07:11,474
+So in the next class
+we will show you more
+
+1511
+01:07:11,474 --> 01:07:12,645
+about this kind of
+
+1512
+01:07:12,645 --> 01:07:14,655
+general heterogeneous
+architectures.
+
+1513
+01:07:14,655 --> 01:07:16,710
+So thank you so
+much for attending
+
+1514
+01:07:16,710 --> 01:07:17,820
+this class and these are
+
+1515
+01:07:17,820 --> 01:07:19,559
+the content for
+this class.
+
+1516
+01:07:19,559 --> 01:07:20,159
+Though.
+
+1517
+01:07:20,159 --> 01:07:21,975
+Then go everyone and
+
+1518
+01:07:21,975 --> 01:07:24,585
+hope you can enjoy
+the holiday with you,
+
+1519
+01:07:24,585 --> 01:07:28,020
+your family, for
+Thanksgiving.
+
+1520
+01:07:28,020 --> 01:07:31,840
+So things have
+thank you so much.

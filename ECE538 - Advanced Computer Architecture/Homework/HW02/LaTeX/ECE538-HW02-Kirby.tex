@@ -146,7 +146,7 @@ Assume you have an \textit{in-order} RISC processor that has a CPI of 1.3 with a
         \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=]
             Instruction cache exhibits a lot more spatial and temporal locality compared to data access cache.
         \end{tcolorbox}
-        \vspace{\stretch{1}}
+        \vspace{\stretch{0.1}}
 
         \part[5] Calculate the \textit{misses per instruction} for both instruction and data caches. How does this metric differ from \textit{miss rate}?
 
@@ -191,11 +191,14 @@ You are designing a System On a Chip (SoC) with your 5-stage pipelined RISC proc
 
         \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=]
             \begin{align*}
-                \text{Miss penalty} &= 1^{\text{st}}\text{ cycle to detect miss} + \text{\# of ROM to fill cache} \times \text{Time to determine \# of cycles to read the ROM}\\
-                &= 1\text{ cc} + \text{ROM} \times 2.1 \text{ ns}\\
-                \frac{\text{Memory stall cycles}}{\text{Instruction}} &= \text{Instruction count} \times \text{\# of misses} \times \text{Miss penalty}\\
-                &= \\
-                &= 
+                \text{Miss penalty} &= 1^{\text{st}}\text{ cycle to detect miss} + \text{\# to fill cache} \times \text{cycles to read ROM}\\
+                &= 1\text{ cycles} + 1 \times (0.5 + 0.1) \text{ cycles}\\
+                &= 1.6 \text{ cycles}
+            \end{align*}
+            \begin{align*}
+                \frac{\text{Memory stall cycles}}{\text{Instruction}} &= \text{Instruction count} \times \text{Miss rate} \times \text{Miss penalty}\\
+                &= 1 \times 0.063 \times 1.6 \text{ cycles}\\
+                &\approx 1 \text{ cycle}
             \end{align*}
         \end{tcolorbox}
         \vspace{\stretch{1}}
@@ -204,9 +207,15 @@ You are designing a System On a Chip (SoC) with your 5-stage pipelined RISC proc
         
         \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=]
             \begin{align*}
-                \text{CPI}_{\text{initial}} &= \frac{4.8\text{ million clock cycles}}{4 \text{ million instructions}}\\
-                &= 1.2\ \frac{\text{clock cycles}}{\text{instruction}}\\[1em]
-                \frac{\text{Stalls}}{\text{Instruction}} &= 1 \text{ cycle}
+                \text{CPI}_{\text{initial}} &= \frac{4.8\text{ million cycles}}{4 \text{ million instructions}}\\
+                &= 1.2\ \frac{\text{cycles}}{\text{instruction}}\\[1em]
+                \text{Memory stall cycles}_{\text{cache}} &= \text{Instruction count} \times \text{Miss rate} \times \text{Miss penalty}\\
+                &= 4\text{ million} \times 0.063 \times 1 \text{ cycles}\\
+                &= 252,000 \text{ cycles}\\[1em]
+                \text{Cycles}_{\text{total}} &= 4.8 \text{ million} + 252,000\\
+                &= 5.052 \text{ million cycles}\\[1em]
+                \text{CPI}_{\text{cached}} &= \frac{\text{stalled}}{\text{ideal}}\\
+                &= 1.263\ \frac{\text{clock cycles}}{\text{instruction}}
             \end{align*}
         \end{tcolorbox}
         \vspace{\stretch{1}}
@@ -235,7 +244,7 @@ Assume that both \texttt{X} and \texttt{Y} are stored in the row major order and
         \part[10] Rewrite the code by applying blocking (the software technique to improve data reuse). Use a blocking factor that leads to a noticeable performance improvement on the same computer as the one used in (a). Explain your reason for choosing the specific blocking factor.
 
         \begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=]
-            The main purpose of loop-blocking is to eliminate as many cache misses as possible by breaking up the memory into smaller chunks. In this case I chose to break it up into 8-bit chunks, and then transposing from there.
+            The main purpose of loop-blocking is to eliminate as many cache misses as possible by breaking up the memory into smaller chunks. In this case I chose to break it up into 8-bit chunks, and then transposed from there.
         \end{tcolorbox}
         \vspace{\stretch{1}}
 

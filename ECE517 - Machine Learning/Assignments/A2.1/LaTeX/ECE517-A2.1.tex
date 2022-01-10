@@ -1,0 +1,138 @@
+% !TEX program = xelatex
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{nopageno} % no page numbers
+
+\usepackage{graphicx}
+\graphicspath{ {./graphics/} }
+\usepackage[dvipsnames]{xcolor}
+\definecolor{CrispBlue}{HTML}{0176AE}
+
+\usepackage{fontspec}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\BeforeBeginEnvironment{verbatim*}{\begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black]}%
+\AfterEndEnvironment{verbatim*}{\end{tcolorbox}}%
+
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage{subcaption}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\usepackage{tocloft}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{ECE 517: Machine Learning}
+\rhead{Assignment 2.1}
+\rfoot{Page \thepage}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{bm}
+
+\renewcommand{\listfigurename}{List of Figures}
+
+\begin{document}
+\setmainfont{SF Pro Text}
+\setsansfont{SF Pro Text}
+\setmonofont{SF Mono}
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\thispagestyle{empty}
+\begin{titlepage}
+\vspace*{\fill}
+\begin{center}
+\textsc{\Huge{ECE 517: Machine Learning}}\\[3em]
+\textsc{\LARGE Assignment 2.1: Minimum Mean Square Criterion}\\[6em]
+\textsc{\Large David Kirby -- 101652098 -- davidkirby@unm.edu}\\[3em]
+\textsc{\Large Fall 2021}
+\end{center}
+\vfill
+\begin{figure}[h]
+\begin{subfigure}{0.5\textwidth}
+\includegraphics[width=0.25\linewidth]{learning.png}
+\end{subfigure}
+\begin{subfigure}{0.6\textwidth}\hspace{1em}
+\includegraphics[width=0.8\linewidth]{new-soe-logo.png}
+\end{subfigure}
+\end{figure}
+\end{titlepage}
+\setcounter{figure}{0}
+
+% \tableofcontents
+
+% \addcontentsline{toc}{section}{1\ \ \ \ List of Figures}
+% \listoffigures
+% \newpage
+% \setcounter{section}{+1}
+
+\hypersetup{
+    linkcolor=CrispBlue,
+    urlcolor=CrispBlue,
+    breaklinks=true
+}
+% \section{Abstract}
+% Docker is a platform to easily maintain highly configurable instances. It can be set up and ran in milliseconds, and can create globally accessible services. For homework \#3 we were tasked to create a Dockerfile that can build images automatically, then to deploy a distributed database based on Linux containers. Our deployment must contain at least two containers and therefore at least two database instances. The instances must be connected to each other and contain part of the data.
+
+
+% \section{Introduction}
+% For our deployment we chose MongoDB, a document-oriented NoSQL database. To create our images we used the Dockerfile shown in the \nameref{sec:Appendix}. We quickly learned that Dockerfiles are limited in their build capabilities, notably with creating networks and creating multiple images at once. These issues can be solved using docker-compose, but that is beyond the scope of this assignment.
+
+
+
+
+
+
+% \section{Deployment}
+A variation of the MMSE criterion minimizes the norm of the weight vector \textbf{w}. This is a way to control the complexity of the structure. The corresponding function is
+\begin{align*}
+    \mathcal{L}\left(\bm{\mathrm {x,w}}\right)=\mathbb{E}\left[e^2 \right]+\lambda \parallel \bm{\mathrm {w}}\parallel ^2
+\end{align*}
+\begin{enumerate}
+    \item Make the derivation of the closed solution for \textbf{w}.
+    \item Work out an iterative solution using the same technique as used in the Least Mean Squares algorithm.
+    \item Comment and compare both solutions in a short conclusion section.
+\end{enumerate}
+The derivations must be complete and the solution should be briefly but completely explained. See the rubric for this and any other homework.
+
+\begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=1. Make the derivation of the closed solution for \textbf{w}.]
+    \begin{align}
+        \notag\mathcal{L}\left(\bm{\mathrm {w}}\right)&=\mathbb{E}\left[e^2 \right]+\lambda \parallel \bm{\mathrm {w}}\parallel ^2\\
+        &=\frac{1}{N}\sum_{i=1}^{D}{\left(y_n-\bm{\mathrm{w}}^\top\bm{\mathrm{x}}_n\right)}^2+\lambda \bm{\mathrm{w}}^\top\bm{\mathrm{w}}\\
+        \notag&=\sum_{i=1}^{D}y_n^2+\bm{\mathrm{w}}^\top\bm{\mathrm{XX^\top w}}-2\bm{\mathrm{w^\top Xy}}+\lambda \bm{\mathrm{w}}^\top\bm{\mathrm{w}}\\
+        \notag&=\sum_{i=1}^{D}y_n^2+\bm{\mathrm{w}}^\top\bm{\mathrm{Rw}}-2\bm{\mathrm{w^\top p}}+\lambda \bm{\mathrm{w}}^\top\bm{\mathrm{w}}\\
+        \nabla_{\bm{\mathrm{w}}}\mathcal{L}\left(\bm{\mathrm {w}}\right)&=2\bm{\mathrm{Rw}}-2\bm{\mathrm{p}}+2\lambda\bm{\mathrm{w}}=0\\
+        \notag&=\bm{\mathrm{Rw}}-\bm{\mathrm{p}}+\lambda\bm{\mathrm{w}}\\
+        \notag&=\bm{\mathrm{Rw}}-\bm{\mathrm{p}}+\lambda\bm{\mathrm{Iw}}\\
+        \bm{\mathrm{w}}&={\left[\bm{\mathrm{R}}+\lambda\bm{\mathrm{I}}\right]}^{-1}\bm{\mathrm{p}}
+    \end{align}
+Equation (1) incorporates a structure and a training criterion. For our structure, we can use a family of linear functions: \( \hat{y_n} = \bm{\mathrm{w}}^\top\bm{\mathrm{x}}_n + b\). A criterion then needs to be chosen to optimize parameters \( \bm{\mathrm {w}} \). The simplest criterion in supervised learning is the minimization of the mean square error: \( e^2 = \left(y_n - \hat{y_n} \right) ^2 \). We can then use the law of large numbers to approximate. The only thing left to do is to expand the polynomial and replace variables with \( \bm{\mathrm {R}} \) and \( \bm{\mathrm {p}} \), which are estimates of the data autocorrelation matrix and the cross correlation vector between data and labels, respectively. Equation (2) is the optimization performed by computing the gradient with respect to \( \bm{\mathrm {w}} \), which is then nullified. Finally, solving for \( \bm{\mathrm {w}} \) results in equation (3), a set of Widrow--Hoff equations.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=2. Work out an iterative solution using the same technique as used in the Least Mean Squares algorithm.]
+    \begin{align}
+        \bm{\mathrm{w}}^{k+1}&=\bm{\mathrm{w}}^{k}-\mu{\left[\bm{\mathrm{Rw}}^{k}-\bm{\mathrm{p}}+\lambda\bm{\mathrm{Iw}}^{k}\right]}\\
+        \notag&=\bm{\mathrm{w}}^{k}-\mu \left[ \bm{\mathrm{x}}_n\bm{\mathrm{x}}_n^\top \bm{\mathrm{w}}^{k} - \bm{\mathrm{x}}_n y_n\right]\\
+        &=\bm{\mathrm{w}}^{k}-\mu e_n \bm{\mathrm{x}}_n
+    \end{align}
+    With a steepest descent procedure, \( \bm{\mathrm {w}} \) is iteratively optimized by changing it in the direction opposite to its gradient. \( \bm{\mathrm{R}}\) is again an estimate of the data autocorrelation matrix with \( \bm{\mathrm{R}} \approx \bm{\mathrm{x}}_n\bm{\mathrm{x}}_n^\top \) and \( \bm{\mathrm{p}} \) is the cross correlation vector between data and labels with \( \bm{\mathrm{p}} \approx \bm{\mathrm{x}}_n y_n \). To simplify, \( \mu \) is a small parameter and \( e_n \) is the estimation error.
+\end{tcolorbox}
+
+\begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black,title=3. Comment and compare both solutions in a short conclusion section.]
+    Equation (5) is an optimization that updates the parameters of equation (3) toward a maximum descent of the gradient. This equation, the Least Mean Squares Algorithm, is the least computationally burdensome, but, as the professor says, there is no free lunch. Least Mean Squares can have issues with samples that come one at a time, or with computationally complex \( \bm{\mathrm {R}} \) and \( \bm{\mathrm {p}} \).
+\end{tcolorbox}
+
+\end{document}

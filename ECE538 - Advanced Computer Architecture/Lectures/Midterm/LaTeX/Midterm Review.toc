@@ -1,0 +1,38 @@
+\contentsline {section}{\numberline {1}Performance: Metrics \& Enhancement Techniques}{3}{}%
+\contentsline {subsection}{\numberline {1.1}Factors affecting execution time?}{3}{}%
+\contentsline {subsection}{\numberline {1.2}Challenges on performance enhancement}{3}{}%
+\contentsline {subsubsection}{\numberline {1.2.1}Reduction of clock cycle time (T) / increase clock frequency}{3}{}%
+\contentsline {subsubsection}{\numberline {1.2.2}Reduction of instruction count (IC)}{3}{}%
+\contentsline {subsubsection}{\numberline {1.2.3}Reduction of cycle per instruction (CPI)}{3}{}%
+\contentsline {subsection}{\numberline {1.3}Performance Speedup}{3}{}%
+\contentsline {subsubsection}{\numberline {1.3.1}Case 1: speedup of \(\text {computer}_A\) over \(\text {computer}_B\) can be computed as}{3}{}%
+\contentsline {subsubsection}{\numberline {1.3.2}Case 2: speedup achieved due to enhancement can be computed as}{4}{}%
+\contentsline {subsection}{\numberline {1.4}Amdahl's law}{4}{}%
+\contentsline {section}{\numberline {2}Power and Energy}{5}{}%
+\contentsline {subsubsection}{\numberline {2.0.1}They are NOT the same metric}{5}{}%
+\contentsline {subsubsection}{\numberline {2.0.2}Energy per task is better metric for efficiency}{5}{}%
+\contentsline {subsection}{\numberline {2.1}Power: We do care}{5}{}%
+\contentsline {subsubsection}{\numberline {2.1.1}Power limitations}{5}{}%
+\contentsline {subsubsection}{\numberline {2.1.2}Thermal Design Power (TDP)}{5}{}%
+\contentsline {subsection}{\numberline {2.2}Energy Consumption in CMOS}{5}{}%
+\contentsline {subsubsection}{\numberline {2.2.1}Dynamic vs. Static}{5}{}%
+\contentsline {subsubsection}{\numberline {2.2.2}Dynamic energy}{6}{}%
+\contentsline {subsubsection}{\numberline {2.2.3}Dynamic power}{6}{}%
+\contentsline {subsubsection}{\numberline {2.2.4}Static power}{6}{}%
+\contentsline {subsection}{\numberline {2.3}Power Observations}{6}{}%
+\contentsline {section}{\numberline {3}Memory Hierarchy}{7}{}%
+\contentsline {subsection}{\numberline {3.1}Cache miss rate: a measure of the benefits of different cache organizations}{8}{}%
+\contentsline {subsection}{\numberline {3.2}Average memory access time: better measure of cache organization}{8}{}%
+\contentsline {subsection}{\numberline {3.3}Mitigation of misses}{8}{}%
+\contentsline {subsection}{\numberline {3.4}Reducing the miss penalty}{8}{}%
+\contentsline {subsection}{\numberline {3.5}Multi-level caches}{8}{}%
+\contentsline {subsection}{\numberline {3.6}Miss rate for L2}{8}{}%
+\contentsline {subsubsection}{\numberline {3.6.1}Local miss rate}{8}{}%
+\contentsline {subsubsection}{\numberline {3.6.2}Global miss rate}{9}{}%
+\contentsline {subsection}{\numberline {3.7}Techniques that reduce Miss Rates}{9}{}%
+\contentsline {subsection}{\numberline {3.8}Write buffers to improve memory performance}{9}{}%
+\contentsline {section}{\numberline {4}Mock Exam}{10}{}%
+\contentsline {subsection}{\numberline {4.1}A designed 5-stage pipelined processor and synthesized it for a 45nm process technology node with a target clock rate of 1GHz. During power analysis, the processor is at the target clock rate with a supply voltage of 1.0V. The processor draws 70mW of dynamic power and 10mW of static power.}{10}{}%
+\contentsline {subsection}{\numberline {4.2}MTTF -- Assume a cluster has 500 computers, each of them with a MTTF of 25 days, and the failures follow an exponential distribution and are independent.}{12}{}%
+\contentsline {subsection}{\numberline {4.3}Cache misses}{13}{}%
+\contentsline {subsection}{\numberline {4.4}Write buffers used in the memory hierarchy.}{13}{}%

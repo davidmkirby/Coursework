@@ -28,6 +28,7 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+.vscode
 
 # LaTeX
 *.synctex.gz
@@ -47,6 +48,7 @@ _minted*
 *.m4a
 *.m4v
 *.sbv
+*.rar
 
 Textbook*
 confidential*

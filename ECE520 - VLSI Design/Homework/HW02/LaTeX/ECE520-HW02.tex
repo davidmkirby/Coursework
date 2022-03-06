@@ -1,0 +1,102 @@
+% !TEX program = xelatex
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{nopageno} % no page numbers
+\usepackage{setspace} % \doublespacing
+
+\usepackage{graphicx}
+\graphicspath{ {./graphics/} }
+\usepackage[dvipsnames]{xcolor}
+\definecolor{CrispBlue}{HTML}{0176AE}
+
+\usepackage{fontspec}
+\usepackage{tcolorbox}
+\usepackage{etoolbox}
+\BeforeBeginEnvironment{verbatim*}{\begin{tcolorbox}[colback=CrispBlue!5!white,colframe=CrispBlue!75!black]}%
+\AfterEndEnvironment{verbatim*}{\end{tcolorbox}}%
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+\usepackage[makeroom]{cancel}
+
+\renewcommand{\footnotesize}{\fontsize{8pt}{10pt}\selectfont}
+
+% \usepackage[labelfont={small,sc,bf},textfont={small,sc,bf}]{caption}
+\setlength{\parindent}{0pt}
+% \setlength{\parskip}{1em}
+
+\usepackage{tocloft}
+\renewcommand{\cftpartleader}{\cftdotfill{\cftdotsep}}
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+
+\usepackage[shortlabels]{enumitem}
+
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\rfoot{Page \thepage\ of \pageref*{LastPage}}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{bm}
+\usepackage{mathtools}
+
+\renewcommand{\listfigurename}{List of Figures}
+
+\begin{document}
+% \setmainfont{SF Pro Text}
+% \setsansfont{SF Pro Text}
+% \setmonofont{SF Mono}
+% \renewcommand{\familydefault}{\sfdefault}
+
+\hypersetup{
+    linkcolor=CrispBlue,
+    urlcolor=CrispBlue,
+    breaklinks=true
+}
+
+David Kirby\\
+ECE 520: VLSI Design\\
+Spring 2022
+
+\begin{center}
+    \large\bfseries Homework \#2
+\end{center}
+
+\begin{enumerate}
+    \item An NMOS transistor has a threshold \(V_T\) of 0.5 V when its source--to--substrate voltage is zero, given that the substrate is uniformly doped at 2E17 acceptor dopant atm/cm\(^3\) and the gate oxide capacitance is 3.5 fF/\(\mu\)m\(^2\).
+    \begin{enumerate}
+        \item Determine an expression for the threshold voltage as a function of source--to--substrate voltage.\vspace{1.5em}
+        
+        Using the equation for body effect:
+        \begin{align}
+            V_T &= V_{T_0} + \gamma \left(\sqrt{|2 \phi_F - V_{BS}|}-\sqrt{|2 \phi_F|}\right)\\[1em]
+            \text{where } \gamma &= \frac{\sqrt{2qN_A\epsilon_{Si}}}{C_{ox}}
+        \end{align}
+        \item It is desired to obtain a threshold voltage of 1.0 volt at 0 volts source potential (with respect to ground). One method suggested by engineering team is to provide a separate bias supply for the substrate, in order to increase the source-to-substrate voltage. What value of Vx supply is needed?\vspace{1.5em}
+        
+        Using equation (1) from part (a), plugging in values, we get:
+        \begin{align*}
+            V_T &= V_{T_0} + \gamma \left(\sqrt{|2 \phi_F - V_{BS}|}-\sqrt{|2 \phi_F|}\right)\\[1em]
+            1 \text{V} &= 0.5 \text{V} + 0.736 \left(\sqrt{|0.87 - V_{BS}|}-\sqrt{|0.87|}\right)\\[1em]
+            V_{BS} &= -1.73 \text{V} \text{ or } \cancel{3.47 \text{V}}\\[1em]
+            \text{therefore } V_x &= V_B = -1.73 \text{V}
+        \end{align*}
+        \item Rather than use a separate substrate bias generator, another group in engineering is suggesting to use a threshold adjustment implant in the fabrication. Assuming the implant acts as a sheet charge in the oxide-silicon interface (via the term Q\(_{\text{fc}}\)), what dose is needed to obtain V\(_{TN}\) = 1 volt at V\(_{SB}\) = 0? Would you use acceptor (N\(_A\)) or donor (N\(_D\)) atoms?
+        \begin{align}
+            V_T &= \frac{Q}{C_{ox}} - V_{T_0}\\[1em]
+            \notag 0.5 \text{V} &= \frac{Q'}{3.5 \text{ fF}/\mu \text{m}^2} - 0\\[1em]
+            \notag Q' &= 1.75 \text{ V fF}/\mu \text{m}^2
+        \end{align}
+        This equates to \(1.09 \times 10^{12}\) cm\(^{-3}\) acceptor (N\(_A\)) atoms.
+    \end{enumerate}
+\end{enumerate}
+\end{document}

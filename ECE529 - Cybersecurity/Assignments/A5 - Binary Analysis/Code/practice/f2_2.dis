@@ -1,0 +1,67 @@
+
+f2:     file format mach-o-arm64
+
+
+Disassembly of section .text:
+
+0000000100003f30 <_call2>:
+   100003f30:	d10043ff 	sub	sp, sp, #0x10
+   100003f34:	529757c8 	mov	w8, #0xbabe                	// #47806
+   100003f38:	72b95fc8 	movk	w8, #0xcafe, lsl #16
+   100003f3c:	b9000fe8 	str	w8, [sp, #12]
+   100003f40:	910043ff 	add	sp, sp, #0x10
+   100003f44:	d65f03c0 	ret
+
+0000000100003f48 <_call>:
+   100003f48:	d10083ff 	sub	sp, sp, #0x20
+   100003f4c:	a9017bfd 	stp	x29, x30, [sp, #16]
+   100003f50:	910043fd 	add	x29, sp, #0x10
+   100003f54:	529a01a8 	mov	w8, #0xd00d                	// #53261
+   100003f58:	72b95fc8 	movk	w8, #0xcafe, lsl #16
+   100003f5c:	b81fc3a8 	stur	w8, [x29, #-4]
+   100003f60:	97fffff4 	bl	100003f30 <_call2>
+   100003f64:	a9417bfd 	ldp	x29, x30, [sp, #16]
+   100003f68:	910083ff 	add	sp, sp, #0x20
+   100003f6c:	d65f03c0 	ret
+
+0000000100003f70 <_main>:
+   100003f70:	d100c3ff 	sub	sp, sp, #0x30
+   100003f74:	a9027bfd 	stp	x29, x30, [sp, #32]
+   100003f78:	910083fd 	add	x29, sp, #0x20
+   100003f7c:	52800008 	mov	w8, #0x0                   	// #0
+   100003f80:	b9000be8 	str	w8, [sp, #8]
+   100003f84:	b81fc3bf 	stur	wzr, [x29, #-4]
+   100003f88:	b81f83a0 	stur	w0, [x29, #-8]
+   100003f8c:	f9000be1 	str	x1, [sp, #16]
+   100003f90:	52981bc8 	mov	w8, #0xc0de                	// #49374
+   100003f94:	72bbd5a8 	movk	w8, #0xdead, lsl #16
+   100003f98:	b9000fe8 	str	w8, [sp, #12]
+   100003f9c:	97ffffeb 	bl	100003f48 <_call>
+   100003fa0:	b9400be0 	ldr	w0, [sp, #8]
+   100003fa4:	a9427bfd 	ldp	x29, x30, [sp, #32]
+   100003fa8:	9100c3ff 	add	sp, sp, #0x30
+   100003fac:	d65f03c0 	ret
+
+Disassembly of section __TEXT.__unwind_info:
+
+0000000100003fb0 <__TEXT.__unwind_info>:
+   100003fb0:	00000001 	udf	#1
+   100003fb4:	0000001c 	udf	#28
+   100003fb8:	00000000 	udf	#0
+   100003fbc:	0000001c 	udf	#28
+   100003fc0:	00000000 	udf	#0
+   100003fc4:	0000001c 	udf	#28
+   100003fc8:	00000002 	udf	#2
+   100003fcc:	00003f30 	udf	#16176
+   100003fd0:	00000034 	udf	#52
+   100003fd4:	00000034 	udf	#52
+   100003fd8:	00003fb1 	udf	#16305
+   100003fdc:	00000000 	udf	#0
+   100003fe0:	00000034 	udf	#52
+   100003fe4:	00000003 	udf	#3
+   100003fe8:	0002000c 	.inst	0x0002000c ; undefined
+   100003fec:	00020014 	.inst	0x00020014 ; undefined
+   100003ff0:	01000000 	.inst	0x01000000 ; undefined
+   100003ff4:	00000018 	udf	#24
+   100003ff8:	04000000 	add	z0.b, p0/m, z0.b, z0.b
+   100003ffc:	02001000 	.inst	0x02001000 ; undefined

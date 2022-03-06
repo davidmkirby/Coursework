@@ -1,0 +1,19 @@
+# Nmap 7.92 scan initiated Fri Feb  4 06:03:59 2022 as: nmap -oN ack.txt -sA 172.17.0.*
+Nmap scan report for 172.17.0.1
+Host is up (0.0000070s latency).
+All 1000 scanned ports on 172.17.0.1 are in ignored states.
+Not shown: 1000 unfiltered tcp ports (reset)
+MAC Address: 02:42:98:88:21:C2 (Unknown)
+
+Nmap scan report for 172.17.0.2
+Host is up (0.0000090s latency).
+All 1000 scanned ports on 172.17.0.2 are in ignored states.
+Not shown: 1000 unfiltered tcp ports (reset)
+MAC Address: 02:42:AC:11:00:02 (Unknown)
+
+Nmap scan report for kali (172.17.0.3)
+Host is up (0.0000040s latency).
+All 1000 scanned ports on kali (172.17.0.3) are in ignored states.
+Not shown: 1000 unfiltered tcp ports (reset)
+
+# Nmap done at Fri Feb  4 06:04:01 2022 -- 256 IP addresses (3 hosts up) scanned in 2.10 seconds

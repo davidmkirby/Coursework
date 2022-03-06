@@ -1,0 +1,37 @@
+# Nmap 7.92 scan initiated Fri Feb  4 05:50:57 2022 as: nmap -oN stealth.txt -sS 172.17.0.*
+Nmap scan report for 172.17.0.1
+Host is up (0.000013s latency).
+Not shown: 999 closed tcp ports (reset)
+PORT    STATE SERVICE
+111/tcp open  rpcbind
+MAC Address: 02:42:98:88:21:C2 (Unknown)
+
+Nmap scan report for 172.17.0.2
+Host is up (0.000019s latency).
+Not shown: 983 closed tcp ports (reset)
+PORT     STATE SERVICE
+21/tcp   open  ftp
+22/tcp   open  ssh
+23/tcp   open  telnet
+25/tcp   open  smtp
+111/tcp  open  rpcbind
+139/tcp  open  netbios-ssn
+445/tcp  open  microsoft-ds
+512/tcp  open  exec
+513/tcp  open  login
+514/tcp  open  shell
+1099/tcp open  rmiregistry
+1524/tcp open  ingreslock
+2121/tcp open  ccproxy-ftp
+3306/tcp open  mysql
+5432/tcp open  postgresql
+6667/tcp open  irc
+8180/tcp open  unknown
+MAC Address: 02:42:AC:11:00:02 (Unknown)
+
+Nmap scan report for kali (172.17.0.3)
+Host is up (0.0000040s latency).
+All 1000 scanned ports on kali (172.17.0.3) are in ignored states.
+Not shown: 1000 closed tcp ports (reset)
+
+# Nmap done at Fri Feb  4 05:50:59 2022 -- 256 IP addresses (3 hosts up) scanned in 2.21 seconds

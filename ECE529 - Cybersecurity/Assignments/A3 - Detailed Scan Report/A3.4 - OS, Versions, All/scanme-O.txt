@@ -1,0 +1,18 @@
+# Nmap 7.92 scan initiated Fri Feb  4 06:17:56 2022 as: nmap -oN scanme-O.txt -O scanme.nmap.org
+Nmap scan report for scanme.nmap.org (45.33.32.156)
+Host is up (0.029s latency).
+Other addresses for scanme.nmap.org (not scanned): 2600:3c01::f03c:91ff:fe18:bb2f
+Not shown: 994 closed tcp ports (reset)
+PORT      STATE    SERVICE
+22/tcp    open     ssh
+25/tcp    filtered smtp
+80/tcp    open     http
+5431/tcp  filtered park-agent
+9929/tcp  open     nping-echo
+31337/tcp open     Elite
+OS fingerprint not ideal because: Host distance (10 network hops) is greater than five
+No OS matches for host
+Network Distance: 10 hops
+
+OS detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Feb  4 06:18:02 2022 -- 1 IP address (1 host up) scanned in 5.77 seconds

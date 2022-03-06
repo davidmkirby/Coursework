@@ -1,0 +1,10 @@
+# Nmap 7.92 scan initiated Fri Feb  4 05:23:31 2022 as: nmap -oN out.txt -sP 172.17.0.*
+Nmap scan report for 172.17.0.1
+Host is up (0.000069s latency).
+MAC Address: 02:42:98:88:21:C2 (Unknown)
+Nmap scan report for 172.17.0.2
+Host is up (0.000079s latency).
+MAC Address: 02:42:AC:11:00:02 (Unknown)
+Nmap scan report for kali (172.17.0.3)
+Host is up.
+# Nmap done at Fri Feb  4 05:23:33 2022 -- 256 IP addresses (3 hosts up) scanned in 1.99 seconds

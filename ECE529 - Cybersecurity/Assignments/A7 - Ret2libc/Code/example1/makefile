@@ -1,5 +1,5 @@
 CC=gcc
-OBJ=getenv.o #flawed-program.o #smash.o function-args.o #function2.o print.o err.o
+OBJ=getenv.o smash.o #flawed-program.o function-args.o #function2.o print.o err.o
 CC_FLAGS=-no-pie -m32 -g -z execstack -fno-stack-protector
 
 %.o: %.c
@@ -8,7 +8,7 @@ CC_FLAGS=-no-pie -m32 -g -z execstack -fno-stack-protector
 main: $(OBJ)
 #	$(CC) -o flawed-program flawed-program.o $(CC_FLAGS) $(ALT_CC_FLAGS)
 	$(CC) -o getenv getenv.o $(CC_FLAGS)
-#	$(CC) -o smash smash.o $(CC_FLAGS) $(ALT_CC_FLAGS)
+	$(CC) -o smash smash.o $(CC_FLAGS) $(ALT_CC_FLAGS)
 #	$(CC) -o f2 function2.o $(CC_FLAGS)
 #	$(CC) -o fa function-args.o $(CC_FLAGS)
 #	$(CC) -o print print.o $(CC_FLAGS)
